@@ -1,0 +1,34 @@
+import React, { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ContactHero from "../components/Contact/ContactHero";
+import ContactInfo from "../components/Contact/ContactInfo";
+import ContactForm from "../components/Contact/ContactForm";
+import ContactMap from "../components/Contact/ContactMap";
+
+const Contact: React.FC = () => {
+  useEffect(() => {
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  return (
+    <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen">
+      <ContactHero />
+
+      {/* ─── CONTENT ─── */}
+      <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
+            <ContactInfo />
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      <ContactMap />
+    </div>
+  );
+};
+
+export default Contact;

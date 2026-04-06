@@ -1,0 +1,78 @@
+/* ─── Snap sections ─── */
+.snap-section {
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+}
+
+.gallery-hero-section {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: white;
+  z-index: 100;
+}
+
+.gallery-content-outer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  padding: clamp(1rem, 3vw, 2rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+}
+
+.gallery-image-wrapper {
+  width: 100%;
+  height: clamp(220px, 50vw, 60vh);
+  border-radius: clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px -15px rgba(48, 43, 39, 0.2);
+  border: 1px solid rgba(48,43,39,0.08);
+}
+
+.gallery-text-reveal {
+  padding-top: 1rem;
+}
+
+/* Desktop layout: image left, text right */
+@media (min-width: 1024px) {
+  .gallery-content-outer {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .gallery-image-wrapper {
+    grid-column: 2 / span 7;
+    height: clamp(400px, 72vh, 80vh);
+  }
+  .gallery-text-reveal {
+    grid-column: 9 / span 4;
+    text-align: left;
+    padding-top: 0;
+  }
+}
+
+/* ─── Portfolio Label ─── */
+.portfolio-label {
+  position: absolute;
+  top: 8%;
+  left: 4vw;
+  font-size: clamp(2.5rem, 8vw, 8rem);
+  font-weight: 800;
+  opacity: 0.06;
+  color: var(--color-on-surface);
+  pointer-events: none;
+  user-select: none;
+}
