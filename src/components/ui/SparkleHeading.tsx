@@ -122,9 +122,9 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       </div>
 
       {/* Characters */}
-      <div className="relative inline-flex flex-wrap justify-center lg:justify-start gap-x-[0.05em] leading-[0.9]">
+      <div className="relative inline-flex flex-wrap justify-center lg:justify-start gap-x-[0.05em] leading-[0.9] max-w-full">
         {words.map((word, wordIdx) => (
-          <span key={wordIdx} className="inline-flex whitespace-nowrap mr-[0.3em] last:mr-0">
+          <span key={wordIdx} className="inline-flex flex-wrap whitespace-normal break-words mr-[0.3em] last:mr-0">
             {word.split("").map((char, charIdx) => (
               <span 
                 key={charIdx} 

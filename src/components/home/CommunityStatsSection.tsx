@@ -26,14 +26,14 @@ export function CommunityStatsSection() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-12">
           {stats.map((stat, index) => (
             <ScrollReveal key={stat.label} delay={index * 0.1}>
-              <div className="text-center p-8 rounded-3xl bg-secondary/5 border border-secondary/10 shadow-luxury-soft transform-gpu transition-all duration-500 hover:shadow-luxury-deep hover:-translate-y-2">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary mb-4 font-serif italic">
+              <div className="text-center p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-secondary/5 border border-secondary/10 shadow-luxury-soft transform-gpu transition-all duration-500 hover:shadow-luxury-deep hover:-translate-y-2">
+                <div className="text-2xl sm:text-3xl lg:text-5xl font-black text-primary mb-2 sm:mb-4 font-serif italic">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-on-surface uppercase tracking-widest opacity-80">
+                <div className="text-[10px] sm:text-xs font-bold text-on-surface uppercase tracking-widest opacity-80">
                   {stat.label}
                 </div>
               </div>

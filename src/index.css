@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&family=Poppins:wght@600;700&family=Pacifico&family=Gelasio:wght@400;500;600;700&display=swap');
 
-@theme {
+/* ─── Standard CSS Custom Properties ─── */
+:root {
+  /* Fonts */
   --font-h-primary: "Poppins", sans-serif;
   --font-h-secondary: "Montserrat", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -10,23 +12,28 @@
   --font-sans: var(--font-body);
 
   /* Primary Branding (Premium Gold) */
+  --primary: #C9A24A;
   --color-primary: var(--primary);
   --color-primary-container: #E5C98E;
   --color-on-primary: #FFFFFF;
   
   /* Supporting Elements */
+  --secondary: #D9C3A5;
   --color-secondary: var(--secondary);
   --color-on-secondary: #2B2B2B;
+  --tertiary: #1F3A5F;
   --color-tertiary: var(--tertiary);
   --color-on-tertiary: #FFFFFF;
 
   /* Surface & Background */
+  --background: #F4F1EC;
   --color-background: var(--background);
-  --color-foreground: var(--on-surface);
-  --color-surface: var(--surface);
+  --color-surface: #F4F1EC;
+  --color-foreground: #2B2B2B;
+  --on-surface: #2B2B2B;
+  --color-on-surface: var(--on-surface);
   --color-surface-dim: #E8E4DD;
   --color-inverse-surface: #1F3A5F;
-  --color-on-surface: var(--on-surface);
   --color-on-surface-variant: #595959;
 
   /* Radius & Shadows */
@@ -71,23 +78,16 @@
 }
 
 @layer base {
-  :root {
-    --primary: #C9A24A;
-    --background: #F4F1EC;
-    --surface: #F4F1EC;
-    --secondary: #D9C3A5;
-    --tertiary: #1F3A5F;
-    --on-surface: #2B2B2B;
-    --foreground: var(--on-surface);
-  }
-
   body {
-    @apply bg-background text-on-surface font-[var(--font-body)] antialiased selection:bg-primary-container overflow-x-hidden;
+    background-color: var(--background);
+    color: var(--on-surface);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     min-height: 100dvh;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   h1, h2, h3 {
@@ -133,71 +133,188 @@
 
   /* ─── Buttons ─── */
   .btn-3d {
-    @apply relative inline-block transition-all duration-300 transform hover:scale-105 active:scale-95;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s transform;
   }
+  .btn-3d:hover { transform: scale(1.05); }
+  .btn-3d:active { transform: scale(0.95); }
 
   .btn-premium-gold {
-    @apply relative px-6 py-3 md:px-8 bg-linear-to-r from-primary to-primary-container text-white font-bold uppercase
-           tracking-[0.2em] text-[10px] rounded-full 
-           shadow-lg shadow-primary/20 hover:shadow-primary/40 
-           border border-white/20 backdrop-blur-sm transition-all duration-500 hover:scale-105 active:scale-95;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, var(--primary), var(--color-primary-container));
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 10px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(201, 162, 74, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    transition: all 0.5s transform;
   }
+  .btn-premium-gold:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(201, 162, 74, 0.4);
+  }
+  .btn-premium-gold:active { transform: scale(0.95); }
 
   .btn-premium-indigo {
-    @apply relative px-6 py-3 md:px-8 bg-linear-to-r from-secondary to-inverse-surface text-white font-bold uppercase
-           tracking-[0.2em] text-[10px] rounded-full 
-           shadow-lg shadow-secondary/20 hover:shadow-secondary/40 
-           border border-white/10 transition-all duration-500 hover:scale-105 active:scale-95;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, var(--secondary), var(--color-inverse-surface));
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 10px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(217, 195, 165, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s transform;
+  }
+  .btn-premium-indigo:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(217, 195, 165, 0.4);
   }
 
   .btn-premium-teal {
-    @apply relative px-6 py-3 md:px-8 bg-linear-to-r from-primary-container to-surface-dim text-white font-bold uppercase
-           tracking-[0.2em] text-[10px] rounded-full 
-           shadow-lg shadow-primary-container/20 hover:shadow-primary-container/40 
-           border border-white/30 transition-all duration-500 hover:scale-105 active:scale-95;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, var(--color-primary-container), var(--color-surface-dim));
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 10px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(229, 201, 142, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.5s transform;
+  }
+  @media (min-width: 768px) { .btn-premium-teal { padding: 0.75rem 2rem; } }
+  .btn-premium-teal:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(229, 201, 142, 0.4);
   }
 
   .btn-premium-green {
-    @apply relative px-6 py-3 md:px-8 bg-linear-to-r from-secondary to-on-surface-variant text-white font-bold uppercase
-           tracking-[0.2em] text-[10px] rounded-full 
-           shadow-lg shadow-secondary/10 hover:shadow-secondary/30 
-           border border-white/10 transition-all duration-500 hover:scale-105 active:scale-95;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, var(--secondary), var(--color-on-surface-variant));
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 10px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(217, 195, 165, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s transform;
+  }
+  @media (min-width: 768px) { .btn-premium-green { padding: 0.75rem 2rem; } }
+  .btn-premium-green:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(217, 195, 165, 0.3);
   }
 
   .btn-premium-dark {
-    @apply relative px-6 py-3 md:px-8 bg-linear-to-r from-inverse-surface to-on-surface text-white font-bold uppercase
-           tracking-[0.2em] text-[10px] rounded-full 
-           shadow-lg shadow-black/20 hover:shadow-black/40 
-           border border-white/5 transition-all duration-500 hover:scale-105 active:scale-95;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, var(--color-inverse-surface), var(--on-surface));
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 10px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s transform;
+  }
+  @media (min-width: 768px) { .btn-premium-dark { padding: 0.75rem 2rem; } }
+  .btn-premium-dark:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
   }
 
   .btn-premium-glass {
-    @apply relative px-5 py-2 bg-white/40 backdrop-blur-md text-white border border-white/50 shadow-sm 
-           hover:bg-white/60 transition-all duration-300 rounded-xl font-bold uppercase tracking-[0.15em] text-[9px];
+    position: relative;
+    padding: 0.5rem 1.25rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 9px;
   }
+  .btn-premium-glass:hover { background-color: rgba(255, 255, 255, 0.6); }
 
   .btn-premium-glass-active {
-    @apply bg-primary text-white border-primary-container shadow-md shadow-primary/10 scale-105;
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--color-primary-container);
+    box-shadow: 0 4px 6px -1px rgba(201, 162, 74, 0.1);
+    transform: scale(1.05);
   }
 
   .btn-premium-outline {
-    @apply relative px-6 py-3 md:px-8 bg-transparent text-primary font-bold uppercase tracking-[0.2em] text-[11px] rounded-full 
-           border border-primary/50 shadow-sm hover:bg-primary-container/10 transition-all duration-300;
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    border-radius: 9999px;
+    border: 1px solid rgba(201, 162, 74, 0.5);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
   }
+  @media (min-width: 768px) { .btn-premium-outline { padding: 0.75rem 2rem; } }
+  .btn-premium-outline:hover { background-color: rgba(229, 201, 142, 0.1); }
 
   .nav-link {
-    @apply relative font-medium transition-colors hover:text-primary after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full;
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s;
   }
+  .nav-link:hover { color: var(--primary); }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s;
+  }
+  .nav-link:hover::after { width: 100%; }
 
   /* ─── Responsive Section Wrapper ─── */
   .section-container {
-    @apply max-w-7xl mx-auto w-full;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
     padding-inline: var(--space-content-x);
     padding-block: var(--space-section-y);
   }
 
   .section-container-sm {
-    @apply max-w-5xl mx-auto w-full;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
     padding-inline: var(--space-content-x);
   }
 
@@ -244,13 +361,15 @@
 
   /* ─── Responsive Typography Utilities ─── */
   .text-display {
-    font-size: clamp(2.25rem, 4.5vw + 1rem, 5.5rem);
+    font-size: clamp(1.25rem, 3vw + 1rem, 3.5rem);
     font-family: var(--font-h-primary);
     font-weight: 900;
-    line-height: 0.9;
+    line-height: clamp(0.9, 1vw + 0.5, 1.1);
     letter-spacing: -0.05em;
     text-transform: none;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .text-hero {
@@ -276,23 +395,14 @@
     text-transform: uppercase;
   }
 
-  .font-pacifico {
-    font-family: var(--font-pacifico);
-  }
-
-  .font-gelasio {
-    font-family: var(--font-gelasio);
-  }
+  .font-pacifico { font-family: var(--font-pacifico); }
+  .font-gelasio { font-family: var(--font-gelasio); }
 
   /* ─── Responsive Aspect Ratio Containers ─── */
-  .aspect-hero {
-    aspect-ratio: 4/3;
-  }
+  .aspect-hero { aspect-ratio: 4/3; }
 
   @media (min-width: 768px) {
-    .aspect-hero {
-      aspect-ratio: 16/9;
-    }
+    .aspect-hero { aspect-ratio: 16/9; }
   }
 
   /* ─── Glow Animations (Silver) ─── */
@@ -323,7 +433,10 @@
   /* ─── Sparkle Typography ─── */
   .spark-text-container {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
     cursor: pointer;
   }
 
@@ -341,7 +454,7 @@
   .spark-text-container.spark-force-animate .ch {
     transform: translateY(-8px) scale(1.1);
     text-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(201, 162, 74, 0.3);
-    color: var(--color-primary);
+    color: var(--primary);
   }
 
   /* Character staggering & randomization */
@@ -397,8 +510,6 @@
 /* ─── Global Responsive Rules ─── */
 @media (max-width: 480px) {
   .hide-xs { display: none !important; }
-
-  /* Tighten padding on tiny screens */
   .section-container,
   .section-container-sm {
     padding-inline: 1rem;
@@ -407,14 +518,10 @@
 
 @media (max-width: 768px) {
   .hide-mobile { display: none !important; }
-
-  /* Stack flex rows on mobile */
   .stack-mobile {
     flex-direction: column !important;
     align-items: stretch !important;
   }
-
-  /* Full-width buttons on mobile */
   .full-mobile {
     width: 100% !important;
     text-align: center;

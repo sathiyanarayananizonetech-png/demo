@@ -1,72 +1,99 @@
-# Zentonsz Beauty - Luxury Salon Experience
+# Luxe Beauty Studio 🌿✨
 
-**Zentonsz Beauty** is a high-end, premium salon website designed to provide an immersive and elegant digital reflection of a luxury spa and beauty sanctuary. Built with high-performance animations and a sophisticated design system.
-
----
-
-## 🎨 Design System: Colors
-
-Our palette is curated to reflect luxury, warmth, and modern elegance.
-
-| Type | Name | Hex Code | Preview |
-| :--- | :--- | :--- | :--- |
-| **Primary** | Gold | `#735c00` | ![#735c00](https://via.placeholder.com/15/735c00?text=+) |
-| **Secondary** | Gold Container | `#d4af37` | ![#d4af37](https://via.placeholder.com/15/d4af37?text=+) |
-| **Surface** | Cream | `#fff8f0` | ![#fff8f0](https://via.placeholder.com/15/fff8f0?text=+) |
-| **Text** | Charcoal | `#1f1b13` | ![#1f1b13](https://via.placeholder.com/15/1f1b13?text=+) |
-| **Neutral** | Surface Dim | `#e1d9cc` | ![#e1d9cc](https://via.placeholder.com/15/e1d9cc?text=+) |
+A premium, high-performance web application for a luxury beauty salon, featuring state-of-the-art animations, a curated design system, and a seamless user experience.
 
 ---
 
-## 🔡 Design System: Typography
+## 🚀 Technology Stack
 
-We use a layered typography system that combines classic serifs with modern sans-serif fonts for perfect legibility and a high-end feel.
-
-### 🏛️ Global Fonts
-- **Serif (Headings)**: **Cormorant Garamond**
-  - *Usage*: Main headers (`h1`, `h2`), italicized decorative text, and premium accents.
-  - *Feel*: Elegant, traditional, and literary.
-- **Sans (Body)**: **Jost**
-  - *Usage*: Body paragraphs, functional labels, and button text.
-  - *Feel*: Clean, modern, and highly readable.
-
-### 🎭 Editorial Overrides (Page-Specific)
-- **Services Hero**:
-  - **Playfair Display**: Bold italicized weight for a world-class magazine aesthetic.
-  - **Lora**: Refined, classic serif for introductory descriptions.
-- **Contact Hero**:
-  - **Playfair Display / Lora**: Consistency with the Services design for a unified journey.
+| Category | Tools |
+| :--- | :--- |
+| **Framework** | [React 19](https://react.dev/) + [Vite](https://vitejs.dev/) |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) |
+| **Animations** | [GSAP](https://gsap.com/), [Framer Motion](https://framer.com/motion/) |
+| **Smooth Scroll** | [Lenis](https://lenis.darkroom.engineering/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Routing** | [React Router Dom v7](https://reactrouter.com/) |
 
 ---
 
-## 🚀 Technical Stack
+## 🎨 Design System
 
-- **Framework**: [Next.js / Vite](https://vitejs.dev/) + [React 19](https://react.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (Fluid typography and utility-first design)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Routing**: [React Router DOM](https://reactrouter.com/)
+### Color Palette
+The project uses a sophisticated, harmonious palette designed for a premium aesthetics.
+
+| Color | Hex | Purpose |
+| :--- | :--- | :--- |
+| **Primary Gold** | `#C9A24A` | Brand identity, primary buttons, accents |
+| **Gold Container** | `#E5C98E` | Lighter gold for containers and hover states |
+| **Secondary Cream**| `#D9C3A5` | Supporting elements and soft borders |
+| **Tertiary Navy** | `#1F3A5F` | Deep contrast for dark modes or secondary sections |
+| **Background** | `#F4F1EC` | Main page background (Luxury Cream) |
+| **Charcoal Slate** | `#2B2B2B` | Main typography and heavy backgrounds |
+
+### Typography
+Fluid typography is implemented using `clamp()` to ensure perfect readability across all device sizes.
+
+- **Primary Heading**: `Poppins` (Bold & Commanding)
+- **Secondary Heading**: `Montserrat` (Elegant & Modern)
+- **Body Text**: `Inter` (Clean & Readable)
+- **Decorative**: `Pacifico` & `Gelasio` (Italic & Script accents)
 
 ---
 
-## 🛠️ Performance Features
+## 🧩 Key Components
 
-1. **Smart Scroll Navigation**: Navbar hides on scroll down to focus on content and reappears on scroll up for instant access.
-2. **GPU Acceleration**: All major animations use `transform-gpu` and `will-change` to maintain 60FPS on mobile devices.
-3. **Fluid Type Scale**: Typography automatically scales using CSS `clamp()` for perfect responsiveness across all screen sizes.
-4. **Cinematic Hero Sections**: Dynamic sparkle headings and parallax layers for an immersive first impression.
+### 🎴 ServiceCard
+A custom premium card component used in the Services section.
+- **Features**: Hover-reveal descriptions, image scaling on hover, and an integrated price tag.
+- **Tech**: Framer Motion for smooth Y-axis transitions.
+
+### 🎠 ShuffleGrid / Hero
+The landing hero section features a dynamic "shuffling" image grid.
+- **Features**: Randomly shuffling layout every few seconds, spring-based animations.
+- **Tech**: Framer Motion `layout` prop.
+
+### 📖 GalleryChapters
+A storytelling section for the portfolio.
+- **Features**: Snap-to-section scrolling, large typography overlays, and background grid patterns.
 
 ---
 
-## 📁 Getting Started
+## 🗺️ Project Structure
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
+src/
+├── assets/          # Static images & branding assets
+├── components/      # Reusable UI components (Navbar, Cards, etc.)
+│   ├── ui/          # Low-level UI utilities
+│   └── home/        # Home-page specific sections
+├── pages/           # Main route components (Home, About, Services, etc.)
+├── lib/             # Utility functions (cn, etc.)
+└── index.css        # Global styles & design tokens
 ```
+
+---
+
+## 🛠️ Installation & Setup
+
+1. **Clone the repository**
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## ✨ Features
+- [x] **Premium UI**: Glassmorphism, smooth gradients, and luxury typography.
+- [x] **Fluid Layouts**: Fully responsive design from mobile to ultra-wide displays.
+- [x] **High Performance**: Optimized image loading and layout-stable animations.
+- [x] **Smooth Scrolling**: Lenis integration for a cinematic scroll feel.

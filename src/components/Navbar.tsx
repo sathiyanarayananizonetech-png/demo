@@ -3,31 +3,32 @@ import { Link, useLocation } from "react-router-dom";
 import { Sparkles, X, Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/zentonsz.png";
+import GooeyNav from "./ui/GooeyNav";
 
 const NAV_LINKS = [
-  { name: "Home",    path: "/" },
-  { name: "About",   path: "/about" },
-  { name: "Services",path: "/services" },
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Services", path: "/services" },
   { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
 ];
 
 const Navbar: React.FC = () => {
-  const [isScrolled,       setIsScrolled]       = useState(false);
-  const [isVisible,        setIsVisible]        = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [lastScrollY,      setLastScrollY]      = useState(0);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   /* ── Scroll detection ── */
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Show navbar if scrolling up or at the top
       if (currentScrollY < lastScrollY || currentScrollY < 100) {
         setIsVisible(true);
-      } 
+      }
       // Hide navbar if scrolling down
       else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
@@ -44,14 +45,18 @@ const Navbar: React.FC = () => {
   /* ── Lock body scroll when mobile menu is open ── */
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isMobileMenuOpen]);
 
   return (
     <nav
       id="navbar"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform-gpu ${
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "-translate-y-full opacity-0 pointer-events-none"
       } ${
         isScrolled
           ? "bg-background/98 border-b border-secondary/20 py-2 md:py-3 shadow-luxury-soft"
@@ -59,10 +64,12 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-
         {/* ── Logo ── */}
         <Link to="/" className="relative group shrink-0">
-          <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-2"
+          >
             <img
               src={logo}
               alt="Zentonsz"
@@ -76,24 +83,11 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* ── Desktop Links (lg+) ── */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-10">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`text-[10px] xl:text-xs font-gelasio font-bold uppercase tracking-widest transition-all hover:text-primary relative group ${
-                location.pathname === link.path ? "text-primary" : "text-on-surface/70"
-              }`}
-            >
-              {link.name}
-              <span
-                className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                  location.pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              />
-            </Link>
-          ))}
-          <Link to="/contact">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <GooeyNav 
+            items={NAV_LINKS.map(link => ({ label: link.name, href: link.path }))} 
+          />
+          <Link to="/contact" className="ml-2">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -106,18 +100,10 @@ const Navbar: React.FC = () => {
 
         {/* ── Tablet nav (md–lg): compact links + CTA ── */}
         <div className="hidden md:flex lg:hidden items-center gap-4">
-          {NAV_LINKS.slice(0, 3).map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`text-[10px] font-gelasio font-bold uppercase tracking-widest transition-all hover:text-primary ${
-                location.pathname === link.path ? "text-primary" : "text-on-surface/70"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link to="/contact">
+          <GooeyNav 
+            items={NAV_LINKS.slice(0, 3).map(link => ({ label: link.name, href: link.path }))} 
+          />
+          <Link to="/contact" className="ml-2">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -135,7 +121,10 @@ const Navbar: React.FC = () => {
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
-            <Menu size={22} className={isMobileMenuOpen ? "text-primary" : ""} />
+            <Menu
+              size={22}
+              className={isMobileMenuOpen ? "text-primary" : ""}
+            />
           </motion.button>
         </div>
 
@@ -148,16 +137,15 @@ const Navbar: React.FC = () => {
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen
-            ? <X size={26} className="text-primary" />
-            : (
-              <div className="flex flex-col gap-1.5">
-                <div className="w-6 h-0.5 bg-on-surface rounded-full" />
-                <div className="w-6 h-0.5 bg-on-surface rounded-full" />
-                <div className="w-4 h-0.5 bg-primary rounded-full" />
-              </div>
-            )
-          }
+          {isMobileMenuOpen ? (
+            <X size={26} className="text-primary" />
+          ) : (
+            <div className="flex flex-col gap-1.5">
+              <div className="w-6 h-0.5 bg-on-surface rounded-full" />
+              <div className="w-6 h-0.5 bg-on-surface rounded-full" />
+              <div className="w-4 h-0.5 bg-primary rounded-full" />
+            </div>
+          )}
         </motion.button>
       </div>
 
