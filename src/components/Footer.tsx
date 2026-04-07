@@ -7,18 +7,18 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background text-on-surface pt-16 sm:pt-24 pb-8 sm:pb-12 border-t border-secondary/20">
+    <footer className="bg-background text-on-surface pt-6 sm:pt-14 pb-24 sm:pb-7 border-t border-secondary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Grid: 1-col → 2-col → 4-col ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16 lg:gap-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12 lg:gap-16">
 
           {/* Brand Info */}
-          <div className="space-y-5 sm:col-span-2 lg:col-span-1">
+          <div className="space-y-4 sm:space-y-5 sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 group w-fit">
               <img
                 src={logo}
-                alt="Zentonsz Beauty"
+                alt="Zen Tonez"
                 className="h-10 sm:h-12 w-auto drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                   key={i}
                   href="#"
                   aria-label={["Instagram", "Facebook", "Twitter"][i]}
-                  className="p-3 bg-secondary/10 text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                  className="p-3 bg-secondary/10 text-[#C9A24A] rounded-full hover:bg-[#C9A24A] hover:text-[#2B2B2B] transition-all duration-300 shadow-sm border border-[#C9A24A]/10"
                 >
                   <Icon size={18} />
                 </a>
@@ -40,11 +40,13 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-primary mb-6 border-b border-secondary/20 pb-3">
-              Explore
-            </h3>
+          {/* Wrapper for Explore and Services to be side-by-side on mobile */}
+          <div className="grid grid-cols-2 gap-4 sm:contents">
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-primary mb-4 sm:mb-6 border-b border-secondary/20 pb-3">
+                Explore
+              </h3>
             <ul className="space-y-3">
               {[
                 { label: "Home",       path: "/" },
@@ -55,7 +57,7 @@ const Footer: React.FC = () => {
                 <li key={item.label}>
                   <Link
                     to={item.path}
-                    className="text-on-surface/60 hover:text-primary transition-colors block text-sm sm:text-base py-0.5 font-bold uppercase tracking-widest text-[10px]"
+                    className="text-on-surface/60 hover:text-[#C9A24A] transition-colors block text-sm sm:text-base py-0.5 font-bold uppercase tracking-widest text-[10px]"
                   >
                     {item.label}
                   </Link>
@@ -64,11 +66,11 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-primary mb-6 border-b border-secondary/20 pb-3">
-              Services
-            </h3>
+            {/* Services */}
+            <div>
+              <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-primary mb-4 sm:mb-6 border-b border-secondary/20 pb-3">
+                Services
+              </h3>
             <ul className="space-y-3">
               {["Bridal Makeup", "Hair Styling", "Skin Care", "Spa & Facial"].map((s) => (
                 <li
@@ -80,12 +82,13 @@ const Footer: React.FC = () => {
               ))}
             </ul>
           </div>
+        </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-primary mb-6 border-b border-secondary/20 pb-3">
-              Visit Us
-            </h3>
+        {/* Contact Info */}
+        <div>
+          <h3 className="text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-primary mb-3 sm:mb-6 border-b border-secondary/20 pb-3">
+            Visit Us
+          </h3>
             <ul className="space-y-4 sm:space-y-5">
               <li className="flex items-start gap-4">
                 <MapPin className="text-primary shrink-0 w-5 h-5 mt-0.5" />
@@ -99,7 +102,7 @@ const Footer: React.FC = () => {
                 <Phone className="text-primary shrink-0 w-5 h-5" />
                 <a
                   href="tel:+919876543210"
-                  className="text-on-surface/60 text-sm sm:text-base hover:text-primary transition-colors font-medium"
+                  className="text-on-surface/60 text-sm sm:text-base hover:text-[#C9A24A] transition-colors font-medium"
                 >
                   +91 98765 43210
                 </a>
@@ -107,10 +110,10 @@ const Footer: React.FC = () => {
               <li className="flex items-center gap-4">
                 <Mail className="text-primary shrink-0 w-5 h-5" />
                 <a
-                  href="mailto:info@zentonszbeauty.com"
-                  className="text-on-surface/60 text-sm sm:text-base hover:text-primary transition-colors break-all font-medium"
+                  href="mailto:info@zentonez.com"
+                  className="text-on-surface/60 text-sm sm:text-base hover:text-[#C9A24A] transition-colors break-all font-medium"
                 >
-                  info@zentonszbeauty.com
+                  info@zentonez.com
                 </a>
               </li>
             </ul>
@@ -118,8 +121,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 sm:mt-20 pt-8 sm:pt-10 border-t border-secondary/10 text-center text-on-surface/30 text-[10px] sm:text-xs font-black uppercase tracking-widest">
-          <p>© {currentYear} Zentonsz Beauty Parlour. All rights reserved.</p>
+        <div className="mt-6 sm:mt-12 pt-4 sm:pt-6 border-t border-secondary/10 text-center text-on-surface/30 text-[10px] sm:text-xs font-black uppercase tracking-widest">
+          <p>© {currentYear} Zen Tonez. All rights reserved.</p>
         </div>
       </div>
     </footer>

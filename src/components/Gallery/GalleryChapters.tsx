@@ -86,7 +86,7 @@ const GalleryChapters: React.FC = () => {
               <h3 className="text-slate-900/40 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.4em] sm:tracking-[0.5em] mb-3 sm:mb-4 font-black">
                 {chapter.subtitle}
               </h3>
-              <h2 className="text-display font-black mb-5 sm:mb-8 leading-[0.9] uppercase italic font-serif text-slate-900">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-5 sm:mb-8 leading-[0.9] uppercase italic font-serif text-slate-900">
                 {chapter.title}
               </h2>
               <div className="h-1 w-16 sm:w-20 bg-primary mb-5 sm:mb-8" />

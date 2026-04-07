@@ -24,7 +24,7 @@ export const ShuffleHero = () => {
         <span className="block mb-4 sm:mb-6 text-[9px] sm:text-xs text-primary font-black uppercase tracking-[0.4em] font-sans">
           The Art of Precision
         </span>
-        <h3 className="text-display font-black text-slate-900 mb-6 sm:mb-10 uppercase tracking-tighter italic font-serif">
+        <h3 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-900 mb-6 sm:mb-10 uppercase tracking-tighter italic font-serif">
           The <span className="text-primary">Studio</span> <br />
           Collection
         </h3>
@@ -49,7 +49,7 @@ export const ShuffleHero = () => {
   );
 };
 
-const shuffle = (array: any[]) => {
+const shuffle = <T,>(array: T[]): T[] => {
   let currentIndex = array.length;
   const newArray = [...array];
   while (currentIndex !== 0) {
@@ -73,7 +73,7 @@ const squareData = [
 ];
 
 const ShuffleGrid = () => {
-  const timeoutRef = useRef<any>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [items, setItems] = useState(squareData);
 
   useEffect(() => {

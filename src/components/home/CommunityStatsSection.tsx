@@ -9,7 +9,7 @@ const stats = [
 
 export function CommunityStatsSection() {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 relative bg-background overflow-hidden border-y border-secondary/10">
+    <section className="pt-16 sm:pt-24 lg:pt-32 pb-8 sm:pb-12 lg:pb-16 relative bg-background overflow-hidden border-y border-secondary/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16 sm:mb-20">
@@ -21,7 +21,7 @@ export function CommunityStatsSection() {
             </h2>
             <p className="text-lg sm:text-xl text-on-surface/80 max-w-2xl mx-auto font-medium">
               Our legacy is built on the trust of thousands who have
-              experienced the Zentonsz touch of excellence.
+              experienced the Zen Tonez touch of excellence.
             </p>
           </div>
         </ScrollReveal>

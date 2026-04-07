@@ -3,6 +3,7 @@ import GalleryBookHero from "../components/Gallery/GalleryBookHero";
 import GalleryShuffleHero from "../components/Gallery/GalleryShuffleHero";
 import GalleryChapters from "../components/Gallery/GalleryChapters";
 import GalleryFooter from "../components/Gallery/GalleryFooter";
+import { GalleryMobileView } from "../components/mobile/GalleryMobileView";
 
 const Gallery: React.FC = () => {
   return (
@@ -17,10 +18,18 @@ const Gallery: React.FC = () => {
         }}
       />
 
-      <GalleryBookHero />
-      <GalleryShuffleHero />
-      <GalleryChapters />
-      <GalleryFooter />
+      {/* Mobile View */}
+      <div className="block lg:hidden">
+        <GalleryMobileView />
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden lg:block">
+        <GalleryBookHero />
+        <GalleryShuffleHero />
+        <GalleryChapters />
+        <GalleryFooter />
+      </div>
     </div>
   );
 };

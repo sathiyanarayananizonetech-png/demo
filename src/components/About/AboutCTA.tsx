@@ -23,7 +23,7 @@ const AboutCTA: React.FC = () => {
             </h2>
             <p className="text-base sm:text-lg text-on-surface/60 font-sans max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
               Experience the perfect blend of artisanal skill and modern
-              luxury. Your transformation awaits at Zentonsz.
+              luxury. Your transformation awaits at Zen Tonez.
             </p>
             <div className="pt-4 sm:pt-8">
               <Link to="/contact">

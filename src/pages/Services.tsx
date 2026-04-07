@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServicesHero from "../components/Services/ServicesHero";
-import ServicesArch from "../components/Services/ServicesArch";
+import ServicesArchAnimation from "../components/Services/ServicesArchAnimation";
 import ServicesCTA from "../components/Services/ServicesCTA";
+import { ServicesMobileView } from "../components/mobile/ServicesMobileView";
 
 const Services: React.FC = () => {
   useEffect(() => {
@@ -13,9 +14,17 @@ const Services: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000">
-      <ServicesHero />
-      <ServicesArch />
-      <ServicesCTA />
+      {/* Mobile View */}
+      <div className="block lg:hidden">
+        <ServicesMobileView />
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden lg:block">
+        <ServicesHero />
+        <ServicesArchAnimation />
+        <ServicesCTA />
+      </div>
     </div>
   );
 };

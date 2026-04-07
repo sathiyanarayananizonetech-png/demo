@@ -72,7 +72,7 @@ export function AboutPreviewSection() {
               </h2>
 
               <p className="text-base sm:text-lg md:text-xl text-on-surface/90 font-medium leading-relaxed italic">
-                "Established in the heart of Trichy, Zentonsz Beauty Parlour
+                "Established in the heart of Trichy, Zen Tonez
                 has been a sanctuary for those seeking a touch of luxury and
                 professional care for over a decade."
               </p>

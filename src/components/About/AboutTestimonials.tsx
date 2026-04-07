@@ -17,7 +17,7 @@ const AboutTestimonials: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 max-w-5xl mx-auto">
           {[
             {
-              text: "Zentonsz isn't just a parlour; it's an experience. The attention to detail and the hygiene standards are unparalleled in the city.",
+              text: "Zen Tonez isn't just a parlour; it's an experience. The attention to detail and the hygiene standards are unparalleled in the city.",
               author: "Meera Krishnan",
               tag: "Regular Client Since 2018",
             },

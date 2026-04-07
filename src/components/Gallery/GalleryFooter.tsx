@@ -14,7 +14,7 @@ const GalleryFooter: React.FC = () => {
         size={64}
         className="hidden sm:block text-primary mb-8 animate-pulse"
       />
-      <h2 className="text-display font-black italic uppercase font-serif mb-8 sm:mb-12 text-center text-slate-900">
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black italic uppercase font-serif mb-8 sm:mb-12 text-center text-slate-900">
         End of <br /> Reflections
       </h2>
       <motion.button

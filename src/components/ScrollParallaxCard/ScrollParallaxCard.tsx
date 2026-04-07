@@ -51,7 +51,7 @@ export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
   return (
     <div 
       ref={containerRef}
-      className={`parallax-content__item parallax-content__item--expand ${
+      className={`relative parallax-content__item parallax-content__item--expand ${
         index % 2 === 1 ? "even" : "odd"
       }`}
     >

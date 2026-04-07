@@ -31,7 +31,7 @@ const AboutStory: React.FC = () => {
             </h2>
             <p className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed italic">
               "Founded on the belief that everyone deserves a sanctuary of
-              self-care, Zentonsz has grown from a boutique salon into a
+              self-care, Zen Tonez has grown from a boutique salon into a
               hallmark of luxury."
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 py-2">

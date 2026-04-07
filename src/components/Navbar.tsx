@@ -53,10 +53,8 @@ const Navbar: React.FC = () => {
   return (
     <nav
       id="navbar"
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform-gpu ${
-        isVisible
-          ? "translate-y-0 opacity-100"
-          : "-translate-y-full opacity-0 pointer-events-none"
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 transform-gpu hidden lg:block ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
       } ${
         isScrolled
           ? "bg-background/98 border-b border-secondary/20 py-2 md:py-3 shadow-luxury-soft"
@@ -72,7 +70,7 @@ const Navbar: React.FC = () => {
           >
             <img
               src={logo}
-              alt="Zentonsz"
+              alt="Zen Tonez"
               className={`h-8 sm:h-9 md:h-10 w-auto transition-all duration-300 ${
                 isScrolled
                   ? "brightness-100"
@@ -172,7 +170,7 @@ const Navbar: React.FC = () => {
             >
               {/* Drawer Header */}
               <div className="flex justify-between items-center p-5 sm:p-6 border-b border-surface-dim">
-                <img src={logo} alt="Zentonsz" className="h-8 w-auto" />
+                <img src={logo} alt="Zen Tonez" className="h-8 w-auto" />
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 text-on-surface tap-target"

@@ -71,21 +71,21 @@ export function HeroSection() {
         >
           <h1 className="text-display font-pacifico text-on-surface mb-4 sm:mb-6 mt-4 sm:mt-8 filter drop-shadow-xl normal-case">
             <SparkleHeading
-              text="Discover Your"
+              text="Your Radiant"
               className="text-on-surface/90"
             />
             <div className="h-4 sm:h-6" />
             <SparkleHeading
-              text="Radiance"
+              text="Essence"
               className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary-container to-primary"
               sparkleScale={1.8}
             />
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-on-surface/80 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10">
-            "Transform your look and uplift your spirit. Experience
-            personalized beauty treatments crafted with precision, luxury, and
-            care."
+            "Step into a realm where modern artistry meets timeless grace. 
+            Experience bespoke beauty rituals designed to celebrate your unique 
+            essence with luxury and care."
           </p>
 
           <motion.div
