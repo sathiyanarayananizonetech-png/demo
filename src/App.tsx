@@ -1,15 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
-import { MobileBottomNav } from './components/layout/MobileBottomNav';
-import { FloatingLogo } from './components/layout/FloatingLogo';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
+import { MobileBottomNav } from "./components/layout/MobileBottomNav";
+import { FloatingLogo } from "./components/layout/FloatingLogo";
+
+import Book from "./pages/Book";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -34,6 +41,7 @@ const App: React.FC = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/book" element={<Book />} />
           </Routes>
         </main>
         <Footer />

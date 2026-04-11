@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Zap } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SparkleHeading } from "../ui/SparkleHeading";
 
 // --- Asset Imports ---
@@ -19,7 +19,21 @@ import transBefore from "../../assets/services/serviceimg1.jpeg";
 import transAfter from "../../assets/bridal_makeup.png";
 import mehendiBefore from "../../assets/services/serviceimg2.jpeg";
 import mehendiAfter from "../../assets/bridal makeup2.png";
-const galleryHero = "https://images.unsplash.com/photo-1631526435948-185038c1a3dd?auto=format&fit=crop&q=80&w=1200";
+
+// New batch of imports for full utilization
+import aboutHero from "../../assets/about_hero_headroom.jpeg";
+import beautyDetails from "../../assets/beauty_details.png";
+import beautyTreatment from "../../assets/beauty_treatment_hero.png";
+import heroSalon from "../../assets/hero_salon.png";
+import salonVessel from "../../assets/luxury_salon_vessel.png";
+import salonInterior from "../../assets/salon_interior_luxury.png";
+import service4 from "../../assets/services/serviceimg4.jpeg";
+import service5 from "../../assets/services/serviceimg5.jpeg";
+import service6 from "../../assets/services/serviceimg6.jpeg";
+import service8 from "../../assets/services/serviceimg8.jpeg";
+import service9 from "../../assets/services/seviceimg9.jpeg";
+
+const galleryHero = heroSalon;
 
 // --- Types ---
 interface ImageItem {
@@ -111,6 +125,76 @@ const GALLERY_IMAGES: ImageItem[] = [
     description: "Hand-painted nail art with precision crystal embellishments.",
     url: nails2,
   },
+  {
+    id: "11",
+    category: "All",
+    title: "Luxury Sanctuary",
+    description: "Our high-end salon interior designed for your peace and beauty.",
+    url: salonInterior,
+  },
+  {
+    id: "12",
+    category: "All",
+    title: "Artisanal Details",
+    description: "Every corner of our space reflects our commitment to beauty.",
+    url: beautyDetails,
+  },
+  {
+    id: "13",
+    category: "Hair",
+    title: "Sculpted Elegance",
+    description: "Advanced hair sculpting and treatment by our masters.",
+    url: service4,
+  },
+  {
+    id: "14",
+    category: "Skincare",
+    title: "Holistic Rituals",
+    description: "Experience the depth of our botanical skin treatments.",
+    url: service5,
+  },
+  {
+    id: "15",
+    category: "Bridal",
+    title: "The Ultimate Journey",
+    description: "Detailed captures of our complete bridal transformations.",
+    url: aboutHero,
+  },
+  {
+    id: "16",
+    category: "Makeup",
+    title: "Precision Art",
+    description: "Color and light working in harmony for the perfect finish.",
+    url: service6,
+  },
+  {
+    id: "17",
+    category: "All",
+    title: "Boutique Atmosphere",
+    description: "Step into a world of curated luxury and artisanal care.",
+    url: salonVessel,
+  },
+  {
+    id: "18",
+    category: "Skincare",
+    title: "Deep Rejuvenation",
+    description: "Restorative treatments for a lasting, healthy glow.",
+    url: service8,
+  },
+  {
+    id: "19",
+    category: "Hair",
+    title: "Signature Shine",
+    description: "Healthy, luminous hair achieved through expert care.",
+    url: service9,
+  },
+  {
+    id: "20",
+    category: "Makeup",
+    title: "Glamour Redefined",
+    description: "Bold looks for when you want to make an entrance.",
+    url: beautyTreatment,
+  },
 ];
 
 const BEFORE_AFTER_ITEMS: BeforeAfterItem[] = [
@@ -170,7 +254,7 @@ const Lightbox = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 touch-none"
+        className="fixed inset-0 z-100 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 touch-none"
       >
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
@@ -185,7 +269,7 @@ const Lightbox = ({
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="relative w-full aspect-[3/4] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl"
+          className="relative w-full aspect-3/4 flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(_, info) => {
@@ -206,7 +290,7 @@ const Lightbox = ({
             />
           </AnimatePresence>
 
-          <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+          <div className="absolute inset-x-0 bottom-0 p-8 bg-linear-to-t from-black/80 to-transparent">
             <p className="text-white/60 text-xs uppercase tracking-widest mb-1">{image.category}</p>
             <h3 className="text-white text-2xl font-bold mb-2">{image.title}</h3>
             <p className="text-white/80 text-sm leading-relaxed">{image.description}</p>
@@ -283,6 +367,22 @@ export function GalleryMobileView() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll progress of the hero section
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax transformations
+  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.25]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 1, 0]);
+
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
   const filteredImages = activeCategory === "All"
     ? GALLERY_IMAGES
     : GALLERY_IMAGES.filter(img => img.category === activeCategory);
@@ -301,9 +401,15 @@ export function GalleryMobileView() {
 
   return (
     <div className="bg-background min-h-screen pb-40 lg:hidden overflow-x-hidden">
-      {/* Premium Hero Section */}
-      <section className="relative min-h-[85vh] w-full overflow-hidden flex flex-col items-center justify-center pt-20">
-        <div className="absolute inset-0 z-0">
+      {/* Premium Hero Section (Parallax Overlaid Style) */}
+      <section 
+        ref={heroRef}
+        className="relative h-[110vh] w-full overflow-hidden flex flex-col items-center justify-center pt-20 -mt-24"
+      >
+        <motion.div 
+          style={{ scale: backgroundScale, y: backgroundY, opacity: backgroundOpacity }}
+          className="absolute inset-0 z-0"
+        >
           <motion.div
             initial={{ scale: 1.2, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -313,13 +419,14 @@ export function GalleryMobileView() {
             <img
               src={galleryHero}
               alt="Gallery Hero"
-              className="w-full h-full object-cover transform scale-110 motion-safe:animate-[pulse_10s_ease-in-out_infinite]"
+              className="w-full h-full object-cover object-center motion-safe:animate-[pulse_10s_ease-in-out_infinite]"
             />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background shadow-[inset_0_0_100px_rgba(0,0,0,0.1)]" />
-        </div>
+          <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/40 to-background shadow-[inset_0_0_100px_rgba(0,0,0,0.1)]" />
+        </motion.div>
 
         <motion.div
+          style={{ y: contentY, opacity: contentOpacity }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -358,17 +465,6 @@ export function GalleryMobileView() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4 }}
-            className="flex flex-col items-center gap-4"
-          >
-            <div className="w-[1.5px] h-12 bg-gradient-to-b from-primary to-transparent" />
-            <span className="text-[10px] text-primary/60 uppercase font-black tracking-[0.4em] animate-bounce">
-              Explore
-            </span>
-          </motion.div>
         </motion.div>
       </section>
 
@@ -393,7 +489,7 @@ export function GalleryMobileView() {
             onClick={() => setActiveCategory(cat)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`flex-shrink-0 px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 border-2 ${activeCategory === cat
+            className={`shrink-0 px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 border-2 ${activeCategory === cat
                 ? "bg-primary text-white border-primary shadow-[0_10px_25px_-5px_rgba(201,162,74,0.4)] scale-110 z-10"
                 : "bg-primary/10 text-primary border-primary/20 hover:border-primary/40 hover:text-primary"
               }`}
@@ -416,7 +512,7 @@ export function GalleryMobileView() {
               transition={{ duration: 0.4 }}
               onClick={() => setSelectedImageIndex(index)}
               whileTap={{ scale: 0.95 }}
-              className="relative aspect-[4/5] min-h-[220px] rounded-xl overflow-hidden shadow-sm group transition-transform bg-on-surface/5"
+              className="relative aspect-4/5 min-h-[220px] rounded-xl overflow-hidden shadow-sm group transition-transform bg-on-surface/5"
             >
               <motion.img
                 src={img.url}
@@ -425,7 +521,7 @@ export function GalleryMobileView() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none flex flex-col justify-end p-4">
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent pointer-events-none flex flex-col justify-end p-4">
                 <p className="text-white text-[10px] font-bold uppercase tracking-wider">{img.title}</p>
               </div>
             </motion.div>
@@ -469,24 +565,6 @@ export function GalleryMobileView() {
         </div>
       </section>
 
-      {/* Sticky CTA */}
-      <motion.div 
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 2, duration: 1, type: "spring" }}
-        className="fixed bottom-8 inset-x-6 z-50"
-      >
-        <Link to="/contact">
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="btn-premium-gold w-full !rounded-2xl shadow-luxury-deep flex items-center justify-center gap-3"
-          >
-            <Zap size={22} fill="currentColor" />
-            <span className="uppercase tracking-[0.2em] font-black text-base">Book Now</span>
-          </motion.button>
-        </Link>
-      </motion.div>
 
       {/* Lightbox */}
       <Lightbox

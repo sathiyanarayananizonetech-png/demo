@@ -26,8 +26,8 @@ const AboutStory: React.FC = () => {
             </div>
             <h2 className="text-hero italic text-on-surface leading-none">
               Crafting Timeless <br />
-              <span className="text-primary">Beauty Stories</span> <br />{" "}
-              Since 2010
+              <span className="text-primary">Beauty Stories</span> <br /> Since
+              2010
             </h2>
             <p className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed italic">
               "Founded on the belief that everyone deserves a sanctuary of

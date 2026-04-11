@@ -42,7 +42,7 @@ const GalleryBookHero: React.FC = () => {
           duration: 1.5,
           ease: "power2.inOut",
         },
-        0
+        0,
       );
 
       // Step 2: Flip pages sequentially
@@ -60,7 +60,7 @@ const GalleryBookHero: React.FC = () => {
               gsap.set(page, { zIndex: 10 - i });
             },
           },
-          "-=0.2"
+          "-=0.2",
         );
       });
 

@@ -47,9 +47,9 @@ const AboutHero: React.FC = () => {
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-on-surface/90 leading-relaxed max-w-xl max-lg:mx-auto mb-10 font-medium">
-                Step into a sanctuary of refined elegance, where every
-                treatment is a personalized ritual crafted to celebrate your
-                unique essence.
+                Step into a sanctuary of refined elegance, where every treatment
+                is a personalized ritual crafted to celebrate your unique
+                essence.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 max-lg:justify-center">

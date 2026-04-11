@@ -54,10 +54,12 @@ const Navbar: React.FC = () => {
     <nav
       id="navbar"
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 transform-gpu hidden lg:block ${
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "-translate-y-full opacity-0 pointer-events-none"
       } ${
         isScrolled
-          ? "bg-background/98 border-b border-secondary/20 py-2 md:py-3 shadow-luxury-soft"
+          ? "bg-background/98 py-2 md:py-3 shadow-luxury-soft"
           : "bg-transparent py-4 md:py-6"
       }`}
     >
@@ -82,10 +84,13 @@ const Navbar: React.FC = () => {
 
         {/* ── Desktop Links (lg+) ── */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          <GooeyNav 
-            items={NAV_LINKS.map(link => ({ label: link.name, href: link.path }))} 
+          <GooeyNav
+            items={NAV_LINKS.map((link) => ({
+              label: link.name,
+              href: link.path,
+            }))}
           />
-          <Link to="/contact" className="ml-2">
+          <Link to="/book" className="ml-2">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -98,10 +103,13 @@ const Navbar: React.FC = () => {
 
         {/* ── Tablet nav (md–lg): compact links + CTA ── */}
         <div className="hidden md:flex lg:hidden items-center gap-4">
-          <GooeyNav 
-            items={NAV_LINKS.slice(0, 3).map(link => ({ label: link.name, href: link.path }))} 
+          <GooeyNav
+            items={NAV_LINKS.slice(0, 3).map((link) => ({
+              label: link.name,
+              href: link.path,
+            }))}
           />
-          <Link to="/contact" className="ml-2">
+          <Link to="/book" className="ml-2">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -209,7 +217,7 @@ const Navbar: React.FC = () => {
 
               {/* Drawer Footer */}
               <div className="p-5 sm:p-6 border-t border-surface-dim">
-                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link to="/book" onClick={() => setIsMobileMenuOpen(false)}>
                   <motion.button
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}

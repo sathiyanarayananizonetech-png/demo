@@ -27,21 +27,23 @@ export function MobileBottomNav() {
           const Icon = item.icon;
 
           return (
-            <Link 
-              key={item.path} 
+            <Link
+              key={item.path}
               to={item.path}
               className={`flex flex-col items-center gap-0.5 transition-colors relative ${
                 isActive ? "text-primary" : "text-on-surface/40"
               }`}
             >
-              <Icon 
-                size={18} 
-                fill={isActive ? "currentColor" : "none"} 
+              <Icon
+                size={20}
+                fill={isActive ? "currentColor" : "none"}
                 className={isActive ? "opacity-90" : ""}
               />
-              <span className={`text-[8px] uppercase tracking-wider ${
-                isActive ? "font-bold" : "font-medium"
-              }`}>
+              <span
+                className={`text-[9px] uppercase tracking-widest ${
+                  isActive ? "font-bold" : "font-medium"
+                }`}
+              >
                 {item.name}
               </span>
               {isActive && (

@@ -20,8 +20,8 @@ export function CommunityStatsSection() {
               </span>
             </h2>
             <p className="text-lg sm:text-xl text-on-surface/80 max-w-2xl mx-auto font-medium">
-              Our legacy is built on the trust of thousands who have
-              experienced the Zen Tonez touch of excellence.
+              Our legacy is built on the trust of thousands who have experienced
+              the Zen Tonez touch of excellence.
             </p>
           </div>
         </ScrollReveal>

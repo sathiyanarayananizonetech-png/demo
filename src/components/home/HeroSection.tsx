@@ -29,8 +29,8 @@ export function HeroSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((previousIndex) =>
-        (previousIndex + 1) % carouselImages.length,
+      setCurrentImageIndex(
+        (previousIndex) => (previousIndex + 1) % carouselImages.length,
       );
     }, 4000);
 
@@ -83,8 +83,8 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-on-surface/80 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10">
-            "Step into a realm where modern artistry meets timeless grace. 
-            Experience bespoke beauty rituals designed to celebrate your unique 
+            "Step into a realm where modern artistry meets timeless grace.
+            Experience bespoke beauty rituals designed to celebrate your unique
             essence with luxury and care."
           </p>
 

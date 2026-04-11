@@ -1,6 +1,6 @@
-# Luxe Beauty Studio 🌿✨
+# Zentonez Beauty & Salon 🌿✨
 
-A premium, high-performance web application for a luxury beauty salon, featuring state-of-the-art animations, a curated design system, and a seamless user experience.
+A premium, high-performance web application for **Zentonez**, a luxury beauty salon. This project features state-of-the-art animations, a curated design system, and a seamless user experience tailored for a high-end boutique feel.
 
 ---
 
@@ -9,91 +9,106 @@ A premium, high-performance web application for a luxury beauty salon, featuring
 | Category | Tools |
 | :--- | :--- |
 | **Framework** | [React 19](https://react.dev/) + [Vite](https://vitejs.dev/) |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) |
-| **Animations** | [GSAP](https://gsap.com/), [Framer Motion](https://framer.com/motion/) |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) & Vanilla CSS |
+| **Animations** | [GSAP](https://gsap.com/), [Framer Motion](https://framer.com/motion/), [React Spring](https://www.react-spring.dev/) |
 | **Smooth Scroll** | [Lenis](https://lenis.darkroom.engineering/) |
 | **Icons** | [Lucide React](https://lucide.dev/) |
 | **Routing** | [React Router Dom v7](https://reactrouter.com/) |
+| **Utils** | [imagesloaded](https://imagesloaded.desandro.com/), [clsx](https://github.com/lukeed/clsx) |
 
 ---
 
-## 🎨 Design System
+## 🎨 Design System (Brand Identity)
 
-### Color Palette
-The project uses a sophisticated, harmonious palette designed for a premium aesthetics.
+### 🌈 Color Palette
+The Zentonez palette is a sophisticated, harmonious blend of warm golds and deep contrasts, designed for a luxury aesthetic.
 
 | Color | Hex | Purpose |
 | :--- | :--- | :--- |
-| **Primary Gold** | `#C9A24A` | Brand identity, primary buttons, accents |
-| **Gold Container** | `#E5C98E` | Lighter gold for containers and hover states |
-| **Secondary Cream**| `#D9C3A5` | Supporting elements and soft borders |
-| **Tertiary Navy** | `#1F3A5F` | Deep contrast for dark modes or secondary sections |
-| **Background** | `#F4F1EC` | Main page background (Luxury Cream) |
-| **Charcoal Slate** | `#2B2B2B` | Main typography and heavy backgrounds |
+| **Premium Gold** | `#C9A24A` | Primary brand color, buttons, and high-impact accents |
+| **Gold Container** | `#E5C98E` | Lighter gold for backgrounds and soft gradients |
+| **Secondary Cream**| `#D9C3A5` | Warm supporting elements and elegant dividers |
+| **Deep Navy** | `#1F3A5F` | High-contrast backgrounds and branding accents |
+| **Background (Luxury Cream)** | `#F4F1EC` | Main page background for a professional, clean look |
+| **Charcoal Typography** | `#2B2B2B` | Core text color for maximum readability |
 
-### Typography
-Fluid typography is implemented using `clamp()` to ensure perfect readability across all device sizes.
+### 🖋️ Typography
+We use a **Fluid Type Scale** implemented via CSS `clamp()` to ensure perfect scaling from mobile notched devices to ultra-wide displays.
 
-- **Primary Heading**: `Poppins` (Bold & Commanding)
-- **Secondary Heading**: `Montserrat` (Elegant & Modern)
-- **Body Text**: `Inter` (Clean & Readable)
-- **Decorative**: `Pacifico` & `Gelasio` (Italic & Script accents)
+| Font Family | Usage | Style |
+| :--- | :--- | :--- |
+| **Poppins** | Primary Headings (H1, H2, H3) | Bold, commanding, and modern |
+| **Montserrat** | Secondary Headings (H4, H5, H6) | Elegant and professional |
+| **Inter** | Body Text & UI Elements | Clean, readable, and balanced |
+| **Pacifico** | Accent Phrases & Hero Subtexts | Script, friendly, and boutique-style |
+| **Gelasio** | Narrative & Description text | Sophisticated serif for a literary feel |
+
+---
+
+## 🪄 Animation & Professional Effects
+
+Zentonez uses a multi-layered animation strategy to create a "living" interface:
+
+- **Smooth Scrolling**: Powered by **Lenis** to provide a cinematic, inertia-based scroll experience.
+- **Sparkle Typography**: A custom **3D Kinetic Hover** effect using GSAP and Canvas that adds interactive "sparkles" and character displacement to headings.
+- **Luxury Floating**: CSS-optimized `@keyframes` (`luxury-float`) used for subtle, non-blocking movement of decorative elements.
+- **Shuffle Grids**: Hero sections utilize **Framer Motion Layout** for randomized, fluid image transitions that change over time.
+- **Interactive Buttons**: Premium 3D transforms and glassmorphism effects (backdrop blur) with physics-based scaling on hover.
+- **GSAP ScrollTriggers**: Used for advanced section pinning and synchronized image reveals as the user explores the site.
 
 ---
 
 ## 🧩 Key Components
 
-### 🎴 ServiceCard
-A custom premium card component used in the Services section.
-- **Features**: Hover-reveal descriptions, image scaling on hover, and an integrated price tag.
-- **Tech**: Framer Motion for smooth Y-axis transitions.
+### 🎴 Advanced Service Cards
+- **Features**: Hover-reveal descriptions, image scaling, and integrated dynamic price tags.
+- **Tech**: Framer Motion for performance-optimized Y-axis transitions and layout stability.
 
-### 🎠 ShuffleGrid / Hero
-The landing hero section features a dynamic "shuffling" image grid.
-- **Features**: Randomly shuffling layout every few seconds, spring-based animations.
-- **Tech**: Framer Motion `layout` prop.
-
-### 📖 GalleryChapters
-A storytelling section for the portfolio.
-- **Features**: Snap-to-section scrolling, large typography overlays, and background grid patterns.
+### 🗺️ Full Navigation Suite
+- **Desktop**: Glassmorphic Navbar with animated underline transitions.
+- **Mobile**: Dedicated **Bottom Navigation Bar** for app-like usability on touch devices.
+- **Global**: A floating logo for persistent brand awareness.
 
 ---
 
-## 🗺️ Project Structure
+## 🛠️ Project Structure
 
 ```bash
 src/
-├── assets/          # Static images & branding assets
-├── components/      # Reusable UI components (Navbar, Cards, etc.)
-│   ├── ui/          # Low-level UI utilities
-│   └── home/        # Home-page specific sections
-├── pages/           # Main route components (Home, About, Services, etc.)
-├── lib/             # Utility functions (cn, etc.)
-└── index.css        # Global styles & design tokens
+├── assets/          # Local optimized images & branding assets
+├── components/      # Reusable UI components
+│   ├── layout/      # Navbar, Footer, MobileNav, FloatingLogo
+│   ├── home/        # Home-page specific sections (ShuffleHero, etc.)
+│   └── mobile/      # Dedicated mobile-view components
+├── pages/           # Main route-level pages (Home, Services, Gallery, etc.)
+├── lib/             # Utility functions & shared logic
+└── index.css        # Core Design System, Fluid Scale, and Global Tokens
 ```
 
 ---
 
-## 🛠️ Installation & Setup
+## 🚀 Getting Started
 
 1. **Clone the repository**
 2. **Install dependencies**:
    ```bash
    npm install
    ```
-3. **Run the development server**:
+3. **Run Development**:
    ```bash
    npm run dev
    ```
-4. **Build for production**:
+4. **Production Build**:
    ```bash
    npm run build
    ```
 
 ---
 
-## ✨ Features
-- [x] **Premium UI**: Glassmorphism, smooth gradients, and luxury typography.
-- [x] **Fluid Layouts**: Fully responsive design from mobile to ultra-wide displays.
-- [x] **High Performance**: Optimized image loading and layout-stable animations.
-- [x] **Smooth Scrolling**: Lenis integration for a cinematic scroll feel.
+## ✨ Features Checklist
+- [x] **Premium UI**: Glassmorphism, smooth gradients, and curated typography.
+- [x] **Responsive Excellence**: Tailored layouts for Mobile, Tablet, and Desktop.
+- [x] **Fluid Spacing**: System-wide use of clamp() for layout-shifting prevention.
+- [x] **SEO Optimized**: Semantic HTML5 and proper heading hierarchy.
+- [x] **Accessibility**: Tap-target optimization for touch devices.

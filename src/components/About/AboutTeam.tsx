@@ -6,7 +6,7 @@ import skinImage from "../../assets/skin_care.png";
 
 const AboutTeam: React.FC = () => {
   const team2 = hairImage;
-  
+
   return (
     <section className="py-16 sm:py-24 bg-surface-dim relative">
       <div className="container mx-auto px-4 sm:px-6">
