@@ -15,6 +15,7 @@ import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import { MobileBottomNav } from "./components/layout/MobileBottomNav";
 import { FloatingLogo } from "./components/layout/FloatingLogo";
+import { DesktopNav } from "./components/layout/DesktopNav";
 
 import Book from "./pages/Book";
 
@@ -33,6 +34,7 @@ const App: React.FC = () => {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-background">
         <FloatingLogo />
+        <DesktopNav />
 
         <main className="grow">
           <Routes>
