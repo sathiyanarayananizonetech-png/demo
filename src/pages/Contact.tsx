@@ -4,7 +4,6 @@ import ContactHero from "../components/Contact/ContactHero";
 import ContactInfo from "../components/Contact/ContactInfo";
 import ContactForm from "../components/Contact/ContactForm";
 import ContactMap from "../components/Contact/ContactMap";
-import { ContactMobileView } from "../components/mobile/ContactMobileView";
 
 const Contact: React.FC = () => {
   useEffect(() => {
@@ -15,27 +14,19 @@ const Contact: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen">
-      {/* Mobile View */}
-      <div className="block lg:hidden">
-        <ContactMobileView />
-      </div>
+      <ContactHero />
 
-      {/* Desktop View */}
-      <div className="hidden lg:block">
-        <ContactHero />
-
-        {/* ─── CONTENT ─── */}
-        <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
-              <ContactInfo />
-              <ContactForm />
-            </div>
+      {/* ─── CONTENT ─── */}
+      <section className="py-8 tb:py-12 px-4 tb:px-6 dt:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 dt:grid-cols-3 gap-8 tb:gap-12 dt:gap-16">
+            <ContactInfo />
+            <ContactForm />
           </div>
-        </section>
+        </div>
+      </section>
 
-        <ContactMap />
-      </div>
+      <ContactMap />
     </div>
   );
 };

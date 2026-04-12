@@ -7,7 +7,7 @@ import { SparkleHeading } from "../ui/SparkleHeading";
 import interiorImage from "../../assets/salon_interior_luxury.png";
 import hairImage from "../../assets/hair_styling.png";
 import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/spa_treatment.png";
+import spaImage from "../../assets/hair_spa_treatment.png";
 
 const archImages = [interiorImage, hairImage, skinImage, spaImage];
 
@@ -22,15 +22,15 @@ const AboutHero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="relative w-full min-h-screen flex items-center pt-24 tb:pt-32 pb-10 tb:pb-16 overflow-hidden bg-background">
+      <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-12 relative z-10">
+        <div className="grid grid-cols-1 dt:grid-cols-2 gap-10 tb:gap-16 dt:gap-20 items-center">
           {/* Left Column: Narrative */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6 sm:space-y-10 text-center lg:text-left"
+            className="space-y-6 tb:space-y-10 text-center dt:text-left pt-8 dt:pt-0"
           >
             <div>
               <h1 className="text-display font-pacifico text-on-surface mb-6 glow-text leading-[1.1] normal-case">
@@ -38,7 +38,7 @@ const AboutHero: React.FC = () => {
                   text="Where Beauty"
                   className="text-on-surface"
                 />
-                <br className="max-lg:hidden" />
+                <br className="dt:hidden" />
                 <SparkleHeading
                   text="Meets Artistry"
                   className="text-primary"
@@ -46,18 +46,18 @@ const AboutHero: React.FC = () => {
                 />
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-on-surface/90 leading-relaxed max-w-xl max-lg:mx-auto mb-10 font-medium">
+              <p className="text-sm mb:text-base tb:text-lg dt:text-xl text-on-surface/90 leading-relaxed max-w-xl mx-auto dt:mx-0 mb-10 font-medium px-4 mb:px-0">
                 Step into a sanctuary of refined elegance, where every treatment
                 is a personalized ritual crafted to celebrate your unique
                 essence.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 max-lg:justify-center">
-                <Link to="/contact" className="w-full sm:w-auto">
+              <div className="flex flex-col mb:flex-row items-center gap-4 mb:gap-6 justify-center dt:justify-start px-4 mb:px-0">
+                <Link to="/contact" className="w-full mb:w-auto">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="btn-premium-gold px-10 sm:px-12 w-full sm:w-auto shadow-xl"
+                    className="btn-premium-gold px-6 py-3 mb:px-10 mb:tb:px-12 w-full mb:w-auto text-[10px] mb:text-xs shadow-xl"
                   >
                     Book Your Ritual
                   </motion.button>
@@ -65,7 +65,7 @@ const AboutHero: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group flex items-center gap-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface/60 hover:text-on-surface transition-colors duration-300"
+                  className="group flex items-center gap-3 text-[9px] tb:text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface/60 hover:text-on-surface transition-colors duration-300"
                 >
                   <span className="pb-1 border-b-2 border-on-surface/10 group-hover:border-primary transition-all duration-300">
                     Learn Our Story
@@ -83,10 +83,10 @@ const AboutHero: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex items-center justify-center lg:justify-end"
+            className="relative flex items-center justify-center dt:justify-end mt-8 dt:mt-0"
           >
             {/* The Arch Shape */}
-            <div className="relative w-full max-w-[450px] aspect-4/5 rounded-t-full border-8 border-primary/5 p-4 sm:p-6 shadow-2xl bg-surface/95 overflow-visible">
+            <div className="relative w-full max-w-[280px] mb:max-w-[450px] aspect-4/5 rounded-t-full border-8 border-primary/5 p-4 tb:p-6 shadow-2xl bg-surface/95 overflow-visible">
               <div className="w-full h-full rounded-t-full overflow-hidden shadow-inner border border-primary/20 relative">
                 <AnimatePresence initial={false}>
                   <motion.img

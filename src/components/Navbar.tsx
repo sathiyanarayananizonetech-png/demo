@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sparkles, X, Menu } from "lucide-react";
+import { Sparkles, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/zentonsz.png";
+import logo from "../assets/zentonez.png";
 import GooeyNav from "./ui/GooeyNav";
 
 const NAV_LINKS = [
@@ -53,17 +53,17 @@ const Navbar: React.FC = () => {
   return (
     <nav
       id="navbar"
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 transform-gpu hidden lg:block ${
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 transform-gpu ${
         isVisible
           ? "translate-y-0 opacity-100"
           : "-translate-y-full opacity-0 pointer-events-none"
       } ${
         isScrolled
-          ? "bg-background/98 py-2 md:py-3 shadow-luxury-soft"
-          : "bg-transparent py-4 md:py-6"
+          ? "bg-background/98 py-2 tb:py-3 shadow-luxury-soft"
+          : "bg-transparent py-4 tb:py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 flex justify-between items-center">
         {/* ── Logo ── */}
         <Link to="/" className="relative group shrink-0">
           <motion.div
@@ -72,8 +72,8 @@ const Navbar: React.FC = () => {
           >
             <img
               src={logo}
-              alt="Zen Tonez"
-              className={`h-8 sm:h-9 md:h-10 w-auto transition-all duration-300 ${
+              alt="Zentonez"
+              className={`h-8 tb:h-9 dt:h-10 w-auto transition-all duration-300 ${
                 isScrolled
                   ? "brightness-100"
                   : "brightness-110 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
@@ -82,8 +82,8 @@ const Navbar: React.FC = () => {
           </motion.div>
         </Link>
 
-        {/* ── Desktop Links (lg+) ── */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+        {/* ── Desktop Links (dt+) ── */}
+        <div className="hidden dt:flex items-center gap-6 xl:gap-8">
           <GooeyNav
             items={NAV_LINKS.map((link) => ({
               label: link.name,
@@ -101,15 +101,9 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* ── Tablet nav (md–lg): compact links + CTA ── */}
-        <div className="hidden md:flex lg:hidden items-center gap-4">
-          <GooeyNav
-            items={NAV_LINKS.slice(0, 3).map((link) => ({
-              label: link.name,
-              href: link.path,
-            }))}
-          />
-          <Link to="/book" className="ml-2">
+        {/* ── Mobile/Tablet Toggle (< dt) ── */}
+        <div className="flex dt:hidden items-center gap-4">
+          <Link to="/book" className="sm:block hidden">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -118,7 +112,6 @@ const Navbar: React.FC = () => {
               Book Now
             </motion.button>
           </Link>
-          {/* Hamburger for remaining links on tablet */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -127,32 +120,17 @@ const Navbar: React.FC = () => {
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
-            <Menu
-              size={22}
-              className={isMobileMenuOpen ? "text-primary" : ""}
-            />
+            {isMobileMenuOpen ? (
+              <X size={26} className="text-primary" />
+            ) : (
+              <div className="flex flex-col gap-1.5">
+                <div className="w-6 h-0.5 bg-on-surface rounded-full" />
+                <div className="w-6 h-0.5 bg-on-surface rounded-full" />
+                <div className="w-4 h-0.5 bg-primary rounded-full" />
+              </div>
+            )}
           </motion.button>
         </div>
-
-        {/* ── Mobile Toggle (< md) ── */}
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="md:hidden p-2 text-on-surface tap-target"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? (
-            <X size={26} className="text-primary" />
-          ) : (
-            <div className="flex flex-col gap-1.5">
-              <div className="w-6 h-0.5 bg-on-surface rounded-full" />
-              <div className="w-6 h-0.5 bg-on-surface rounded-full" />
-              <div className="w-4 h-0.5 bg-primary rounded-full" />
-            </div>
-          )}
-        </motion.button>
       </div>
 
       {/* ── Mobile / Tablet Drawer ── */}
@@ -164,7 +142,7 @@ const Navbar: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 dt:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -174,11 +152,11 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-background z-50 flex flex-col shadow-2xl lg:hidden"
+              className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-background z-50 flex flex-col shadow-2xl dt:hidden"
             >
               {/* Drawer Header */}
               <div className="flex justify-between items-center p-5 sm:p-6 border-b border-surface-dim">
-                <img src={logo} alt="Zen Tonez" className="h-8 w-auto" />
+                <img src={logo} alt="Zentonez" className="h-8 w-auto" />
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 text-on-surface tap-target"

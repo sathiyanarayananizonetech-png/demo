@@ -10,7 +10,7 @@ import testimonal3 from "../../assets/testimonals/testimonal3.jpeg";
 const TESTIMONIALS = [
   {
     quote:
-      "Zen Tonez isn't just a parlour; it's an experience. The attention to detail and the hygiene standards are unparalleled in the city.",
+      "Zentonez isn't just a parlour; it's an experience. The attention to detail and the hygiene standards are unparalleled in the city.",
     name: "Meera Krishnan",
     role: "Regular Client Since 2018",
     image: testimonal1,
@@ -24,7 +24,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The hair transition I received at Zen Tonez was beyond my expectations. The stylists are true artists who understand the weight of elegance.",
+      "The hair transition I received at Zentonez was beyond my expectations. The stylists are true artists who understand the weight of elegance.",
     name: "Ananya Iyer",
     role: "Signature Ritual Client",
     image: testimonal3,

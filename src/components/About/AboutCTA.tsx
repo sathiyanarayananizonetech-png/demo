@@ -5,40 +5,37 @@ import { Sparkles, Heart } from "lucide-react";
 
 const AboutCTA: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-surface-dim/20 relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="relative bg-primary/5 rounded-4xl sm:rounded-[4rem] p-8 sm:p-16 md:p-20 overflow-hidden border border-primary/20 shadow-xl text-center">
+    <section className="py-12 mb:py-16 tb:py-24 dt:py-32 bg-surface-dim/20 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 mb:px-6 tb:px-8">
+        <div className="relative bg-primary/5 rounded-3xl mb:rounded-4xl tb:rounded-[3rem] p-6 mb:p-12 tb:p-16 dt:p-24 overflow-hidden border border-primary/20 shadow-xl text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative z-10 space-y-6 sm:space-y-8"
+            className="relative z-10 space-y-4 mb:space-y-6 tb:space-y-8"
           >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary mb-6 sm:mb-8 border border-primary/20 shadow-sm">
-              <Sparkles size={32} />
-            </div>
-            <h2 className="text-hero italic text-on-surface">
-              Begin Your Journey to <br />
-              <span className="text-primary">Unrivaled Radiance</span>
+
+            <h2 className="text-2xl mb:text-3xl tb:text-5xl dt:text-6xl italic font-serif leading-[1.1] text-on-surface px-2">
+              Begin Your Journey to <br className="hidden mb:block" />
+              <span className="text-primary tracking-tight">Unrivaled Radiance</span>
             </h2>
-            <p className="text-base sm:text-lg text-on-surface/60 font-sans max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xs mb:text-base tb:text-lg text-on-surface/60 font-sans max-w-xl tb:max-w-2xl mx-auto leading-relaxed px-2 mb:px-0">
               Experience the perfect blend of artisanal skill and modern
-              luxury. Your transformation awaits at Zen Tonez.
+              luxury. Your transformation awaits at Zentonez.
             </p>
-            <div className="pt-4 sm:pt-8">
-              <Link to="/contact">
+            <div className="pt-4 mb:pt-6 tb:pt-8 flex justify-center">
+              <Link to="/contact" className="w-full mb:w-auto px-4 mb:px-0">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-premium-gold px-12 sm:px-16 py-4"
+                  className="btn-premium-gold w-full mb:w-auto px-4 mb:px-12 tb:px-16 py-3 mb:py-4 text-[9px] mb:text-sm tracking-widest whitespace-nowrap"
                 >
                   Book Your Appointment
                 </motion.button>
               </Link>
             </div>
           </motion.div>
-          <Sparkles className="absolute top-8 right-8 text-primary-container/5 w-24 h-24 sm:w-40 sm:h-40" />
-          <Heart className="absolute bottom-8 left-8 text-primary-container/5 w-24 h-24 sm:w-40 sm:h-40" />
+
         </div>
       </div>
     </section>

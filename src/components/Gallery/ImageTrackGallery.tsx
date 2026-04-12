@@ -1,0 +1,136 @@
+import React, { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { SparkleHeading } from "../ui/SparkleHeading";
+import "./Gallery.css";
+
+// Import local assets
+import bridalImage from "../../assets/bridal_makeup.png";
+import hairImage from "../../assets/hair_styling.png";
+import skinImage from "../../assets/skin_care.png";
+import spaImage from "../../assets/hair_spa_treatment.png";
+import makeupImage from "../../assets/makeup_artist.png";
+import nailImage from "../../assets/nail_art.png";
+import interiorImage from "../../assets/salon_interior_luxury.png";
+import vesselImage from "../../assets/luxury_salon_vessel.png";
+
+const ImageTrackGallery: React.FC = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const mouseDownAt = useRef<number>(0);
+  const prevPercentage = useRef<number>(0);
+  const percentage = useRef<number>(0);
+
+  useEffect(() => {
+    const handleOnDown = (e: MouseEvent | TouchEvent) => {
+      const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
+      mouseDownAt.current = clientX;
+    };
+
+    const handleOnUp = () => {
+      mouseDownAt.current = 0;
+      prevPercentage.current = percentage.current;
+    };
+
+    const handleOnMove = (e: MouseEvent | TouchEvent) => {
+      if (mouseDownAt.current === 0) return;
+
+      const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
+      const mouseDelta = mouseDownAt.current - clientX;
+      const maxDelta = window.innerWidth / 2;
+
+      const p = (mouseDelta / maxDelta) * -100;
+      const nextPercentageUnconstrained = prevPercentage.current + p;
+      const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+      percentage.current = nextPercentage;
+
+      if (trackRef.current) {
+        trackRef.current.animate(
+          {
+            transform: `translate(${nextPercentage}%, -50%)`,
+          },
+          { duration: 1200, fill: "forwards", easing: "ease-out" }
+        );
+
+        const images = trackRef.current.getElementsByClassName("image-track-img");
+        for (const image of images) {
+          (image as HTMLElement).animate(
+            {
+              objectPosition: `${100 + nextPercentage}% center`,
+            },
+            { duration: 1200, fill: "forwards", easing: "ease-out" }
+          );
+        }
+      }
+    };
+
+    window.addEventListener("mousedown", handleOnDown);
+    window.addEventListener("touchstart", handleOnDown);
+    window.addEventListener("mouseup", handleOnUp);
+    window.addEventListener("touchend", handleOnUp);
+    window.addEventListener("mousemove", handleOnMove);
+    window.addEventListener("touchmove", handleOnMove, { passive: false });
+
+    return () => {
+      window.removeEventListener("mousedown", handleOnDown);
+      window.removeEventListener("touchstart", handleOnDown);
+      window.removeEventListener("mouseup", handleOnUp);
+      window.removeEventListener("touchend", handleOnUp);
+      window.removeEventListener("mousemove", handleOnMove);
+      window.removeEventListener("touchmove", handleOnMove);
+    };
+  }, []);
+
+  const images = [
+    { src: bridalImage, alt: "Bridal Makeup" },
+    { src: hairImage, alt: "Hair Styling" },
+    { src: skinImage, alt: "Skin Care" },
+    { src: spaImage, alt: "Hair Spa" },
+    { src: makeupImage, alt: "Makeup Artist" },
+    { src: nailImage, alt: "Nail Art" },
+    { src: interiorImage, alt: "Salon Interior" },
+    { src: vesselImage, alt: "Luxury Detail" },
+  ];
+
+  return (
+    <section className="image-track-container snap-section overflow-hidden bg-white!">
+      {/* Merged Text Overlay Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center tb:justify-start pt-12 tb:pt-24 px-4 text-center z-20 pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.2 }}
+          className="glow-text bg-white/40 backdrop-blur-sm p-4 tb:p-8 rounded-3xl"
+        >
+          <h1 className="text-display font-pacifico text-slate-900 mb-4 tb:mb-6 normal-case glow-text">
+            <SparkleHeading text="The Signature" className="text-slate-900" />
+            <br className="dt:block hidden" />
+            <SparkleHeading
+              text="Lookbook"
+              className="text-primary"
+              sparkleScale={1.3}
+            />
+          </h1>
+          <p className="text-base tb:text-xl dt:text-2xl text-slate-600/90 leading-relaxed max-w-2xl mx-auto px-4 mb:px-0">
+            "A curated journey through the art of transformation, from our
+            master stylists to your personal reflection."
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Image Track slider */}
+      <div id="image_track" ref={trackRef} className="image-track">
+        {images.map((img, index) => (
+          <img
+            key={index}
+            className="image-track-img"
+            src={img.src}
+            alt={img.alt}
+            draggable="false"
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default ImageTrackGallery;

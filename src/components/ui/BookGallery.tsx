@@ -8,10 +8,10 @@ import makeupImg from "../../assets/makeup_artist.png";
 import bridalImg from "../../assets/bridal_makeup.png";
 import bridal2Img from "../../assets/bridal makeup2.png";
 import skinImg from "../../assets/skin_care.png";
-import spaImg from "../../assets/spa_treatment.png";
+import spaImg from "../../assets/hair_spa_treatment.png";
 import nailImg from "../../assets/nail_art.png";
 import vesselImg from "../../assets/luxury_salon_vessel.png";
-import logoImg from "../../assets/zentonsz.png";
+import logoImg from "../../assets/zentonez.png";
 
 const BookGallery: React.FC = () => {
   const pages = [
@@ -24,19 +24,8 @@ const BookGallery: React.FC = () => {
   ];
 
   return (
-    <div className="book-gallery-container w-full h-full min-h-svh relative flex items-center justify-center overflow-hidden bg-white">
+    <div className="book-gallery-container w-full h-full min-h-svh relative flex items-center justify-center overflow-hidden bg-background">
       <style>{`
-        @property --page-rotate {
-          syntax: "<angle>";
-          inherits: true;
-          initial-value: 0deg;
-        }
-        @property --spine-shift {
-          syntax: "<length>";
-          inherits: true;
-          initial-value: 0px;
-        }
-
         .scene {
           width: 100%;
           height: 100%;
@@ -48,53 +37,30 @@ const BookGallery: React.FC = () => {
           position: relative;
         }
 
-        .bg-typography {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 100%;
-          text-align: center;
-          font-size: clamp(3rem, 12vw, 12rem);
-          font-weight: 800;
-          line-height: 0.8;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0 5vw;
-          pointer-events: none;
-          z-index: 0;
-          mix-blend-mode: exclusion;
-          color: white;
-          text-transform: uppercase;
-        }
 
         .galeria-book-3d {
           position: relative;
-          width: 280px;
-          height: 400px;
+          width: 200px;
+          height: 300px;
           perspective: 1200px;
           transform-style: preserve-3d;
           display: flex;
           justify-content: center;
           align-items: center;
           z-index: 10;
-          transform: translateX(var(--spine-shift, 0px)) scale(var(--book-scale, 1));
-          /* No transition on spine-shift/scale to let GSAP handle it */
+          /* Removed spine-shift variable, GSAP will use x */
         }
 
         .book-page {
           position: absolute;
-          width: 280px;
-          height: 400px;
+          width: 200px;
+          height: 300px;
           perspective: 1200px;
           transform-style: preserve-3d;
           display: flex;
           justify-content: center;
           align-items: center;
           transform-origin: left center;
-          --page-rotate: 0deg;
-          transform: rotateY(var(--page-rotate));
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
           /* No transition here, let GSAP control it */
         }
@@ -116,21 +82,31 @@ const BookGallery: React.FC = () => {
           z-index: 1;
         }
 
-        /* Adjustments for mobile */
-        @media (max-width: 768px) {
-           .galeria-book-3d, .book-page {
-             width: 180px;
-             height: 260px;
-           }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 640px) {
+          .galeria-book-3d, .book-page {
+            width: 140px !important;
+            height: 210px !important;
+          }
+        }
+
+        @media (min-width: 641px) and (max-width: 1023px) {
+          .galeria-book-3d, .book-page {
+            width: 280px !important;
+            height: 420px !important;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .galeria-book-3d, .book-page {
+            width: 340px !important;
+            height: 480px !important;
+          }
         }
       `}</style>
 
       <div className="scene w-full h-full flex items-center justify-center">
-        <div className="bg-typography">
-          <span>Book</span>
-          <span>Gallery</span>
-        </div>
-
         <div className="galeria-book-3d">
           {pages.map((page, index) => (
             <div

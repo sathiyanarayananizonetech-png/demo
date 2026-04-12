@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import spaImage from "../../assets/spa_treatment.png";
+import spaImage from "../../assets/hair_spa_treatment.png";
 
 const AboutStory: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-background overflow-hidden border-b border-primary-container/20">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
+    <section className="py-10 mb:py-16 tb:py-24 dt:py-32 bg-background overflow-hidden border-b border-primary-container/20">
+      <div className="max-w-7xl mx-auto px-4 mb:px-6 tb:px-8 dt:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb:gap-12 tb:gap-16 dt:gap-24 items-center">
           <div className="relative">
             <div className="relative z-10 rounded-3xl sm:rounded-4xl overflow-hidden shadow-luxury-deep aspect-4/5">
               <img
@@ -27,11 +27,11 @@ const AboutStory: React.FC = () => {
             <h2 className="text-hero italic text-on-surface leading-none">
               Crafting Timeless <br />
               <span className="text-primary">Beauty Stories</span> <br /> Since
-              2010
+              2025
             </h2>
             <p className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed italic">
               "Founded on the belief that everyone deserves a sanctuary of
-              self-care, Zen Tonez has grown from a boutique salon into a
+              self-care, Zentonez has grown from a boutique salon into a
               hallmark of luxury."
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 py-2">

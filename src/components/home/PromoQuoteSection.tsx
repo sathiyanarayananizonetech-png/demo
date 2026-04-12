@@ -6,27 +6,27 @@ import { ScrollReveal } from "./ScrollReveal";
 
 export function PromoQuoteSection() {
   return (
-    <section className="pt-16 sm:pt-24 pb-8 sm:pb-10 relative overflow-hidden bg-secondary/20">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-10 tb:py-20 relative overflow-hidden bg-secondary/20 px-4 mb:px-0">
+      <div className="max-w-5xl mx-auto px-0 tb:px-6 dt:px-8 relative z-10">
         <ScrollReveal>
-          <div className="bg-surface/60 backdrop-blur-2xl border border-white/50 rounded-3xl sm:rounded-4xl p-6 sm:p-16 md:p-20 shadow-luxury-deep text-center relative overflow-hidden mx-auto max-w-4xl">
+          <div className="bg-surface/60 backdrop-blur-2xl border border-white/50 rounded-3xl tb:rounded-4xl p-6 tb:p-16 dt:p-20 shadow-luxury-deep text-center relative overflow-hidden mx-auto max-w-4xl">
             <Quote
               size={40}
-              className="text-primary opacity-20 mx-auto mb-6 sm:mb-10 relative z-10"
+              className="text-primary opacity-20 mx-auto mb-6 tb:mb-10 relative z-10"
             />
-            <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-section-title font-black text-on-surface mb-6 sm:mb-10 uppercase tracking-tighter italic font-serif relative z-10 leading-tight">
-              "Elegance is the beauty <br /> that never fades."
+            <h3 className="text-2xl tb:text-4xl dt:text-5xl font-black text-on-surface mb-6 tb:mb-10 uppercase tracking-tighter italic font-serif relative z-10 leading-tight">
+              "Elegance is the beauty <br className="hidden mb:block" /> that never fades."
             </h3>
-            <p className="text-on-surface/80 text-base sm:text-lg md:text-xl font-medium max-w-xl sm:max-w-2xl mx-auto mb-10 sm:mb-12 relative z-10 balance">
+            <p className="text-on-surface/80 text-base tb:text-lg dt:text-xl font-medium max-w-xl tb:max-w-2xl mx-auto mb-10 tb:mb-12 relative z-10 balance">
               Step into a world of relaxation and luxury. Let our experts craft
               the perfect look that reflects your true essence.
             </p>
             <div className="relative z-10 flex justify-center">
-              <Link to="/contact">
+              <Link to="/contact" className="w-full mb:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-premium-gold px-10 sm:px-14 py-4 sm:py-5 text-sm sm:text-base shadow-xl"
+                  className="btn-premium-gold w-full mb:w-auto px-7 py-3.5 mb:px-10 mb:tb:px-14 mb:py-4 mb:tb:py-5 text-[10px] mb:text-sm tb:text-base shadow-xl"
                 >
                   Start Your Journey Today
                 </motion.button>

@@ -5,7 +5,7 @@ import { cn } from "../../lib/utils";
 import bridalImage   from "../../assets/bridal_makeup.png";
 import hairImage     from "../../assets/hair_styling.png";
 import skinImage     from "../../assets/skin_care.png";
-import spaImage      from "../../assets/spa_treatment.png";
+import spaImage      from "../../assets/hair_spa_treatment.png";
 import makeupImage   from "../../assets/makeup_artist.png";
 import nailImage     from "../../assets/nail_art.png";
 import interiorImage from "../../assets/salon_interior_luxury.png";
@@ -14,32 +14,34 @@ import heroImage     from "../../assets/hero_salon.png";
 
 export const ShuffleHero = () => {
   return (
-    <section className="w-full px-4 sm:px-8 pt-16 sm:pt-20 pb-20 sm:pb-40 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 sm:gap-16 max-w-7xl mx-auto relative z-10">
+    <section className="w-full px-4 tb:px-8 pt-16 tb:pt-20 pb-10 tb:pb-40 grid grid-cols-1 dt:grid-cols-2 items-center gap-10 tb:gap-16 max-w-7xl mx-auto relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center lg:text-left"
+        className="text-center dt:text-left"
       >
-        <span className="block mb-4 sm:mb-6 text-[9px] sm:text-xs text-primary font-black uppercase tracking-[0.4em] font-sans">
+        <span className="block mb-4 tb:mb-6 text-[9px] tb:text-xs text-primary font-black uppercase tracking-[0.4em] font-sans">
           The Art of Precision
         </span>
-        <h3 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-900 mb-6 sm:mb-10 uppercase tracking-tighter italic font-serif">
-          The <span className="text-primary">Studio</span> <br />
+        <h3 className="text-3xl tb:text-5xl dt:text-6xl xl:text-7xl font-black text-slate-900 mb-6 tb:mb-10 uppercase tracking-tighter italic font-serif leading-tight">
+          The <span className="text-primary">Studio</span> <br className="dt:block hidden" />
           Collection
         </h3>
-        <p className="text-base sm:text-xl md:text-2xl text-slate-600 italic leading-relaxed mb-8 sm:mb-12 max-w-xl mx-auto lg:mx-0">
+        <p className="text-base tb:text-xl dt:text-2xl text-slate-600 italic leading-relaxed mb-8 tb:mb-12 max-w-xl mx-auto dt:mx-0 px-4 mb:px-0">
           "A curated symphony of style, where every frame tells a story of transformation and timeless elegance."
         </p>
-        <button
-          onClick={() => document.getElementById("bridal")?.scrollIntoView({ behavior: "smooth" })}
-          className={cn(
-            "btn-premium-gold px-10 sm:px-14 py-4 sm:py-5 text-sm shadow-2xl shadow-primary/20 hover:shadow-primary/40",
-            "transition-all duration-500 transform hover:-translate-y-1 w-full sm:w-auto"
-          )}
-        >
-          Explore Masterpieces
-        </button>
+        <div className="px-4 mb:px-0">
+          <button
+            onClick={() => document.getElementById("bridal")?.scrollIntoView({ behavior: "smooth" })}
+            className={cn(
+              "btn-premium-gold px-10 tb:px-14 py-4 tb:py-5 text-sm shadow-2xl shadow-primary/20 hover:shadow-primary/40",
+              "transition-all duration-500 transform hover:-translate-y-1 w-full mb:w-auto"
+            )}
+          >
+            Explore Masterpieces
+          </button>
+        </div>
       </motion.div>
 
       <div className="relative">

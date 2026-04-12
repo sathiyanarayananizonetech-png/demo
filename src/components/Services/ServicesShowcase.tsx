@@ -22,7 +22,7 @@ import {
 import bridalImage from "../../assets/bridal_makeup.png";
 import hairImage from "../../assets/hair_styling.png";
 import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/spa_treatment.png";
+import spaImage from "../../assets/hair_spa_treatment.png";
 import makeupImage from "../../assets/makeup_artist.png";
 import nailImage from "../../assets/nail_art.png";
 import treatmentHero from "../../assets/beauty_treatment_hero.png";
@@ -83,16 +83,16 @@ const services = [
   },
   {
     id: 4,
-    title: "Luxury Spa Rituals",
-    category: "Wellness Spa",
+    title: "Artisan Hair Spa",
+    category: "Hair Wellness",
     description:
-      "Total body rejuvenation and relaxation within our sanctuary of serenity.",
-    price: "₹2500",
-    duration: "120 Mins",
+      "A revitalizing hair ritual that deep cleanses and nourishes, leaving your hair silky and manageable.",
+    price: "₹1800",
+    duration: "60 Mins",
     review:
-      "The only place where time truly stops. Rejuvenating for both body and mind.",
-    clientName: "Rahul M.",
-    highlights: ["Full Body Scrub", "Aromatherapy", "Deep Tissue"],
+      "The hair spa was incredible. My hair hasn't felt this soft and healthy in years!",
+    clientName: "Meghna K.",
+    highlights: ["Scalp Detox", "Steam Therapy", "Keratin Infusion"],
     image: spaImage,
     icon: <Droplets size={24} />,
     color: "#E3DFD5",
@@ -203,24 +203,25 @@ const ServicesShowcase: React.FC = () => {
   const rightColRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.innerWidth < 1024) return;
+    const mm = gsap.matchMedia();
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      infinite: false,
-    });
+    // Desktop Animation
+    mm.add("(min-width: 769px)", () => {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        infinite: false,
+      });
 
-    function raf(time: number) {
-      lenis.raf(time);
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
       requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
 
-    const ctx = gsap.context(() => {
       const imgs = gsap.utils.toArray<HTMLImageElement>(".showcase-img");
       const panels = gsap.utils.toArray<HTMLElement>(".showcase-info");
 
@@ -308,121 +309,193 @@ const ServicesShowcase: React.FC = () => {
 
         mainTimeline.add(sectionTimeline);
       });
-    }, containerRef);
 
-    return () => {
-      ctx.revert();
-      lenis.destroy();
-    };
+      return () => {
+        lenis.destroy();
+      };
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
-    <div className="hidden lg:block">
-      <div
-        className="showcase-container bg-background transition-colors duration-1000"
-        ref={containerRef}
-      >
-        <div className="max-w-7xl mx-auto px-12 grid grid-cols-2 gap-16 xl:gap-24 pb-32">
-          {/* Left Column: Rich Content */}
-          <div className="space-y-0 flex flex-col items-center">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                className="showcase-info h-screen flex items-center justify-center text-center"
-              >
-                <div className="max-w-md space-y-7 flex flex-col items-center">
-                  {/* Badge & Icon */}
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="p-4 bg-primary text-white rounded-2xl shadow-luxury-deep">
-                      {service.icon}
-                    </div>
-                    <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">
-                      {service.category}
+    <div
+      className="showcase-container bg-background transition-colors duration-1000 overflow-hidden"
+      ref={containerRef}
+    >
+      {/* Mobile/Tablet Layout (< dt) */}
+      <div className="dt:hidden py-10 tb:py-20 px-4 tb:px-6 space-y-12">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl tb:text-4xl font-black text-on-surface uppercase tracking-tighter italic font-serif">
+            Signature <span className="text-primary italic">Services</span>
+          </h2>
+          <p className="text-on-surface/70 mt-4 max-w-md mx-auto font-medium">
+            Explore our artisanal collection of beauty rituals designed for your transformation.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-12">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="group relative flex flex-col bg-surface/50 rounded-4xl overflow-hidden border border-white/40 shadow-xl"
+            >
+              <div className="aspect-4/5 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-8 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-primary text-white rounded-xl shadow-lg">
+                    {service.icon}
+                  </div>
+                  <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px]">
+                    {service.category}
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-3xl font-black text-on-surface uppercase italic font-serif">
+                    {service.title}
+                  </h3>
+                  <p className="text-on-surface/80 text-sm leading-relaxed font-medium">
+                    {service.description}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {service.highlights.map((h, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-on-surface/5 rounded-full text-[9px] font-black uppercase tracking-widest text-on-surface/70 border border-on-surface/10"
+                    >
+                      {h}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between pt-4 border-t border-on-surface/10">
+                  <div className="flex flex-col">
+                    <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/40">
+                      Investment
+                    </span>
+                    <span className="text-2xl font-black text-on-surface">
+                      {service.price}
                     </span>
                   </div>
-
-                  {/* Header & Desc */}
-                  <div className="space-y-4">
-                    <h2 className="text-5xl xl:text-6xl font-black text-on-surface leading-none uppercase italic font-serif">
-                      {service.title}
-                    </h2>
-                    <p className="text-on-surface/90 text-lg leading-relaxed font-medium">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Highlights & Duration */}
-                  <div className="flex flex-col items-center gap-4 py-2">
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {service.highlights.map((h, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-on-surface/5 rounded-full text-[10px] font-black uppercase tracking-widest text-on-surface/80 border border-on-surface/10"
-                        >
-                          {h}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-2 text-primary">
-                      <Clock size={16} />
-                      <span className="font-black text-xs uppercase tracking-widest">
-                        {service.duration}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Review Snippet */}
-                  <div className="relative px-8 pt-6 pb-4 bg-on-surface/5 rounded-3xl border border-on-surface/20">
-                    <Quote
-                      className="absolute top-2 left-2 text-primary/30 rotate-180"
-                      size={24}
-                    />
-                    <p className="text-on-surface/90 text-sm italic font-medium leading-relaxed mb-2">
-                      "{service.review}"
-                    </p>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-primary">
-                      — {service.clientName}
-                    </span>
-                  </div>
-
-                  {/* Pricing & CTA */}
-                  <div className="flex flex-col items-center gap-4 pt-4 w-full">
-                    <div className="flex flex-col items-center">
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-on-surface/60 mb-1">
-                        Ritual Investment
-                      </span>
-                      <span className="text-4xl font-black text-on-surface italic font-serif tracking-tight">
-                        {service.price}
-                      </span>
-                    </div>
-                    <Link to="/contact" className="w-full">
-                      <button className="btn-premium-gold w-full py-4 text-sm tracking-widest">
-                        Book Ritual
-                      </button>
-                    </Link>
-                  </div>
+                  <Link to="/contact">
+                    <button className="btn-premium-gold px-6 py-3 text-xs">
+                      Book Ritual
+                    </button>
+                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Right Column: Pinned Visualization */}
-          <div
-            className="h-screen sticky top-0 flex items-center justify-center overflow-hidden"
-            ref={rightColRef}
-          >
-            <div className="relative w-full max-w-[450px] xl:max-w-[500px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-8 border-white bg-white">
-              {services.map((service) => (
-                <div key={service.id} className="absolute inset-0 z-0">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="showcase-img w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-                </div>
-              ))}
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop Layout (dt +) */}
+      <div className="hidden dt:grid max-w-7xl mx-auto px-12 grid-cols-2 gap-16 xl:gap-24 pb-32">
+        {/* Left Column: Rich Content */}
+        <div className="space-y-0 flex flex-col items-center">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="showcase-info h-screen flex items-center justify-center text-center"
+            >
+              <div className="max-w-md space-y-7 flex flex-col items-center">
+                {/* Badge & Icon */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="p-4 bg-primary text-white rounded-2xl shadow-luxury-deep">
+                    {service.icon}
+                  </div>
+                  <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">
+                    {service.category}
+                  </span>
+                </div>
+
+                {/* Header & Desc */}
+                <div className="space-y-4">
+                  <h2 className="text-5xl xl:text-6xl font-black text-on-surface leading-none uppercase italic font-serif">
+                    {service.title}
+                  </h2>
+                  <p className="text-on-surface/90 text-lg leading-relaxed font-medium">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Highlights & Duration */}
+                <div className="flex flex-col items-center gap-4 py-2">
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {service.highlights.map((h, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-on-surface/5 rounded-full text-[10px] font-black uppercase tracking-widest text-on-surface/80 border border-on-surface/10"
+                      >
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-2 text-primary">
+                    <Clock size={16} />
+                    <span className="font-black text-xs uppercase tracking-widest">
+                      {service.duration}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Review Snippet */}
+                <div className="relative px-8 pt-6 pb-4 bg-on-surface/5 rounded-3xl border border-on-surface/20">
+                  <Quote
+                    className="absolute top-2 left-2 text-primary/30 rotate-180"
+                    size={24}
+                  />
+                  <p className="text-on-surface/90 text-sm italic font-medium leading-relaxed mb-2">
+                    "{service.review}"
+                  </p>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-primary">
+                    — {service.clientName}
+                  </span>
+                </div>
+
+                {/* Pricing & CTA */}
+                <div className="flex flex-col items-center gap-4 pt-4 w-full">
+                  <div className="flex flex-col items-center">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-on-surface/60 mb-1">
+                      Ritual Investment
+                    </span>
+                    <span className="text-4xl font-black text-on-surface italic font-serif tracking-tight">
+                      {service.price}
+                    </span>
+                  </div>
+                  <Link to="/contact" className="w-full">
+                    <button className="btn-premium-gold w-full py-4 text-sm tracking-widest">
+                      Book Ritual
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Column: Pinned Visualization */}
+        <div
+          className="h-screen sticky top-0 flex items-center justify-center overflow-hidden"
+          ref={rightColRef}
+        >
+          <div className="relative w-full max-w-[450px] xl:max-w-[500px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-8 border-white bg-white">
+            {services.map((service) => (
+              <div key={service.id} className="absolute inset-0 z-0">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="showcase-img w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+            ))}
           </div>
         </div>
       </div>

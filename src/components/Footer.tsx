@@ -10,7 +10,7 @@ import {
   Facebook,
   Twitter,
 } from "lucide-react";
-import logo from "../assets/zentonsz.png";
+import logo from "../assets/zentonez.png";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -39,8 +39,8 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-background relative overflow-hidden pt-6 sm:pt-12 border-t border-secondary/20">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+    <footer className="bg-background relative overflow-hidden pt-6 tb:pt-12 border-t border-secondary/20">
+      <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
         
         {/* ── Navigation Tier ── */}
         <motion.div
@@ -48,27 +48,27 @@ const Footer: React.FC = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-5%" }}
-          className="grid grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-10 sm:gap-12 pb-6 sm:pb-12"
+          className="grid grid-cols-2 dt:grid-cols-12 gap-x-4 gap-y-10 tb:gap-12 pb-6 tb:pb-12"
         >
           {/* Brand Info - Full width on smallest mobile, then grid */}
           <motion.div 
             variants={itemVariants} 
-            className="col-span-2 lg:col-span-4 space-y-3 sm:space-y-4 lg:pr-12"
+            className="col-span-2 dt:col-span-4 space-y-3 tb:space-y-4 dt:pr-12"
           >
             <Link
               to="/"
-              className="flex items-center gap-2 group w-fit mx-auto sm:mx-0"
+              className="flex items-center gap-2 group w-fit mx-auto mb:mx-0"
             >
               <img
                 src={logo}
-                alt="Zen Tonez"
-                className="h-7 sm:h-9 w-auto drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
+                alt="Zentonez"
+                className="h-7 tb:h-9 w-auto drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
-            <p className="text-on-surface/70 leading-relaxed font-medium text-[11px] sm:text-[13px] text-center sm:text-left italic lg:max-w-xs px-4 sm:px-0">
+            <p className="text-on-surface/70 leading-relaxed font-medium text-[11px] tb:text-[13px] text-center mb:text-left italic dt:max-w-xs px-4 mb:px-0">
               Elevating beauty with premium services and expert care. Your transformation is our passion.
             </p>
-            <div className="flex space-x-2.5 pt-1 justify-center sm:justify-start">
+            <div className="flex space-x-2.5 pt-1 justify-center mb:justify-start">
               {[Instagram, Facebook, Twitter].map((Icon, i) => (
                 <motion.a
                   whileHover={{ y: -2, scale: 1.1 }}
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className="p-1.5 bg-secondary/10 text-[#C9A24A] rounded-full hover:bg-[#C9A24A] hover:text-[#2B2B2B] transition-all duration-300 border border-[#C9A24A]/20"
                 >
-                  <Icon size={12} className="sm:w-4 sm:h-4" />
+                  <Icon size={12} className="tb:w-4 tb:h-4" />
                 </motion.a>
               ))}
             </div>
@@ -85,22 +85,22 @@ const Footer: React.FC = () => {
           {/* Quick Links - Side-by-side on mobile */}
           <motion.div
             variants={itemVariants}
-            className="col-span-1 lg:col-span-2 flex flex-col items-center sm:items-start"
+            className="col-span-1 dt:col-span-2 flex flex-col items-center mb:items-start"
           >
-            <h3 className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-[#C9A24A] border-b border-[#C9A24A]/20 pb-1.5 mb-3 w-full text-center sm:text-left">
+            <h3 className="text-[8px] tb:text-[9px] font-black uppercase tracking-[0.3em] text-[#C9A24A] border-b border-[#C9A24A]/20 pb-1.5 mb-3 w-full text-center mb:text-left">
               Explore
             </h3>
-            <ul className="space-y-1.5 sm:space-y-3">
+            <ul className="space-y-1.5 tb:space-y-3">
               {[
                 { label: "Home", path: "/" },
                 { label: "Our Story", path: "/about" },
                 { label: "Our Work", path: "/gallery" },
                 { label: "Contact Us", path: "/contact" },
               ].map((item) => (
-                <li key={item.label} className="flex justify-center sm:justify-start">
+                <li key={item.label} className="flex justify-center mb:justify-start">
                   <Link
                     to={item.path}
-                    className="group text-on-surface/80 hover:text-white transition-colors text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-center sm:text-left"
+                    className="group text-on-surface/80 hover:text-white transition-colors text-[8px] tb:text-[9px] font-black uppercase tracking-widest text-center mb:text-left"
                   >
                     {item.label}
                   </Link>
@@ -112,21 +112,22 @@ const Footer: React.FC = () => {
           {/* Services - Side-by-side on mobile */}
           <motion.div
             variants={itemVariants}
-            className="col-span-1 lg:col-span-3 flex flex-col items-center sm:items-start"
+            className="col-span-1 dt:col-span-3 flex flex-col items-center mb:items-start"
           >
-            <h3 className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-[#C9A24A] border-b border-[#C9A24A]/20 pb-1.5 mb-3 w-full text-center sm:text-left">
+            <h3 className="text-[8px] tb:text-[9px] font-black uppercase tracking-[0.3em] text-[#C9A24A] border-b border-[#C9A24A]/20 pb-1.5 mb-3 w-full text-center mb:text-left">
               Services
             </h3>
-            <ul className="space-y-1.5 sm:space-y-3">
+            <ul className="space-y-1.5 tb:space-y-3">
               {[
                 "Bridal Makeup",
                 "Hair Styling",
+                "Artisan Hair Spa",
                 "Skin Therapy",
                 "Nail Art",
               ].map((s) => (
                 <li
                   key={s}
-                  className="text-on-surface/80 text-[8px] sm:text-[9px] font-black uppercase tracking-widest cursor-default text-center sm:text-left"
+                  className="text-on-surface/80 text-[8px] tb:text-[9px] font-black uppercase tracking-widest cursor-default text-center mb:text-left"
                 >
                   {s}
                 </li>
@@ -137,33 +138,33 @@ const Footer: React.FC = () => {
           {/* Contact Info - Full width on smallest mobile */}
           <motion.div
             variants={itemVariants}
-            className="col-span-2 lg:col-span-3 flex flex-col items-center sm:items-start"
+            className="col-span-2 dt:col-span-3 flex flex-col items-center mb:items-start"
           >
-            <h3 className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-[#C9A24A] border-b border-[#C9A24A]/20 pb-1.5 mb-3 w-full text-center sm:text-left">
+            <h3 className="text-[8px] tb:text-[9px] font-black uppercase tracking-[0.3em] text-[#C9A24A] border-b border-[#C9A24A]/20 pb-1.5 mb-3 w-full text-center mb:text-left">
               Visit Us
             </h3>
-            <ul className="space-y-2 sm:space-y-3 w-full flex flex-col items-center sm:items-start">
-              <li className="flex flex-col sm:flex-row items-center sm:items-start gap-1.5 text-center sm:text-left">
-                <MapPin className="text-[#C9A24A] shrink-0 w-2.5 h-2.5 sm:w-3 sm:h-3 sm:mt-0.5" />
-                <span className="text-on-surface/80 text-[8px] sm:text-[10px] font-black uppercase tracking-widest">
+            <ul className="space-y-2 tb:space-y-3 w-full flex flex-col items-center mb:items-start">
+              <li className="flex flex-col mb:flex-row items-center mb:items-start gap-1.5 text-center mb:text-left">
+                <MapPin className="text-[#C9A24A] shrink-0 w-2.5 h-2.5 tb:w-3 tb:h-3 tb:mt-0.5" />
+                <span className="text-on-surface/80 text-[8px] tb:text-[10px] font-black uppercase tracking-widest">
                   Thillai Nagar, Trichy
                 </span>
               </li>
-              <div className="flex flex-row sm:flex-col gap-4 sm:gap-3 justify-center">
-                <li className="flex flex-col sm:flex-row items-center sm:items-start gap-1.5 group cursor-pointer text-center sm:text-left">
-                  <Phone className="text-[#C9A24A] w-2.5 h-2.5 sm:w-3 sm:h-3" />
+              <div className="flex flex-row mb:flex-col gap-4 tb:gap-3 justify-center">
+                <li className="flex flex-col mb:flex-row items-center mb:items-start gap-1.5 group cursor-pointer text-center mb:text-left">
+                  <Phone className="text-[#C9A24A] w-2.5 h-2.5 tb:w-3 tb:h-3" />
                   <a
                     href="tel:+919876543210"
-                    className="text-on-surface/80 text-[8px] sm:text-[10px] group-hover:text-white transition-colors font-black uppercase tracking-widest"
+                    className="text-on-surface/80 text-[8px] tb:text-[10px] group-hover:text-white transition-colors font-black uppercase tracking-widest"
                   >
                     +91 98765 43210
                   </a>
                 </li>
-                <li className="flex flex-col sm:flex-row items-center sm:items-start gap-1.5 group cursor-pointer text-center sm:text-left">
-                  <Mail className="text-[#C9A24A] w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                <li className="flex flex-col mb:flex-row items-center mb:items-start gap-1.5 group cursor-pointer text-center mb:text-left">
+                  <Mail className="text-[#C9A24A] w-2.5 h-2.5 tb:w-3 tb:h-3" />
                   <a
                     href="mailto:info@zentonez.com"
-                    className="text-on-surface/80 text-[8px] sm:text-[10px] group-hover:text-white transition-colors font-black uppercase tracking-widest"
+                    className="text-on-surface/80 text-[8px] tb:text-[10px] group-hover:text-white transition-colors font-black uppercase tracking-widest"
                   >
                     info@zentonez.com
                   </a>
@@ -176,11 +177,11 @@ const Footer: React.FC = () => {
 
       {/* ── Bottom Tier ── */}
       <div className="relative border-t border-white/5 bg-black/20">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center px-6 py-3 sm:py-5 gap-2 relative z-20">
-          <p className="text-on-surface/40 text-[7px] sm:text-[9px] font-black uppercase tracking-[0.2em]">
-            © {currentYear} Zen Tonez.
+        <div className="max-w-7xl mx-auto flex flex-col tb:flex-row justify-between items-center px-6 py-3 tb:py-5 gap-2 relative z-20">
+          <p className="text-on-surface/40 text-[7px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
+            © {currentYear} Zentonez.
           </p>
-          <div className="flex items-center gap-2 sm:gap-4 text-[7px] sm:text-[9px] uppercase font-black tracking-[0.2em] text-on-surface/40">
+          <div className="flex items-center gap-2 tb:gap-4 text-[7px] tb:text-[9px] uppercase font-black tracking-[0.2em] text-on-surface/40">
             <span className="hover:text-[#C9A24A] cursor-pointer transition-colors">
               Privacy Policy
             </span>
@@ -192,8 +193,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Oversized Background Text - Subtler on mobile */}
-        <div className="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none select-none z-0 overflow-hidden opacity-[0.03] sm:opacity-5 translate-y-1/2">
-          <h1 className="text-[14vw] sm:text-[15vw] font-black font-serif italic text-white/5 leading-none tracking-tighter">
+        <div className="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none select-none z-0 overflow-hidden opacity-[0.03] tb:opacity-5 translate-y-1/2">
+          <h1 className="text-[14vw] tb:text-[15vw] font-black font-serif italic text-white/5 leading-none tracking-tighter">
             ZENTONEZ
           </h1>
         </div>

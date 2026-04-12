@@ -139,7 +139,7 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
                 <div 
                   className="voyage-slide" 
                   {...(status ? { [`data-${status}`]: "" } : {})}
-                  style={{ zIndex: isCurrent ? 20 : (isNext ? 10 : 30) }}
+                  style={{ zIndex: isCurrent ? 50 : (isNext || isPrev ? 30 : 10) }}
                 >
                   <div className="voyage-slide__inner">
                     <div className="voyage-slide--image__wrapper">

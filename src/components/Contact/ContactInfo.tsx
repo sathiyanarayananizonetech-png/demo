@@ -62,22 +62,22 @@ const ContactInfoCard: React.FC<{ info: ContactInfoData; idx: number }> = ({
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: idx * 0.1 }}
       style={{ perspective: "1000px" }}
-      className="rounded-3xl sm:rounded-5xl border border-transparent transition-colors duration-500"
+      className="rounded-3xl tb:rounded-5xl border border-transparent transition-colors duration-500"
     >
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="flex items-start gap-3 sm:gap-4 p-5 sm:p-8 bg-primary/5 backdrop-blur-sm rounded-3xl sm:rounded-5xl border border-primary/10 shadow-sm cursor-pointer will-change-transform backface-hidden"
+        className="flex items-start gap-3 tb:gap-4 p-5 tb:p-8 bg-primary/5 backdrop-blur-sm rounded-3xl tb:rounded-5xl border border-primary/10 shadow-sm cursor-pointer will-change-transform backface-hidden"
       >
-        <div className="p-3 sm:p-4 bg-primary/10 rounded-xl sm:rounded-2xl shadow-sm text-primary shrink-0 border border-primary/20">
+        <div className="p-3 tb:p-4 bg-primary/10 rounded-xl tb:rounded-2xl shadow-sm text-primary shrink-0 border border-primary/20">
           {info.icon}
         </div>
         <div className="min-w-0">
-          <h4 className="text-slate-900/40 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] mb-1 font-black leading-none">
+          <h4 className="text-slate-900/40 text-[9px] tb:text-[10px] uppercase tracking-[0.2em] mb-1 font-black leading-none">
             {info.title}
           </h4>
-          <p className="text-[#302b27] font-bold text-base sm:text-lg italic tracking-tight leading-tight wrap-break-word">
+          <p className="text-[#302b27] font-bold text-base tb:text-lg italic tracking-tight leading-tight wrap-break-word">
             {info.content}
           </p>
         </div>
@@ -153,13 +153,13 @@ const ContactInfo: React.FC = () => {
     {
       icon: <Mail size={20} />,
       title: "Email Us",
-      content: "hello@zentonszbeauty.com",
+      content: "hello@zentonezbeauty.com",
     },
   ];
 
   return (
     <div className="lg:col-span-1 space-y-6 sm:space-y-10">
-      <div className="space-y-4 sm:space-y-6">
+      <div className="space-y-4 tb:space-y-6">
         {contactInfoData.map((info, i) => (
           <ContactInfoCard key={i} info={info} idx={i} />
         ))}
@@ -170,26 +170,26 @@ const ContactInfo: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="p-7 sm:p-10 bg-on-surface text-background rounded-3xl sm:rounded-4xl relative overflow-hidden shadow-luxury-deep"
+        className="p-7 tb:p-10 bg-on-surface text-background rounded-3xl tb:rounded-4xl relative overflow-hidden shadow-luxury-deep"
       >
-        <div className="absolute top-6 right-5 sm:top-8 sm:right-8 flex flex-col items-end pointer-events-none">
+        <div className="absolute top-6 right-5 tb:top-8 tb:right-8 flex flex-col items-end pointer-events-none">
           <div className="flex items-center gap-1.5 text-primary/40 mb-1">
             <Clock size={12} />
-            <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em]">
+            <span className="text-[8px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
               Live IST
             </span>
           </div>
           <div className="text-right flex items-baseline justify-end gap-1 whitespace-nowrap">
-            <span className="text-xl sm:text-3xl font-black italic text-primary font-serif tracking-tight drop-shadow-lg tabular-nums">
+            <span className="text-xl tb:text-3xl font-black italic text-primary font-serif tracking-tight drop-shadow-lg tabular-nums">
               {currentTime.split(" ")[0]}
             </span>
-            <span className="text-[9px] sm:text-xs font-bold uppercase tracking-widest text-primary/70">
+            <span className="text-[9px] tb:text-xs font-bold uppercase tracking-widest text-primary/70">
               {currentTime.split(" ")[1]}
             </span>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between items-center gap-3 mb-6 sm:mb-8 border-b border-white/10 pb-4">
-          <h4 className="text-xl sm:text-2xl font-black italic uppercase font-serif m-0 shrink-0">
+        <div className="flex flex-wrap justify-between items-center gap-3 mb-6 tb:mb-8 border-b border-white/10 pb-4">
+          <h4 className="text-xl tb:text-2xl font-black italic uppercase font-serif m-0 shrink-0">
             Opening Hours
           </h4>
           <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full border border-white/10 shrink-0">
@@ -202,38 +202,38 @@ const ContactInfo: React.FC = () => {
               ></span>
             </span>
             <span
-              className={`text-[9px] sm:text-[10px] font-black tracking-widest uppercase whitespace-nowrap ${isOpen ? "text-green-500" : "text-red-500"}`}
+              className={`text-[9px] tb:text-[10px] font-black tracking-widest uppercase whitespace-nowrap ${isOpen ? "text-green-500" : "text-red-500"}`}
             >
               {isOpen ? "Open Now" : "Closed"}
             </span>
           </div>
         </div>
-        <ul className="space-y-4 sm:space-y-6">
+        <ul className="space-y-4 tb:space-y-6">
           <li className="flex justify-between items-center">
-            <span className="text-primary font-medium tracking-widest uppercase text-[9px] sm:text-[10px]">
+            <span className="text-primary font-medium tracking-widest uppercase text-[9px] tb:text-[10px]">
               Mon – Sat:
             </span>
-            <span className="text-green-400 font-bold text-sm sm:text-base">
+            <span className="text-green-400 font-bold text-sm tb:text-base">
               10:00 AM – 08:30 PM
             </span>
           </li>
           <li className="flex justify-between items-center">
-            <span className="text-primary font-medium tracking-widest uppercase text-[9px] sm:text-[10px]">
+            <span className="text-primary font-medium tracking-widest uppercase text-[9px] tb:text-[10px]">
               Sunday:
             </span>
-            <span className="text-red-500 font-black italic text-sm sm:text-base">
+            <span className="text-red-500 font-black italic text-sm tb:text-base">
               Closed
             </span>
           </li>
         </ul>
-        <div className="mt-8 sm:mt-12 flex gap-4 sm:gap-6">
+        <div className="mt-8 tb:mt-12 flex gap-4 tb:gap-6">
           {[Instagram, Facebook, Twitter].map((Icon, idx) => (
             <motion.a
               key={idx}
               whileHover={{ scale: 1.2, rotate: 10 }}
               href="#"
               aria-label={["Instagram", "Facebook", "Twitter"][idx]}
-              className="p-3 sm:p-4 bg-amber-50/10 rounded-xl sm:rounded-2xl hover:bg-primary transition-colors duration-300 tap-target"
+              className="p-3 tb:p-4 bg-amber-50/10 rounded-xl tb:rounded-2xl hover:bg-primary transition-colors duration-300 tap-target"
             >
               <Icon size={18} />
             </motion.a>

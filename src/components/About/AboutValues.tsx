@@ -62,7 +62,7 @@ const AboutValues: React.FC = () => {
             <div className="space-y-8 sm:space-y-12">
               <div>
                 <h4 className="text-2xl sm:text-3xl font-serif italic text-on-surface mb-4 sm:mb-6 underline decoration-primary-container underline-offset-8">
-                  Why Trust Zen Tonez?
+                  Why Trust Zentonez?
                 </h4>
                 <p className="text-on-surface/80 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base italic font-serif font-medium">
                   "Trust isn't given; it's earned through consistent quality,

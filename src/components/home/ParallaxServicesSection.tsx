@@ -43,23 +43,23 @@ const parallaxServices = [
 
 export function ParallaxServicesSection() {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 relative bg-background overflow-hidden">
+    <section className="py-10 tb:py-20 dt:py-32 relative bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-10 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full bg-secondary/10 text-primary border border-secondary/20 shadow-sm mb-4">
+          <div className="text-center mb-10 tb:mb-16">
+            <div className="inline-flex items-center gap-2 px-4 tb:px-6 py-2 rounded-full bg-secondary/10 text-primary border border-secondary/20 shadow-sm mb-4">
               <Sparkles size={14} />
-              <span className="font-bold uppercase tracking-widest text-[9px] sm:text-[10px]">
+              <span className="font-bold uppercase tracking-widest text-[9px] tb:text-[10px]">
                 Our Full Portfolio
               </span>
             </div>
-            <h2 className="text-section-title font-black text-on-surface mb-4 sm:mb-6 uppercase tracking-tighter italic font-serif">
-              Everything You Need to <br className="hidden sm:block" />
+            <h2 className="text-section-title font-black text-on-surface mb-4 tb:mb-6 uppercase tracking-tighter italic font-serif leading-tight">
+              Everything You Need to <br className="hidden tb:block" />
               <span className="text-primary">Shine Brighter</span>
             </h2>
-            <p className="text-base sm:text-lg text-on-surface/80 max-w-xl sm:max-w-2xl mx-auto font-medium">
+            <p className="text-base tb:text-lg text-on-surface/80 max-w-xl tb:max-w-2xl mx-auto font-medium leading-relaxed px-4 mb:px-0">
               Explore our comprehensive collection of beauty therapies. From
               bridal masterpieces to routine pampering.
             </p>
@@ -84,12 +84,12 @@ export function ParallaxServicesSection() {
         </div>
 
         <ScrollReveal delay={0.2}>
-          <div className="mt-10 sm:mt-16 text-center">
+          <div className="mt-10 tb:mt-16 text-center px-4 mb:px-0">
             <Link to="/services">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-premium-gold px-8 py-3.5"
+                className="btn-premium-gold w-full mb:w-auto px-8 py-3.5"
               >
                 View Detailed Service Menu
               </motion.button>
