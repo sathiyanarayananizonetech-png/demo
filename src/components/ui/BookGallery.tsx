@@ -24,7 +24,7 @@ const BookGallery: React.FC = () => {
   ];
 
   return (
-    <div className="book-gallery-container w-full h-full min-h-svh relative flex items-center justify-center overflow-hidden bg-background">
+    <div className="book-gallery-container w-full h-full relative flex items-center justify-center overflow-hidden">
       <style>{`
         .scene {
           width: 100%;

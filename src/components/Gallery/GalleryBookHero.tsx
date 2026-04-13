@@ -37,9 +37,10 @@ const GalleryBookHero: React.FC = () => {
             scrollTrigger: {
               trigger: bookHero,
               start: "top top",
-              end: isMobile ? "+=600%" : "+=400%",
+              end: isMobile ? "+=500%" : "+=400%",
               scrub: 1,
               pin: true,
+              pinSpacing: true,
               anticipatePin: 1,
             },
           });
@@ -66,14 +67,18 @@ const GalleryBookHero: React.FC = () => {
             );
           }
 
-          // Fade out hero text at the start
+          // Fade out hero text and dark overlay at the start
           tl.to(
-            bookHero.querySelector(".book-text-overlay"),
+            [
+              bookHero.querySelector(".book-text-overlay"),
+              bookHero.querySelector(".mobile-hero-overlay"),
+            ],
             {
               opacity: 0,
               y: -30,
               duration: 1.5,
               ease: "power2.inOut",
+              stagger: 0.2, // Slightly staggered for a nicer feel
             },
             0,
           );
@@ -88,7 +93,7 @@ const GalleryBookHero: React.FC = () => {
               ease: "power2.inOut",
               force3D: true,
             },
-            !isMobile && !isTablet ? 1 : 0,
+            !isMobile && !isTablet ? 1 : 0.3, // Slight delay on mobile for cleaner fade
           ).addLabel("expandEnd");
 
           // Step 2: Open Book (Starts strictly after expandEnd on mobile)
@@ -96,8 +101,8 @@ const GalleryBookHero: React.FC = () => {
             // Set initial 3D properties
             gsap.set(page, { rotationY: 0, transformPerspective: 1200 });
 
-            // On mobile, ensure first page flip waits for the expansion logic
-            const position = i === 0 ? "expandEnd" : "-=0.2";
+            // Force the first page flip to align with the expansion logic more tightly
+            const position = i === 0 ? "expandEnd-=0.5" : "-=0.2";
 
             tl.to(
               page,
@@ -121,9 +126,19 @@ const GalleryBookHero: React.FC = () => {
       );
     }
 
-    return () => {
-      mm.revert();
-    };
+      // Refresh ScrollTrigger once images start loading and on resize
+      const handleResize = () => ScrollTrigger.refresh();
+      window.addEventListener('resize', handleResize);
+
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 1000);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        clearTimeout(timer);
+        mm.revert();
+      };
   }, []);
 
   return (
@@ -131,6 +146,9 @@ const GalleryBookHero: React.FC = () => {
       ref={heroRef}
       className="snap-section book-hero-section min-h-svh! relative overflow-hidden"
     >
+      {/* Mobile-only dark overlay for better text legibility - added pointer-events-none to prevent scroll blocking */}
+      <div className="absolute inset-0 bg-slate-900/60 z-15 sm:hidden pointer-events-none mobile-hero-overlay" />
+
       <div className="absolute inset-0 flex flex-col items-center justify-center tb:justify-start pt-12 tb:pt-32 px-4 text-center z-20 pointer-events-none book-text-overlay">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -138,18 +156,18 @@ const GalleryBookHero: React.FC = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="glow-text"
         >
-          <h1 className="text-display font-pacifico text-slate-900 mb-4 tb:mb-6 normal-case glow-text mt-8 tb:mt-12">
-            <SparkleHeading text="The Signature" className="text-slate-900" />
+          <h1 className="text-display font-pacifico text-slate-900 sm:text-slate-900 text-white mb-4 tb:mb-6 normal-case glow-text mt-8 tb:mt-12">
+            <SparkleHeading text="The Artisanal" className="sm:text-slate-900 text-white" />
             <br className="dt:block hidden" />
             <SparkleHeading
-              text="Lookbook"
+              text="Chapters"
               className="text-primary"
               sparkleScale={1.3}
             />
           </h1>
-          <p className="text-base tb:text-xl dt:text-2xl text-slate-600/80 leading-relaxed max-w-2xl mx-auto px-4 mb:px-0">
-            "A curated journey through the art of transformation, from our
-            master stylists to your personal reflection."
+          <p className="text-base tb:text-xl dt:text-2xl text-slate-600/80 sm:text-slate-600/80 text-white/90 leading-relaxed max-w-2xl mx-auto px-4 mb:px-0 font-medium sm:font-normal">
+            "A curated journey through the ethereal art of transformation. Each
+            chapter reveals a new facet of bespoke beauty and soul."
           </p>
         </motion.div>
       </div>

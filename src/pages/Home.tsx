@@ -4,6 +4,8 @@ import { ParallaxServicesSection } from "../components/home/ParallaxServicesSect
 import { PromoQuoteSection } from "../components/home/PromoQuoteSection";
 import { ServicesSection } from "../components/home/ServicesSection";
 import { AboutPreviewSection } from "../components/home/AboutPreviewSection";
+import { PricingSection } from "../components/home/PricingSection";
+import AboutTestimonials from "../components/About/AboutTestimonials";
 
 function Home() {
   return (
@@ -12,7 +14,9 @@ function Home() {
       <ServicesSection />
       <AboutPreviewSection />
       <CommunityStatsSection />
+      <PricingSection />
       <ParallaxServicesSection />
+      <AboutTestimonials />
       <PromoQuoteSection />
     </div>
   );

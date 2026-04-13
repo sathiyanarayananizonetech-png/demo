@@ -35,166 +35,83 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: 1,
-    title: "Bridal Transformation",
-    category: "Makeup Ritual",
+    title: "Bridal Artistry",
+    category: "Bridal",
     description:
-      "Our signature bridal service crafting a flawless foundation and ethereal radiance.",
-    price: "₹5000",
-    duration: "180 Mins",
+      "Look absolutely radiant on your most special day with our complete bridal transformation rituals.",
+    price: "₹15,000+",
+    duration: "240 Mins",
     review:
-      "The gold standard of bridal care. My makeup stayed perfect for over 12 hours!",
+      "The best bridal care in Tamil Nadu. My look was absolutely radiant and stayed perfect all day.",
     clientName: "Priya R.",
-    highlights: ["HD Airbrushing", "Hairstyling", "Saree Draping"],
+    highlights: ["HD Airbrushing", "Saree Draping", "Bridal Glow"],
     image: bridalImage,
     icon: <Sparkles size={24} />,
     color: "#F4F1EC",
   },
   {
     id: 2,
-    title: "Advanced Hair Styling",
-    category: "Artisan Hair",
+    title: "Hair Cuts & Styling",
+    category: "Hair Services",
     description:
-      "Precision cuts and vibrant global coloring treatments for your unique identity.",
-    price: "₹1200",
-    duration: "90 Mins",
+      "Nourish, style, and restore your hair to its finest with our expert cutting and styling services.",
+    price: "₹1,500+",
+    duration: "60 Mins",
     review:
-      "Best hair transformation I've had. The coloring is exactly what I wanted.",
+      "A genuine hair transformation. The stylists understand exactly what looks best on you.",
     clientName: "Ananya S.",
-    highlights: ["Global Color", "Layered Cuts", "Spa Hair Wash"],
+    highlights: ["Shampoo & Condition", "Layered Cut", "Blow Dry"],
     image: hairImage,
     icon: <Scissors size={24} />,
     color: "#E8E4DD",
   },
   {
     id: 3,
-    title: "Radiance Skin Therapy",
-    category: "Skin Alchemy",
+    title: "Skin Care & Facials",
+    category: "Skin Care",
     description:
-      "Customized facials using international products to restore your natural health.",
-    price: "₹1500",
-    duration: "60 Mins",
+      "Glow from within with our expert facial and skin treatments designed for every skin type.",
+    price: "₹400+",
+    duration: "45 Mins",
     review:
-      "My skin felt like silk after just one session. Truly a nurturing experience.",
+      "The most affordable yet premium facials I've ever had. My skin is glowing like never before.",
     clientName: "Meera V.",
-    highlights: ["Crystal Peels", "Hydration Therapy", "LED Masking"],
+    highlights: ["Deep Cleansing", "Fruit Facials", "D-Tan Treatment"],
     image: skinImage,
     icon: <Heart size={24} />,
     color: "#F2EFE9",
   },
   {
     id: 4,
-    title: "Artisan Hair Spa",
-    category: "Hair Wellness",
+    title: "Hair Spa Rituals",
+    category: "Hair Services",
     description:
-      "A revitalizing hair ritual that deep cleanses and nourishes, leaving your hair silky and manageable.",
-    price: "₹1800",
-    duration: "60 Mins",
+      "Deeply nourish your hair and scalp with our premium hair spa and restoration treatments.",
+    price: "₹1,500+",
+    duration: "75 Mins",
     review:
-      "The hair spa was incredible. My hair hasn't felt this soft and healthy in years!",
+      "My hair was brittle and dry, but one session of their spa ritual made it weightless and shiny.",
     clientName: "Meghna K.",
-    highlights: ["Scalp Detox", "Steam Therapy", "Keratin Infusion"],
+    highlights: ["Scalp Massage", "Steam Therapy", "Serum Infusion"],
     image: spaImage,
     icon: <Droplets size={24} />,
     color: "#E3DFD5",
   },
   {
     id: 5,
-    title: "Event HD Makeup",
-    category: "High Definition",
+    title: "Nail Art & Beauty",
+    category: "Nails",
     description:
-      "Sophisticated and long-lasting looks for your most memorable social occasions.",
-    price: "₹3000",
-    duration: "90 Mins",
+      "Finish your look with flawless nails, featuring creative extensions and hand-painted designs.",
+    price: "₹1,500+",
+    duration: "60 Mins",
     review:
-      "I received so many compliments! The HD finish is perfect for photographers.",
-    clientName: "Sanya K.",
-    highlights: ["Photo-ready Finish", "Lash Enhancement", "Brow Sculpting"],
-    image: makeupImage,
-    icon: <Crown size={24} />,
-    color: "#F8F5F0",
-  },
-  {
-    id: 6,
-    title: "Designer Nail Art",
-    category: "Artistic Nails",
-    description:
-      "Creative extensions and intricate hand-painted designs from our master artists.",
-    price: "₹1500",
-    duration: "75 Mins",
-    review:
-      "Tiny canvases, massive impact! My nail art has been the talk of every party.",
+      "Absolutely love the nail art here. The designs are intricate and the quality is superb.",
     clientName: "Ishita D.",
-    highlights: ["Acrylic Extensions", "Artisanal Designs", "Buff & Polish"],
+    highlights: ["Acrylic Extensions", "Gel Polish", "Nail Art"],
     image: nailImage,
     icon: <Star size={24} />,
-    color: "#EBE8E0",
-  },
-  {
-    id: 7,
-    title: "Holistic Longevity",
-    category: "Elite Wellness",
-    description:
-      "Integrated programs tailored for long-term health and consistent outer glow.",
-    price: "₹4000",
-    duration: "Full Day",
-    review:
-      "A complete life balance reset. Highly recommend for busy professionals.",
-    clientName: "Karan B.",
-    highlights: ["Dietary Fusion", "Mental Reset", "Posture Correction"],
-    image: treatmentHero,
-    icon: <ShieldCheck size={24} />,
-    color: "#F4F1EC",
-  },
-  {
-    id: 8,
-    title: "Sanctuary Boutique",
-    category: "The Ambience",
-    description:
-      "Relax within our award-winning architectural home designed for calm.",
-    price: "Tour Now",
-    duration: "Permanent",
-    review: "The design alone lowers your stress level. An absolute paradise.",
-    clientName: "Sneha G.",
-    highlights: ["Eco-friendly Air", "Soundproof Rooms", "Zen Gardens"],
-    image: interiorLuxury,
-    icon: <MapPin size={24} />,
-    color: "#E3DFD5",
-  },
-  {
-    id: 9,
-    title: "Elite Salon Gear",
-    category: "Engineering",
-    description:
-      "Utilizing world-class equipment and precision vessels for highest safety.",
-    price: "Premium",
-    duration: "Perennial",
-    review:
-      "You can feel the quality of the tools. Everything is pristine and advanced.",
-    clientName: "Vikram P.",
-    highlights: [
-      "Medical-grade Sterility",
-      "Ergonomic Chairs",
-      "Precision Tools",
-    ],
-    image: salonVessel,
-    icon: <Gem size={24} />,
-    color: "#F2EFE9", // Linen
-  },
-  {
-    id: 10,
-    title: "Elite Master Art",
-    category: "Grand Ritual",
-    description:
-      "The pinnacle of our artisan crafts, performed by our most senior team.",
-    price: "Custom",
-    duration: "Varies",
-    review:
-      "Beyond just a service—it's genuine artistry and unmatched attention.",
-    clientName: "Dr. Aarti L.",
-    highlights: ["Master Consultation", "Legacy Techniques", "Aftercare Kit"],
-    image: aboutHero,
-    icon: <Users size={24} />,
-    color: "#E8E4DD",
+    color: "#F8F5F0",
   },
 ];
 
@@ -207,20 +124,7 @@ const ServicesShowcase: React.FC = () => {
 
     // Desktop Animation
     mm.add("(min-width: 769px)", () => {
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: "vertical",
-        smoothWheel: true,
-        wheelMultiplier: 1,
-        infinite: false,
-      });
-
-      function raf(time: number) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+      // Global Lenis is used, local RAF removed
 
       const imgs = gsap.utils.toArray<HTMLImageElement>(".showcase-img");
       const panels = gsap.utils.toArray<HTMLElement>(".showcase-info");
@@ -311,7 +215,7 @@ const ServicesShowcase: React.FC = () => {
       });
 
       return () => {
-        lenis.destroy();
+        // lenis cleanup removed as it's now global
       };
     });
 

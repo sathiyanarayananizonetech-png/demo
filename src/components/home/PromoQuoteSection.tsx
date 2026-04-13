@@ -15,20 +15,20 @@ export function PromoQuoteSection() {
               className="text-primary opacity-20 mx-auto mb-6 tb:mb-10 relative z-10"
             />
             <h3 className="text-2xl tb:text-4xl dt:text-5xl font-black text-on-surface mb-6 tb:mb-10 uppercase tracking-tighter italic font-serif relative z-10 leading-tight">
-              "Elegance is the beauty <br className="hidden mb:block" /> that never fades."
+              Ready to Glow? <br className="hidden mb:block" /> Book Your Session Today.
             </h3>
-            <p className="text-on-surface/80 text-base tb:text-lg dt:text-xl font-medium max-w-xl tb:max-w-2xl mx-auto mb-10 tb:mb-12 relative z-10 balance">
-              Step into a world of relaxation and luxury. Let our experts craft
-              the perfect look that reflects your true essence.
+            <p className="text-on-surface/80 text-base tb:text-lg dt:text-xl font-medium max-w-xl tb:max-w-2xl mx-auto mb:mb-10 tb:mb-12 relative z-10 balance">
+              Experience the perfect blend of luxury and care. Your transformation
+              masterpiece is just a click away.
             </p>
             <div className="relative z-10 flex justify-center">
-              <Link to="/contact" className="w-full mb:w-auto">
+              <Link to="/book" className="w-full mb:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="btn-premium-gold w-full mb:w-auto px-7 py-3.5 mb:px-10 mb:tb:px-14 mb:py-4 mb:tb:py-5 text-[10px] mb:text-sm tb:text-base shadow-xl"
                 >
-                  Start Your Journey Today
+                  Book Now →
                 </motion.button>
               </Link>
             </div>

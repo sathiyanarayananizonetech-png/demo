@@ -66,7 +66,8 @@ const Footer: React.FC = () => {
               />
             </Link>
             <p className="text-on-surface/70 leading-relaxed font-medium text-[11px] tb:text-[13px] text-center mb:text-left italic dt:max-w-xs px-4 mb:px-0">
-              Elevating beauty with premium services and expert care. Your transformation is our passion.
+              Where Beauty Meets Luxury. Elevating the art of beauty through
+              performance and soul.
             </p>
             <div className="flex space-x-2.5 pt-1 justify-center mb:justify-start">
               {[Instagram, Facebook, Twitter].map((Icon, i) => (
@@ -93,11 +94,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-1.5 tb:space-y-3">
               {[
                 { label: "Home", path: "/" },
-                { label: "Our Story", path: "/about" },
-                { label: "Our Work", path: "/gallery" },
-                { label: "Contact Us", path: "/contact" },
+                { label: "About", path: "/about" },
+                { label: "Services", path: "/services" },
+                { label: "Gallery", path: "/gallery" },
+                { label: "Contact", path: "/contact" },
               ].map((item) => (
-                <li key={item.label} className="flex justify-center mb:justify-start">
+                <li
+                  key={item.label}
+                  className="flex justify-center mb:justify-start"
+                >
                   <Link
                     to={item.path}
                     className="group text-on-surface/80 hover:text-white transition-colors text-[8px] tb:text-[9px] font-black uppercase tracking-widest text-center mb:text-left"
@@ -120,9 +125,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-1.5 tb:space-y-3">
               {[
                 "Bridal Makeup",
-                "Hair Styling",
-                "Artisan Hair Spa",
-                "Skin Therapy",
+                "Skin Care",
+                "Hair Care",
                 "Nail Art",
               ].map((s) => (
                 <li
@@ -154,19 +158,19 @@ const Footer: React.FC = () => {
                 <li className="flex flex-col mb:flex-row items-center mb:items-start gap-1.5 group cursor-pointer text-center mb:text-left">
                   <Phone className="text-[#C9A24A] w-2.5 h-2.5 tb:w-3 tb:h-3" />
                   <a
-                    href="tel:+919876543210"
+                    href="tel:9751231239"
                     className="text-on-surface/80 text-[8px] tb:text-[10px] group-hover:text-white transition-colors font-black uppercase tracking-widest"
                   >
-                    +91 98765 43210
+                    9751231239
                   </a>
                 </li>
                 <li className="flex flex-col mb:flex-row items-center mb:items-start gap-1.5 group cursor-pointer text-center mb:text-left">
                   <Mail className="text-[#C9A24A] w-2.5 h-2.5 tb:w-3 tb:h-3" />
                   <a
-                    href="mailto:info@zentonez.com"
+                    href="mailto:zentonezsalon@gmail.com"
                     className="text-on-surface/80 text-[8px] tb:text-[10px] group-hover:text-white transition-colors font-black uppercase tracking-widest"
                   >
-                    info@zentonez.com
+                    zentonezsalon@gmail.com
                   </a>
                 </li>
               </div>
@@ -179,7 +183,7 @@ const Footer: React.FC = () => {
       <div className="relative border-t border-white/5 bg-black/20">
         <div className="max-w-7xl mx-auto flex flex-col tb:flex-row justify-between items-center px-6 py-3 tb:py-5 gap-2 relative z-20">
           <p className="text-on-surface/40 text-[7px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
-            © {currentYear} Zentonez.
+            © 2025 Zentonez Parlour. All Rights Reserved.
           </p>
           <div className="flex items-center gap-2 tb:gap-4 text-[7px] tb:text-[9px] uppercase font-black tracking-[0.2em] text-on-surface/40">
             <span className="hover:text-[#C9A24A] cursor-pointer transition-colors">

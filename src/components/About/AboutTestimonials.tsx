@@ -10,21 +10,21 @@ import testimonal3 from "../../assets/testimonals/testimonal3.jpeg";
 const TESTIMONIALS = [
   {
     quote:
-      "Zentonez isn't just a parlour; it's an experience. The attention to detail and the hygiene standards are unparalleled in the city.",
+      "Zentonez is a living sanctuary of artistry. The attention to bespoke detail and the sanctuary-grade hygiene levels are unparalleled in the city.",
     name: "Meera Krishnan",
-    role: "Regular Client Since 2018",
+    role: "Regular Curation Since 2018",
     image: testimonal1,
   },
   {
     quote:
-      "My bridal transformation was exactly what I dreamed of. They understood my vision and executed it with such precision.",
+      "My ethereal bridal transformation was a masterpiece beyond my vision. They curated my presence with such precision and soul for my wedding day.",
     name: "Ritika Singh",
-    role: "Bridal Client 2023",
+    role: "Bridal Curation 2023",
     image: testimonal2,
   },
   {
     quote:
-      "The hair transition I received at Zentonez was beyond my expectations. The stylists are true artists who understand the weight of elegance.",
+      "The architectural hair ritual I received was beyond my expectations. The stylists are true master artisans who understand the weight of elegance.",
     name: "Ananya Iyer",
     role: "Signature Ritual Client",
     image: testimonal3,

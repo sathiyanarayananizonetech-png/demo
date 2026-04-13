@@ -35,21 +35,21 @@ const AboutHero: React.FC = () => {
             <div>
               <h1 className="text-display font-pacifico text-on-surface mb-6 glow-text leading-[1.1] normal-case">
                 <SparkleHeading
-                  text="Where Beauty"
+                  text="More Than a Salon"
                   className="text-on-surface"
                 />
                 <br className="dt:hidden" />
                 <SparkleHeading
-                  text="Meets Artistry"
+                  text="A Sanctuary"
                   className="text-primary"
                   sparkleScale={1.4}
                 />
               </h1>
 
               <p className="text-sm mb:text-base tb:text-lg dt:text-xl text-on-surface/90 leading-relaxed max-w-xl mx-auto dt:mx-0 mb-10 font-medium px-4 mb:px-0">
-                Step into a sanctuary of refined elegance, where every treatment
-                is a personalized ritual crafted to celebrate your unique
-                essence.
+                Beauty is confidence, self-love, and feeling truly seen. Zentonez
+                Parlour is a sanctuary for every woman, where luxury meets
+                personal care.
               </p>
 
               <div className="flex flex-col mb:flex-row items-center gap-4 mb:gap-6 justify-center dt:justify-start px-4 mb:px-0">

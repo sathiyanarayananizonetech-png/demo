@@ -69,24 +69,26 @@ export function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-center dt:text-left pt-12 dt:pt-0"
         >
-          <h1 className="text-display font-pacifico text-on-surface mb-4 tb:mb-6 mt-4 tb:mt-8 filter drop-shadow-xl normal-case">
-            <SparkleHeading
-              text="Your Radiant"
-              className="text-on-surface/90"
-            />
-            <div className="h-4 tb:h-6" />
-            <SparkleHeading
-              text="Essence"
-              className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary-container to-primary"
-              sparkleScale={1.8}
-            />
-          </h1>
+            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-primary mb-4 block font-bold">
+              Zentonez Parlour
+            </span>
+            <h1 className="text-display font-pacifico text-on-surface mb-4 tb:mb-6 mt-2 filter drop-shadow-xl normal-case">
+              <SparkleHeading
+                text="Where Beauty"
+                className="text-on-surface/90"
+              />
+              <div className="h-4 tb:h-6" />
+              <SparkleHeading
+                text="Meets Luxury"
+                className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary-container to-primary"
+                sparkleScale={1.8}
+              />
+            </h1>
 
-          <p className="text-sm mb:text-base tb:text-lg dt:text-xl text-on-surface/80 font-medium leading-relaxed max-w-xl mx-auto dt:mx-0 mb-8 tb:mb-10 px-4 mb:px-0">
-            "Step into a realm where modern artistry meets timeless grace.
-            Experience bespoke beauty rituals designed to celebrate your unique
-            essence with luxury and care."
-          </p>
+            <p className="text-sm mb:text-base tb:text-lg dt:text-xl text-on-surface/80 font-medium leading-relaxed max-w-xl mx-auto dt:mx-0 mb-8 tb:mb-10 px-4 mb:px-0">
+              Experience premium skincare, bridal styling, and professional hair
+              care — crafted exclusively for you, right here in Tamil Nadu.
+            </p>
 
           <motion.div
             className="flex flex-col mb:flex-row items-center gap-4 mb:gap-6 justify-center dt:justify-start px-4 mb:px-0"
@@ -94,13 +96,13 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <Link to="/contact" className="w-full mb:w-auto">
+            <Link to="/book" className="w-full mb:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-premium-gold w-full mb:w-auto px-6 py-3 mb:px-10 mb:py-4 text-[10px] mb:text-xs shadow-luxury-soft hover:shadow-luxury-deep"
               >
-                Book Your Session
+                Book Your Appointment →
               </motion.button>
             </Link>
 
@@ -110,7 +112,7 @@ export function HeroSection() {
                 whileTap={{ scale: 0.95 }}
                 className="btn-premium-outline w-full mb:w-auto px-6 py-3 mb:px-10 mb:py-4 border-primary/30 text-primary text-[10px] mb:text-xs"
               >
-                Explore Services
+                Explore Our Services
               </motion.button>
             </Link>
           </motion.div>

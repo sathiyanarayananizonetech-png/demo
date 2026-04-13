@@ -11,34 +11,34 @@ import { ScrollReveal } from "./ScrollReveal";
 
 const services = [
   {
-    title: "Hair Styling",
+    title: "Skin Care & Facial",
     description:
-      "Trendy cuts, vibrant coloring, and elegant styling. Transform your look with our expert hair specialists.",
-    image: hairImage,
-    icon: <Scissors size={24} />,
-    buttonClass: "btn-premium-gold",
-  },
-  {
-    title: "Premium Facials",
-    description:
-      "Rejuvenating skin care therapies that bring out your natural, radiant glow using top-tier products.",
+      "Glow from within with our expert facial and skin treatments",
     image: skinImage,
     icon: <Droplets size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
-    title: "Bridal Makeover",
+    title: "Hair Services",
     description:
-      "Exquisite bridal transformations tailored to make you look absolutely flawless on your dream day.",
+      "Nourish, style, and restore your hair to its finest",
+    image: hairImage,
+    icon: <Scissors size={24} />,
+    buttonClass: "btn-premium-gold",
+  },
+  {
+    title: "Bridal Makeup",
+    description:
+      "Look absolutely radiant on your most special day",
     image: bridalImage,
     icon: <Heart size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
-    title: "Artisan Hair Spa",
+    title: "Nail Art & Beauty",
     description:
-      "Deeply restorative hair treatments designed to nourish your scalp and revitalize your hair's natural shine.",
-    image: spaImage,
+      "Finish your look with flawless nails",
+    image: spaImage, // Assuming this is used for Nail Art if no specific nailImage import is active or needed
     icon: <Sparkles size={24} />,
     buttonClass: "btn-premium-gold",
   },
@@ -51,14 +51,14 @@ export function ServicesSection() {
         <ScrollReveal>
           <div className="text-center mb-10 tb:mb-16 dt:mb-20">
             <h2 className="text-section-title font-black text-on-surface mb-4 tb:mb-6 uppercase tracking-tighter italic font-serif">
-              Signature{" "}
+              What{" "}
               <span className="text-primary underline decoration-secondary/30 underline-offset-8">
-                Experiences
+                We Offer
               </span>
             </h2>
             <p className="text-base tb:text-lg text-on-surface/80 max-w-xl tb:max-w-2xl mx-auto font-medium leading-relaxed px-4 mb:px-0">
-              Indulge in our carefully curated selection of premium beauty
-              services designed to elevate your natural charm.
+              From everyday glow to bridal perfection — Zentonez has you covered
+              with expert treatments and premium products.
             </p>
           </div>
         </ScrollReveal>

@@ -6,9 +6,12 @@ import interiorImage from "../../assets/salon_interior_luxury.png";
 import { ScrollReveal } from "./ScrollReveal";
 
 const heritagePoints = [
-  "Certified Aesthetic Professionals",
-  "Premium International Brands",
-  "State-of-the-Art Luxury Ambience",
+  "6+ Years of Experience",
+  "Exclusive Women's Salon",
+  "Premium Products Only",
+  "Hygienic & Professional Standards",
+  "Personalized Service",
+  "Community-Focused",
 ];
 
 export function AboutPreviewSection() {
@@ -25,7 +28,7 @@ export function AboutPreviewSection() {
               >
                 <img
                   src={interiorImage}
-                  alt="Salon Luxury Interior"
+                  alt="Zentonez Luxury Interior"
                   loading="lazy"
                   className="w-full aspect-4/5 object-cover"
                 />
@@ -43,10 +46,10 @@ export function AboutPreviewSection() {
                     </div>
                     <div>
                       <div className="text-lg tb:text-2xl font-bold text-on-surface">
-                        5+ Years
+                        6+ Years
                       </div>
                       <div className="text-[10px] text-on-surface/60 font-bold tracking-widest uppercase">
-                        Excellence
+                        Expertise
                       </div>
                     </div>
                   </div>
@@ -60,24 +63,26 @@ export function AboutPreviewSection() {
               <div className="inline-flex items-center gap-2 px-4 tb:px-6 py-2 rounded-full bg-secondary/20 text-primary border border-secondary/30 shadow-sm">
                 <Heart size={14} />
                 <span className="font-bold uppercase tracking-widest text-[9px] tb:text-[10px]">
-                  Our Heritage
+                  Our Story
                 </span>
               </div>
 
               <h2 className="text-hero font-black text-on-surface leading-[1.1] dt:leading-[0.9] uppercase tracking-tighter italic font-serif">
-                Elegance Tailored <br />
+                A Dream Built on <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary-container to-tertiary">
-                  For You
+                  Beauty & Passion
                 </span>
               </h2>
 
               <p className="text-base tb:text-lg dt:text-xl text-on-surface/90 font-medium leading-relaxed italic">
-                "Established in the heart of Trichy, Zentonez has been a
-                sanctuary for those seeking a touch of luxury and professional
-                care for over 5 years."
+                Founded in March 2025 by a passionate makeup artist with over 6
+                years of expertise, Zentonez Parlour was born from a dream to
+                bring luxury beauty within reach of every woman in Tamil Nadu.
+                What started as a freelance journey has blossomed into a
+                full-service premium salon.
               </p>
 
-              <div className="space-y-3 tb:space-y-4">
+              <div className="grid grid-cols-1 mb:grid-cols-2 gap-x-4 gap-y-3 tb:gap-y-4">
                 {heritagePoints.map((item, index) => (
                   <motion.div
                     key={item}
@@ -113,7 +118,7 @@ export function AboutPreviewSection() {
                     whileTap={{ scale: 0.95 }}
                     className="btn-premium-gold w-full mb:w-auto px-6 py-3 mb:px-8 mb:py-3.5 text-[10px] mb:text-xs"
                   >
-                    Discover Our Story
+                    Learn More About Us →
                   </motion.button>
                 </Link>
               </div>

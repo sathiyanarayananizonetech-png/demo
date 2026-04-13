@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import "./Gallery.css";
 
@@ -12,38 +14,31 @@ import makeupImage from "../../assets/makeup_artist.png";
 const chapters = [
   {
     id: "bridal",
-    title: "Bridal Art",
-    subtitle: "The First Impression",
+    title: "Bridal Artistry",
+    subtitle: "Bridal",
     img: bridalImage,
-    text: "Every transformation begins with silence. We craft the perfect base, ensuring your beauty radiates from within.",
+    text: "Capturing the radiant essence of every bride through expert styling and meticulous artistry.",
   },
   {
     id: "hair",
     title: "Hair Mastery",
-    subtitle: "Sculpting Elegance",
+    subtitle: "Hair",
     img: hairImage,
-    text: "Movement and form collide. Our stylists treat every strand as a thread in a larger, elegant tapestry.",
+    text: "Transformative hair care and styling rituals designed to reveal your hair's finest potential.",
   },
   {
     id: "skin",
-    title: "Skin Revival",
-    subtitle: "The Radiant Ritual",
+    title: "Skin Radiance",
+    subtitle: "Skin",
     img: skinImage,
-    text: "Nourishment transcends the surface. We use precise rituals to reveal your skin's most authentic glow.",
+    text: "Expert skin treatments and facials that nourish and restore your natural, luminous glow.",
   },
   {
-    id: "hair-spa",
-    title: "Hair Spa Sanctuary",
-    subtitle: "Stillness in Movement",
+    id: "nails",
+    title: "Flawless Nails",
+    subtitle: "Nails",
     img: spaImage,
-    text: "Experience deep relaxation through our hair rituals, designed to nourish both your hair and soul with tender care.",
-  },
-  {
-    id: "masters",
-    title: "The Masters",
-    subtitle: "Creative Reflection",
-    img: makeupImage,
-    text: "Meet the visionaries. Every look is a collaboration between our expertise and your unique expression.",
+    text: "Creative nail art and professional grooming to add the perfect finish to your look.",
   },
 ];
 
@@ -90,9 +85,20 @@ const GalleryChapters: React.FC = () => {
                 {chapter.title}
               </h2>
               <div className="h-1 w-16 tb:w-20 bg-primary mb-5 tb:mb-8 mx-auto" />
-              <p className="text-base tb:text-xl dt:text-2xl italic opacity-70 leading-relaxed text-slate-900 px-4 mb:px-0">
+              <p className="text-base tb:text-xl dt:text-2xl italic opacity-70 leading-relaxed text-slate-900 px-4 mb:px-0 mb-8">
                 {chapter.text}
               </p>
+              <div className="flex justify-center">
+                <Link to="/book">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="btn-premium-gold px-8 py-3 text-xs"
+                  >
+                    Book Now →
+                  </motion.button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

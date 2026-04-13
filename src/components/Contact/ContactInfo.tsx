@@ -133,13 +133,13 @@ const ContactInfo: React.FC = () => {
     {
       icon: <MapPin size={20} />,
       title: "Our Address",
-      content: "Thillai Nagar, Trichy, Tamil Nadu",
+      content: "Zentonez Parlour, Thillai Nagar, Trichy, Tamil Nadu",
     },
-    { icon: <Phone size={20} />, title: "Call Us", content: "+91 98765 43210" },
+    { icon: <Phone size={20} />, title: "Call Us", content: "9751231239 / 9344621878" },
     {
       icon: <Mail size={20} />,
       title: "Email Us",
-      content: "hello@zentonezbeauty.com",
+      content: "zentonezsalon@gmail.com",
     },
   ];
 
@@ -182,18 +182,10 @@ const ContactInfo: React.FC = () => {
         <ul className="space-y-4 tb:space-y-6">
           <li className="flex justify-between items-center">
             <span className="text-primary font-medium tracking-widest uppercase text-[9px] tb:text-[10px]">
-              Mon – Sat:
+              Mon – Sun:
             </span>
             <span className="text-green-400 font-bold text-sm tb:text-base">
               10:00 AM – 08:30 PM
-            </span>
-          </li>
-          <li className="flex justify-between items-center">
-            <span className="text-primary font-medium tracking-widest uppercase text-[9px] tb:text-[10px]">
-              Sunday:
-            </span>
-            <span className="text-red-500 font-black italic text-sm tb:text-base">
-              Closed
             </span>
           </li>
         </ul>

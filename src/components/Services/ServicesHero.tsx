@@ -24,7 +24,7 @@ const ServicesHero: React.FC = () => {
           >
             <Sparkles size={14} />
             <span className="font-bold uppercase tracking-widest text-[9px] tb:text-[10px]">
-              Our Services
+              Curated Excellence
             </span>
           </motion.div>
 
@@ -35,12 +35,12 @@ const ServicesHero: React.FC = () => {
             className="text-hero font-pacifico text-on-surface mb-6 normal-case glow-text text-center dt:text-left leading-tight"
           >
             <SparkleHeading
-              text="Luxury Beauty Services"
+              text="Our Artisanal"
               className="text-on-surface"
             />
             <br className="dt:block hidden" />
             <SparkleHeading
-              text="Tailored For You"
+              text="Beauty Rituals"
               className="text-primary"
               sparkleScale={1.3}
             />
@@ -52,8 +52,8 @@ const ServicesHero: React.FC = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-on-surface/90 text-lg tb:text-xl dt:text-2xl max-w-xl mb-8 tb:mb-12 leading-relaxed font-medium italic text-center dt:text-left px-4 mb:px-0"
           >
-            "From flawless makeup to rejuvenating skincare, we bring out your
-            natural glow."
+            "Experience a symphony of high-performance beauty rituals tailored to
+            your unique essence and soul."
           </motion.p>
 
           <motion.div

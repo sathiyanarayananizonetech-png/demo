@@ -21,18 +21,18 @@ const AboutValues: React.FC = () => {
           {[
             {
               icon: <Award size={28} strokeWidth={1} />,
-              title: "Artisanal Excellence",
-              desc: "Every service is a masterpiece, crafted with precision and a deep understanding of aesthetics.",
+              title: "Artisanal Mastery",
+              desc: "Every service is a unique ritual, crafted with high-precision techniques and a deep understanding of bespoke aesthetics.",
             },
             {
               icon: <ShieldCheck size={28} strokeWidth={1} />,
-              title: "Safe Sanctuary",
-              desc: "We adhere to the highest medical-grade sanitization protocols to ensure your absolute well-being.",
+              title: "Sanctuary Standards",
+              desc: "We adhere to medical-grade hygiene and safety protocols to ensure your well-being in a pristine environment.",
             },
             {
               icon: <Clock size={28} strokeWidth={1} />,
-              title: "Personalized Care",
-              desc: "We dedicate time to understand your unique needs, ensuring a result that is uniquely yours.",
+              title: "Bespoke Curation",
+              desc: "We dedicate time to curate a personalized journey that celebrates your natural radiance and individual essence.",
             },
           ].map((value, i) => (
             <motion.div
@@ -62,19 +62,19 @@ const AboutValues: React.FC = () => {
             <div className="space-y-8 sm:space-y-12">
               <div>
                 <h4 className="text-2xl sm:text-3xl font-serif italic text-on-surface mb-4 sm:mb-6 underline decoration-primary-container underline-offset-8">
-                  Why Trust Zentonez?
+                  The Zentonez Core
                 </h4>
                 <p className="text-on-surface/80 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base italic font-serif font-medium">
-                  "Trust isn't given; it's earned through consistent quality,
-                  unwavering discipline, and a genuine passion for beauty."
+                  "Excellence isn't an act; it's a habit born from consistent quality,
+                  unwavering discipline, and a genuine passion for the art of beauty."
                 </p>
               </div>
               <div className="space-y-4 sm:space-y-6 text-xs sm:text-sm font-bold tracking-widest uppercase text-on-surface/60">
                 {[
-                  "Medical-Grade Hygiene Standards",
-                  "Internationally Certified Master Artists",
-                  "Premium World-Class Product Portfolio",
-                  "Transparent & Ethical Aesthetic Practices",
+                  "Medical-Grade Sanctuary Hygiene",
+                  "Internationally Certified Master Artisans",
+                  "Premium Botanical Product Portfolio",
+                  "Transparent & Ethical Aesthetic Curation",
                 ].map((point, idx) => (
                   <div
                     key={idx}

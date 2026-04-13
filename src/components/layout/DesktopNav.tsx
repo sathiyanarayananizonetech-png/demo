@@ -6,10 +6,10 @@ import "./DesktopNav.css";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Service", path: "/services" },
+  { name: "Services", path: "/services" },
   { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
-  { name: "Book Appointment", path: "/book" },
+  { name: "Reserve", path: "/book" },
 ];
 
 export function DesktopNav() {
