@@ -9,7 +9,6 @@ import bridalImage from "../../assets/bridal_makeup.png";
 import hairImage from "../../assets/hair_styling.png";
 import skinImage from "../../assets/skin_care.png";
 import spaImage from "../../assets/hair_spa_treatment.png";
-import makeupImage from "../../assets/makeup_artist.png";
 
 const chapters = [
   {

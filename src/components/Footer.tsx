@@ -13,7 +13,6 @@ import {
 import logo from "../assets/zentonez.png";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },

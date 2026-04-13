@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
 import {
   Users,
-  Wallet,
-  GraduationCap,
   Package,
-  ShieldCheck,
   BookOpen,
-  CalendarDays,
   Handshake,
 } from "lucide-react";
 import "./AboutTimeline.css";

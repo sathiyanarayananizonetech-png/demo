@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,19 +8,20 @@ import {
 import { useEffect } from "react";
 
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Gallery from "./pages/Gallery";
-import Contact from "./pages/Contact";
 import { MobileBottomNav } from "./components/layout/MobileBottomNav";
 import { BrandLogo } from "./components/layout/BrandLogo";
 import { DesktopNav } from "./components/layout/DesktopNav";
 import { SmoothScroll } from "./components/ui/SmoothScroll";
+
+// Lazy Load Pages
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Book = lazy(() => import("./pages/Book"));
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-import Book from "./pages/Book";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,14 +68,16 @@ const App: React.FC = () => {
         <DesktopNav />
 
         <main className="grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/book" element={<Book />} />
-          </Routes>
+          <Suspense fallback={<div className="min-h-screen bg-background" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/book" element={<Book />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
 
