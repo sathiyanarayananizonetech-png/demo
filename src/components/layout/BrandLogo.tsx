@@ -8,7 +8,7 @@ export function BrandLogo() {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-4 left-4 lg:top-8 lg:left-8 z-[60] pointer-events-auto"
+      className="fixed top-4 left-4 lg:top-8 lg:left-8 z-60 pointer-events-auto"
     >
       <Link to="/" className="group block focus:outline-none">
         <div className="relative flex items-center gap-3">
