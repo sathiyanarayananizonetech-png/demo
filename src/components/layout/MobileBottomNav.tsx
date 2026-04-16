@@ -1,9 +1,9 @@
-import { 
-  LayoutGrid, 
-  Scissors, 
-  Camera, 
+import {
+  LayoutGrid,
+  Scissors,
+  Camera,
   MessageSquare,
-  Flower2
+  Flower2,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
