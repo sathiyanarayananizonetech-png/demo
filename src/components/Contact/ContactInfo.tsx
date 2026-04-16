@@ -156,10 +156,10 @@ const ContactInfo: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="p-7 tb:p-10 bg-on-surface text-background rounded-3xl tb:rounded-4xl relative overflow-hidden shadow-luxury-deep"
+        className="p-5 tb:p-10 bg-on-surface text-background rounded-3xl tb:rounded-4xl relative overflow-hidden shadow-luxury-deep"
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 tb:mb-8 border-b border-white/10 pb-6">
-          <h4 className="text-xl tb:text-2xl font-black italic uppercase font-serif m-0 shrink-0">
+          <h4 className="text-lg tb:text-2xl font-black italic uppercase font-h-primary m-0 shrink-0">
             Opening Hours
           </h4>
           <div className="flex flex-col items-start sm:items-end pointer-events-none">
@@ -170,21 +170,21 @@ const ContactInfo: React.FC = () => {
               </span>
             </div>
             <div className="flex items-baseline gap-1 whitespace-nowrap">
-              <span className="text-xl tb:text-3xl font-black italic text-primary font-serif tracking-tight drop-shadow-lg tabular-nums">
+              <span className="text-lg tb:text-3xl font-black italic text-primary font-h-primary tracking-tight drop-shadow-lg tabular-nums">
                 {currentTime.split(" ")[0]}
               </span>
-              <span className="text-[9px] tb:text-xs font-bold uppercase tracking-widest text-primary/70">
+              <span className="text-[9px] tb:text-xs font-bold uppercase tracking-widest text-primary/70 font-h-primary">
                 {currentTime.split(" ")[1]}
               </span>
             </div>
           </div>
         </div>
         <ul className="space-y-4 tb:space-y-6">
-          <li className="flex justify-between items-center">
-            <span className="text-primary font-medium tracking-widest uppercase text-[9px] tb:text-[10px]">
+          <li className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
+            <span className="text-primary font-medium tracking-widest uppercase text-[9px] tb:text-[10px] shrink-0">
               Mon – Sun:
             </span>
-            <span className="text-green-400 font-bold text-sm tb:text-base">
+            <span className="text-green-400 font-bold text-sm tb:text-base whitespace-nowrap">
               10:00 AM – 08:30 PM
             </span>
           </li>

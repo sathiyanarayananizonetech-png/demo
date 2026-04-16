@@ -13,11 +13,16 @@ const Services: React.FC = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000">
-      <ServicesHero />
-      <ServicesShowcase />
-
-      <ServicesCTA />
+    <div className="flex flex-col overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000">
+      <div className="order-1 dt:order-2">
+        <ServicesHero />
+      </div>
+      <div className="order-2 dt:order-1">
+        <ServicesShowcase />
+      </div>
+      <div className="order-3">
+        <ServicesCTA />
+      </div>
     </div>
   );
 };

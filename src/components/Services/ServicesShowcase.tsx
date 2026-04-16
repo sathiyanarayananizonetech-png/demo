@@ -13,7 +13,6 @@ import {
   Users,
   MapPin,
   Clock,
-  Quote,
 } from "lucide-react";
 
 // Assets
@@ -62,7 +61,7 @@ const services: Service[] = [
     clientName: "Meera V.",
     highlights: ["Deep Cleansing", "Fruit Facials", "D-Tan Treatment"],
     image: skinImage,
-    icon: <Heart size={24} />,
+    icon: <Heart size={24} fill="#FF4D4D" color="#FF4D4D" />,
     color: "#F2EFE9",
   },
   {
@@ -113,10 +112,6 @@ const services: Service[] = [
     category: "Bridal",
     description: "Look stunning on your special day with our professional bridal makeup services.",
     price: "₹15,000+",
-    promo: {
-      title: "20% OFF",
-      subtitle: "Regular Customer Exclusive",
-    },
     duration: "240 Mins",
     review: "The best bridal care in Tamil Nadu. My look was absolutely radiant and stayed perfect all day.",
     clientName: "Priya R.",
@@ -300,7 +295,7 @@ const ServicesShowcase: React.FC = () => {
       ref={containerRef}
     >
       {/* Mobile/Tablet Layout (< dt) */}
-      <div className="dt:hidden py-10 tb:py-20 px-4 tb:px-6 space-y-12">
+      <div className="dt:hidden py-8 tb:py-16 px-4 tb:px-8 space-y-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl tb:text-4xl font-black text-on-surface uppercase tracking-tighter italic font-serif">
             Signature <span className="text-primary italic">Services</span>
@@ -341,7 +336,7 @@ const ServicesShowcase: React.FC = () => {
 
               <div className="p-8 space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-primary text-white rounded-xl shadow-lg">
+                  <div className="p-3 bg-white text-primary rounded-xl shadow-lg border border-primary/20">
                     {service.icon}
                   </div>
                   <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px]">
@@ -388,18 +383,18 @@ const ServicesShowcase: React.FC = () => {
       </div>
 
       {/* Desktop Layout (dt +) */}
-      <div className="hidden dt:grid max-w-7xl mx-auto px-12 grid-cols-2 gap-16 xl:gap-24 pb-32">
+      <div className="hidden dt:grid max-w-7xl mx-auto px-6 grid-cols-2 gap-10 xl:gap-16 pb-20">
         {/* Left Column: Rich Content */}
         <div className="space-y-0 flex flex-col items-center">
           {services.map((service) => (
             <div
               key={service.id}
-              className="showcase-info h-screen flex items-center justify-center text-center"
+              className="showcase-info h-[85vh] flex items-center justify-center text-center"
             >
               <div className="max-w-md space-y-7 flex flex-col items-center">
                 {/* Badge & Icon */}
                 <div className="flex flex-col items-center gap-4">
-                  <div className="p-4 bg-primary text-white rounded-2xl shadow-luxury-deep">
+                  <div className="p-4 bg-white text-primary rounded-2xl shadow-luxury-deep border border-primary/20">
                     {service.icon}
                   </div>
                   <span className="text-primary font-black uppercase tracking-[0.4em] text-[10px]">
@@ -437,19 +432,7 @@ const ServicesShowcase: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Review Snippet */}
-                <div className="relative px-8 pt-6 pb-4 bg-on-surface/5 rounded-3xl border border-on-surface/20">
-                  <Quote
-                    className="absolute top-2 left-2 text-primary/30 rotate-180"
-                    size={24}
-                  />
-                  <p className="text-on-surface/90 text-sm italic font-medium leading-relaxed mb-2">
-                    "{service.review}"
-                  </p>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-primary">
-                    — {service.clientName}
-                  </span>
-                </div>
+
 
                 {/* Pricing & CTA */}
                 <div className="flex flex-col items-center gap-4 pt-4 w-full">
@@ -477,7 +460,7 @@ const ServicesShowcase: React.FC = () => {
           className="h-screen sticky top-0 flex items-center justify-center overflow-hidden"
           ref={rightColRef}
         >
-          <div className="relative w-full max-w-[500px] xl:max-w-[550px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-8 border-white bg-white">
+          <div className="relative w-full max-w-[380px] xl:max-w-[420px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-4 border-white bg-white">
             {services.map((service) => (
               <div key={service.id} className="absolute inset-0 z-0">
                 <img

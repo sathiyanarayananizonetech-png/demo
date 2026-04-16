@@ -34,10 +34,7 @@ const ServicesHero: React.FC = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-hero font-pacifico text-on-surface mb-4 normal-case glow-text text-center dt:text-left leading-tight"
           >
-            <SparkleHeading
-              text="Our Artisanal"
-              className="text-on-surface"
-            />
+            <SparkleHeading text="Our Artisanal" className="text-on-surface" />
             <br className="dt:block hidden" />
             <SparkleHeading
               text="Beauty Rituals"
@@ -52,8 +49,8 @@ const ServicesHero: React.FC = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-on-surface/90 text-lg tb:text-xl dt:text-2xl max-w-xl mb-6 tb:mb-8 leading-relaxed font-medium italic text-center dt:text-left px-4 mb:px-0"
           >
-            "Experience a symphony of high-performance beauty rituals tailored to
-            your unique essence and soul."
+            "Experience a symphony of high-performance beauty rituals tailored
+            to your unique essence and soul."
           </motion.p>
 
           <motion.div

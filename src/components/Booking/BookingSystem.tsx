@@ -17,7 +17,6 @@ const SERVICES: ServiceType[] = [
   { id: 'haircut', name: 'Master Haircut', duration: '60 Min', price: '₹1800', icon: <Scissors size={24} /> },
   { id: 'lice-treatment', name: 'Lice Treatment', duration: '60 Min', price: '₹1000', icon: <ShieldCheck size={24} /> },
   { id: 'coloring', name: 'Global Coloring', duration: '120 Min', price: '₹4000', icon: <Sparkles size={24} /> },
-  { id: 'smoothing', name: 'Keratin Smoothing', duration: '180 Min', price: '₹5500', icon: <Droplets size={24} /> },
 ];
 
 const TIME_SLOTS = [
