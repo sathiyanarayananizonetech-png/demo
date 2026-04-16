@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import { MobileBottomNav } from "./components/layout/MobileBottomNav";
 import { BrandLogo } from "./components/layout/BrandLogo";
 import { DesktopNav } from "./components/layout/DesktopNav";
+import { MobileBookingButton } from "./components/layout/MobileBookingButton";
 import { SmoothScroll } from "./components/ui/SmoothScroll";
 
 // Lazy Load Pages
@@ -71,6 +72,7 @@ const App: React.FC = () => {
       <div className="flex flex-col min-h-screen bg-background">
         <BrandLogo />
         <DesktopNav />
+        <MobileBookingButton />
 
         <main className="grow">
           <Suspense fallback={<div className="min-h-screen bg-background" />}>
