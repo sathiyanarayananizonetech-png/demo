@@ -2,44 +2,66 @@ import { motion } from "framer-motion";
 import { Droplets, Heart, Scissors, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import bridalImage from "../../assets/hairwebp images/haircutv.webp";
-import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
 import skinImage from "../../assets/facialwebpimages/facial1.webp";
-import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import facialImage from "../../assets/facialwebpimages/facial2.webp";
+import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
+import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
+import nailImage from "../../assets/nailwebpimages/nail1.webp";
+import liceImage from "../../assets/licewebpimages/lice1.webp";
+
 import VoyageSlider from "../VoyageSlider/VoyageSlider";
 import { ScrollReveal } from "./ScrollReveal";
 
 const services = [
   {
-    title: "Skin Care & Facial",
-    description:
-      "Glow from within with our expert facial and skin treatments",
+    title: "Skin Care",
+    description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
     image: skinImage,
     icon: <Droplets size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
-    title: "Hair Services",
-    description:
-      "Nourish, style, and restore your hair to its finest",
-    image: hairImage,
+    title: "Facial Treatment",
+    description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
+    image: facialImage,
+    icon: <Sparkles size={24} />,
+    buttonClass: "btn-premium-gold",
+  },
+  {
+    title: "Manicure & Pedicure",
+    description: "Pamper your hands and feet with our relaxing nail care services.",
+    image: manicureImage,
+    icon: <Droplets size={24} />,
+    buttonClass: "btn-premium-gold",
+  },
+  {
+    title: "Hair Spa",
+    description: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
+    image: hairSpaImage,
     icon: <Scissors size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
     title: "Bridal Makeup",
-    description:
-      "Look absolutely radiant on your most special day",
+    description: "Look stunning on your special day with our professional bridal makeup services.",
     image: bridalImage,
     icon: <Heart size={24} />,
     buttonClass: "btn-premium-gold",
+    objectPosition: "top",
   },
   {
-    title: "Nail Art & Beauty",
-    description:
-      "Finish your look with flawless nails",
-    image: spaImage, // Assuming this is used for Nail Art if no specific nailImage import is active or needed
+    title: "Nails",
+    description: "Exquisite nail art and extensions to express your unique style.",
+    image: nailImage,
     icon: <Sparkles size={24} />,
+    buttonClass: "btn-premium-gold",
+  },
+  {
+    title: "Lice Removal",
+    description: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
+    image: liceImage,
+    icon: <Scissors size={24} />,
     buttonClass: "btn-premium-gold",
   },
 ];

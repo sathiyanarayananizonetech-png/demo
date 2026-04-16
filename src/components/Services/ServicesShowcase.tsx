@@ -14,6 +14,8 @@ import {
   MapPin,
   Clock,
   Quote,
+  CreditCard,
+  Award,
 } from "lucide-react";
 
 // Assets
@@ -33,46 +35,12 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: 1,
-    title: "Bridal Artistry",
-    category: "Bridal",
-    description:
-      "Look absolutely radiant on your most special day with our complete bridal transformation rituals.",
-    price: "₹15,000+",
-    duration: "240 Mins",
-    review:
-      "The best bridal care in Tamil Nadu. My look was absolutely radiant and stayed perfect all day.",
-    clientName: "Priya R.",
-    highlights: ["HD Airbrushing", "Saree Draping", "Bridal Glow"],
-    image: bridalImage,
-    icon: <Sparkles size={24} />,
-    color: "#F4F1EC",
-  },
-  {
-    id: 2,
-    title: "Hair Cuts & Styling",
-    category: "Hair Services",
-    description:
-      "Nourish, style, and restore your hair to its finest with our expert cutting and styling services.",
-    price: "₹1,500+",
-    duration: "60 Mins",
-    review:
-      "A genuine hair transformation. The stylists understand exactly what looks best on you.",
-    clientName: "Ananya S.",
-    highlights: ["Shampoo & Condition", "Layered Cut", "Blow Dry"],
-    image: hairImage,
-    icon: <Scissors size={24} />,
-    color: "#E8E4DD",
-  },
-  {
-    id: 3,
-    title: "Skin Care & Facials",
+    title: "Skin Care",
     category: "Skin Care",
-    description:
-      "Glow from within with our expert facial and skin treatments designed for every skin type.",
+    description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
     price: "₹400+",
     duration: "45 Mins",
-    review:
-      "The most affordable yet premium facials I've ever had. My skin is glowing like never before.",
+    review: "The most affordable yet premium facials I've ever had. My skin is glowing like never before.",
     clientName: "Meera V.",
     highlights: ["Deep Cleansing", "Fruit Facials", "D-Tan Treatment"],
     image: skinImage,
@@ -80,15 +48,41 @@ const services = [
     color: "#F2EFE9",
   },
   {
+    id: 2,
+    title: "Facial Treatment",
+    category: "Facial Care",
+    description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
+    price: "₹1,500+",
+    duration: "60 Mins",
+    review: "I received so many compliments! The HD finish is perfect for photographers.",
+    clientName: "Sanya K.",
+    highlights: ["Photo-ready Finish", "Lash Enhancement", "Brow Sculpting"],
+    image: makeupImage,
+    icon: <Crown size={24} />,
+    color: "#EBE8E0",
+  },
+  {
+    id: 3,
+    title: "Manicure & Pedicure",
+    category: "Hand & Foot Care",
+    description: "Pamper your hands and feet with our relaxing nail care services.",
+    price: "₹1200",
+    duration: "45 Mins",
+    review: "The most relaxing pedicure ever. My feet feel brand new and so soft!",
+    clientName: "Sneha G.",
+    highlights: ["Organic Scrub", "Hot Stone Massage", "Premium Polish"],
+    image: pedicureImage,
+    icon: <Droplets size={24} />,
+    color: "#F8F5F0",
+  },
+  {
     id: 4,
-    title: "Hair Spa Rituals",
+    title: "Hair Spa",
     category: "Hair Services",
-    description:
-      "Deeply nourish your hair and scalp with our premium hair spa and restoration treatments.",
+    description: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     price: "₹1,500+",
     duration: "75 Mins",
-    review:
-      "My hair was brittle and dry, but one session of their spa ritual made it weightless and shiny.",
+    review: "My hair was brittle and dry, but one session of their spa ritual made it weightless and shiny.",
     clientName: "Meghna K.",
     highlights: ["Scalp Massage", "Steam Therapy", "Serum Infusion"],
     image: spaImage,
@@ -97,14 +91,31 @@ const services = [
   },
   {
     id: 5,
-    title: "Designer Nail Art",
+    title: "Bridal Makeup",
+    category: "Bridal",
+    description: "Look stunning on your special day with our professional bridal makeup services.",
+    price: "₹15,000+",
+    promo: {
+      title: "20% OFF",
+      subtitle: "Regular Customer Exclusive",
+    },
+    duration: "240 Mins",
+    review: "The best bridal care in Tamil Nadu. My look was absolutely radiant and stayed perfect all day.",
+    clientName: "Priya R.",
+    highlights: ["20% Regulars Discount", "HD Airbrushing", "Saree Draping", "Bridal Glow"],
+    image: bridalImage,
+    icon: <Sparkles size={24} />,
+    color: "#F4F1EC",
+    objectPosition: "top",
+  },
+  {
+    id: 6,
+    title: "Nails",
     category: "Artistic Nails",
-    description:
-      "Creative extensions and intricate hand-painted designs from our master artists.",
+    description: "Exquisite nail art and extensions to express your unique style.",
     price: "₹1500",
     duration: "75 Mins",
-    review:
-      "Tiny canvases, massive impact! My nail art has been the talk of every party.",
+    review: "Tiny canvases, massive impact! My nail art has been the talk of every party.",
     clientName: "Ishita D.",
     highlights: ["Acrylic Extensions", "Gel Polish", "Nail Art"],
     image: nailImage,
@@ -112,31 +123,13 @@ const services = [
     color: "#EBE8E0",
   },
   {
-    id: 6,
-    title: "Luxury Pedicure",
-    category: "Hand & Foot Care",
-    description:
-      "Soothing ritual for your hands and feet, featuring organic scrubs and massage.",
-    price: "₹1200",
-    duration: "45 Mins",
-    review:
-      "The most relaxing pedicure ever. My feet feel brand new and so soft!",
-    clientName: "Sneha G.",
-    highlights: ["Organic Scrub", "Hot Stone Massage", "Premium Polish"],
-    image: pedicureImage,
-    icon: <Droplets size={24} />,
-    color: "#F8F5F0",
-  },
-  {
     id: 7,
-    title: "Professional Lice Treatment",
+    title: "Lice Removal",
     category: "Essential Care",
-    description:
-      "Safe, effective, and chemical-free lice removal treatment in a comfortable environment.",
+    description: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
     price: "₹1000",
     duration: "60 Mins",
-    review:
-      "Very professional and thorough treatment. Highly recommend for safe removal.",
+    review: "Very professional and thorough treatment. Highly recommend for safe removal.",
     clientName: "Ritu M.",
     highlights: ["Chemical-free", "Scalp Health", "Follow-up Check"],
     image: liceImage,
@@ -145,30 +138,26 @@ const services = [
   },
   {
     id: 8,
-    title: "Event HD Makeup",
-    category: "High Definition",
-    description:
-      "Sophisticated and long-lasting looks for your most memorable social occasions.",
-    price: "₹3000",
-    duration: "90 Mins",
-    review:
-      "I received so many compliments! The HD finish is perfect for photographers.",
-    clientName: "Sanya K.",
-    highlights: ["Photo-ready Finish", "Lash Enhancement", "Brow Sculpting"],
-    image: makeupImage,
-    icon: <Crown size={24} />,
-    color: "#EBE8E0",
+    title: "Hair Cuts & Styling",
+    category: "Hair Services",
+    description: "Nourish, style, and restore your hair to its finest with our expert cutting and styling services.",
+    price: "₹1,500+",
+    duration: "60 Mins",
+    review: "A genuine hair transformation. The stylists understand exactly what looks best on you.",
+    clientName: "Ananya S.",
+    highlights: ["Shampoo & Condition", "Layered Cut", "Blow Dry"],
+    image: hairImage,
+    icon: <Scissors size={24} />,
+    color: "#E8E4DD",
   },
   {
     id: 9,
     title: "Elite Master Art",
     category: "Grand Ritual",
-    description:
-      "The pinnacle of our artisan crafts, performed by our most senior team.",
+    description: "The pinnacle of our artisan crafts, performed by our most senior team.",
     price: "Custom",
     duration: "Varies",
-    review:
-      "Beyond just a service—it's genuine artistry and unmatched attention.",
+    review: "Beyond just a service—it's genuine artistry and unmatched attention.",
     clientName: "Dr. Aarti L.",
     highlights: ["Master Consultation", "Legacy Techniques", "Aftercare Kit"],
     image: aboutHero,
@@ -179,8 +168,7 @@ const services = [
     id: 10,
     title: "Sanctuary Boutique",
     category: "The Ambience",
-    description:
-      "Relax within our award-winning architectural home designed for calm.",
+    description: "Relax within our award-winning architectural home designed for calm.",
     price: "Tour Now",
     duration: "Permanent",
     review: "The design alone lowers your stress level. An absolute paradise.",
@@ -315,8 +303,24 @@ const ServicesShowcase: React.FC = () => {
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{ objectPosition: (service as any).objectPosition || "center" }}
                 />
               </div>
+              
+              {/* Promo Badge */}
+              {(service as any).promo && (
+                <div className="absolute top-6 right-6 z-20">
+                  <div className="bg-primary text-white px-4 py-2 rounded-2xl shadow-luxury border border-white/20 animate-pulse">
+                    <p className="text-[10px] font-black uppercase tracking-widest leading-none">
+                      {(service as any).promo.title}
+                    </p>
+                    <p className="text-[7px] font-bold uppercase tracking-tight mt-1 opacity-80">
+                      {(service as any).promo.subtitle}
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <div className="p-8 space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-primary text-white rounded-xl shadow-lg">
@@ -397,7 +401,7 @@ const ServicesShowcase: React.FC = () => {
 
                 {/* Highlights & Duration */}
                 <div className="flex flex-col items-center gap-4 py-2">
-                  <div className="flex flex-wrap justify-center gap-2">
+                  <div className="flex flex-wrap justify-center gap-2 w-full">
                     {service.highlights.map((h, i) => (
                       <span
                         key={i}
@@ -462,9 +466,24 @@ const ServicesShowcase: React.FC = () => {
                   src={service.image}
                   alt={service.title}
                   className="showcase-img w-full h-full object-cover object-center"
+                  style={{ objectPosition: (service as any).objectPosition || "center" }}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-              </div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Promo Badge on Image */}
+                  {(service as any).promo && (
+                    <div className="absolute top-10 right-10 z-20">
+                      <div className="bg-primary text-white px-6 py-3 rounded-2xl shadow-luxury border border-white/20 scale-110">
+                        <p className="text-xs font-black uppercase tracking-[0.2em] leading-none">
+                          {(service as any).promo.title}
+                        </p>
+                        <p className="text-[9px] font-bold uppercase tracking-widest mt-1 opacity-80">
+                          {(service as any).promo.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
             ))}
           </div>
         </div>

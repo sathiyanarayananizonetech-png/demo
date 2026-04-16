@@ -5,7 +5,7 @@ import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
 
 const AboutStory: React.FC = () => {
   return (
-    <section className="py-8 mb:py-10 tb:py-16 dt:py-20 bg-background overflow-hidden border-b border-primary-container/20">
+    <section className="py-8 mb:py-10 tb:py-16 dt:py-20 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb:px-6 tb:px-8 dt:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb:gap-8 tb:gap-10 dt:gap-12 items-center">
           <div className="relative">
@@ -30,7 +30,7 @@ const AboutStory: React.FC = () => {
             </h2>
             <p className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed italic">
               Founded in March 2025 by a passionate makeup artist with over 6
-              years of expertise, Zentonez Parlour was born from a dream to
+              years of expertise, Zentonez Beauty Salon was born from a dream to
               bring luxury beauty within reach of every woman in Tamil Nadu.
               What started as a freelance journey in 2020 has blossomed into a
               full-service premium salon.

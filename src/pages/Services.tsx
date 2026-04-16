@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServicesHero from "../components/Services/ServicesHero";
 import ServicesShowcase from "../components/Services/ServicesShowcase";
+
 import ServicesCTA from "../components/Services/ServicesCTA";
 
 const Services: React.FC = () => {
@@ -15,6 +16,7 @@ const Services: React.FC = () => {
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000">
       <ServicesHero />
       <ServicesShowcase />
+
       <ServicesCTA />
     </div>
   );

@@ -5,40 +5,65 @@ import { Sparkles } from "lucide-react";
 import "./Gallery.css";
 
 // Assets
-import bridalImage from "../../assets/hairwebp images/haircutv.webp";
-import hairImage from "../../assets/hairwebp images/straighning.webp";
-import skinImage from "../../assets/facialwebpimages/facial4.webp";
-import spaImage from "../../assets/hairspawebpimages/hairspa2.webp";
+import skinImage from "../../assets/facialwebpimages/facial1.webp";
+import facialImage from "../../assets/facialwebpimages/facial2.webp";
+import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
+import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
+import nailImage from "../../assets/nailwebpimages/nail1.webp";
+import liceImage from "../../assets/licewebpimages/lice1.webp";
 
 
 const chapters = [
   {
-    id: "bridal",
-    title: "Bridal Artistry",
-    subtitle: "Bridal",
-    img: bridalImage,
-    text: "Capturing the radiant essence of every bride through expert styling and meticulous artistry.",
-  },
-  {
-    id: "hair",
-    title: "Hair Mastery",
-    subtitle: "Hair",
-    img: hairImage,
-    text: "Transformative hair care and styling rituals designed to reveal your hair's finest potential.",
-  },
-  {
     id: "skin",
-    title: "Skin Radiance",
+    title: "Skin Care",
     subtitle: "Skin",
     img: skinImage,
-    text: "Expert skin treatments and facials that nourish and restore your natural, luminous glow.",
+    text: "Maintain radiant and healthy skin with our personalized skincare solutions.",
+  },
+  {
+    id: "facial",
+    title: "Facial Treatment",
+    subtitle: "Facial Care",
+    img: facialImage,
+    text: "Refresh and rejuvenate your skin with our advanced facial therapies.",
+  },
+  {
+    id: "pedicure",
+    title: "Manicure & Pedicure",
+    subtitle: "Hand & Foot Care",
+    img: manicureImage,
+    text: "Pamper your hands and feet with our relaxing nail care services.",
+  },
+  {
+    id: "hairspa",
+    title: "Hair Spa",
+    subtitle: "Hair Services",
+    img: hairSpaImage,
+    text: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
+  },
+  {
+    id: "bridal",
+    title: "Bridal Makeup",
+    subtitle: "Bridal",
+    img: bridalImage,
+    text: "Look stunning on your special day with our professional bridal makeup services.",
+    objectPosition: "top",
   },
   {
     id: "nails",
-    title: "Flawless Nails",
-    subtitle: "Nails",
-    img: spaImage,
-    text: "Creative nail art and professional grooming to add the perfect finish to your look.",
+    title: "Nails",
+    subtitle: "Artistic Nails",
+    img: nailImage,
+    text: "Exquisite nail art and extensions to express your unique style.",
+  },
+  {
+    id: "lice",
+    title: "Lice Removal",
+    subtitle: "Essential Care",
+    img: liceImage,
+    text: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
   },
 ];
 
@@ -58,6 +83,7 @@ const GalleryChapters: React.FC = () => {
                 src={chapter.img}
                 alt={chapter.title}
                 className="w-full h-full object-cover"
+                style={{ objectPosition: (chapter as any).objectPosition || "center" }}
               />
               <div
                 className="absolute inset-0 opacity-10 pointer-events-none"

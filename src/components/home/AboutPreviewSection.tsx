@@ -76,7 +76,7 @@ export function AboutPreviewSection() {
 
               <p className="text-base tb:text-lg dt:text-xl text-on-surface/90 font-medium leading-relaxed italic">
                 Founded in March 2025 by a passionate makeup artist with over 6
-                years of expertise, Zentonez Parlour was born from a dream to
+                years of expertise, Zentonez Beauty Salon was born from a dream to
                 bring luxury beauty within reach of every woman in Tamil Nadu.
                 What started as a freelance journey has blossomed into a
                 full-service premium salon.

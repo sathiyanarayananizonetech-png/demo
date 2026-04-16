@@ -8,6 +8,7 @@ interface SlideData {
   image: string;
   icon: React.ReactNode;
   buttonClass?: string;
+  objectPosition?: string;
 }
 
 interface VoyageSliderProps {
@@ -57,10 +58,10 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
 
   const updateTilt = useCallback(() => {
     const lerpAmount = 0.06;
-    
+
     rotDeg.current.current.x = lerp(rotDeg.current.current.x, rotDeg.current.target.x, lerpAmount);
     rotDeg.current.current.y = lerp(rotDeg.current.current.y, rotDeg.current.target.y, lerpAmount);
-    
+
     bgPos.current.current.x = lerp(bgPos.current.current.x, bgPos.current.target.x, lerpAmount);
     bgPos.current.current.y = lerp(bgPos.current.current.y, bgPos.current.target.y, lerpAmount);
 
@@ -90,7 +91,7 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!containerRef.current) return;
-    
+
     const rect = containerRef.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left;
     const offsetY = e.clientY - rect.top;
@@ -108,7 +109,7 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
   };
 
   return (
-    <div 
+    <div
       className="voyage-slider-root"
       ref={containerRef}
       onMouseMove={handleMouseMove}
@@ -128,7 +129,7 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
             const isCurrent = i === currentIndex;
             const isNext = i === getSlideIndex(currentIndex + 1);
             const isPrev = i === getSlideIndex(currentIndex - 1);
-            
+
             let status = "";
             if (isCurrent) status = "current";
             else if (isNext) status = "next";
@@ -136,20 +137,25 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
 
             return (
               <React.Fragment key={i}>
-                <div 
-                  className="voyage-slide" 
+                <div
+                  className="voyage-slide"
                   {...(status ? { [`data-${status}`]: "" } : {})}
                   style={{ zIndex: isCurrent ? 50 : (isNext || isPrev ? 30 : 10) }}
                 >
                   <div className="voyage-slide__inner">
                     <div className="voyage-slide--image__wrapper">
-                      <img className="voyage-slide--image" src={slide.image} alt={slide.title} />
+                      <img
+                        className="voyage-slide--image"
+                        src={slide.image}
+                        alt={slide.title}
+                        style={{ objectPosition: slide.objectPosition || "center" }}
+                      />
                     </div>
                   </div>
                 </div>
-                <div 
-                  className="voyage-slide__bg" 
-                  style={{ "--bg": `url(${slide.image})` } as React.CSSProperties} 
+                <div
+                  className="voyage-slide__bg"
+                  style={{ "--bg": `url(${slide.image})` } as React.CSSProperties}
                   {...(status ? { [`data-${status}`]: "" } : {})}
                 ></div>
               </React.Fragment>
@@ -162,16 +168,16 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
             const isCurrent = i === currentIndex;
             const isNext = i === getSlideIndex(currentIndex + 1);
             const isPrev = i === getSlideIndex(currentIndex - 1);
-            
+
             let status = "";
             if (isCurrent) status = "current";
             else if (isNext) status = "next";
             else if (isPrev) status = "previous";
 
             return (
-              <div 
-                key={i} 
-                className="voyage-slide-info" 
+              <div
+                key={i}
+                className="voyage-slide-info"
                 {...(status ? { [`data-${status}`]: "" } : {})}
               >
                 <div className="voyage-slide-info__inner">
@@ -199,8 +205,8 @@ const VoyageSlider: React.FC<VoyageSliderProps> = ({ slides }) => {
 
       {/* Progress Bar Container */}
       <div className="voyage-slider-progress-container">
-        <div 
-          className={`voyage-slider-progress-bar ${isPaused ? 'paused' : ''}`} 
+        <div
+          className={`voyage-slider-progress-bar ${isPaused ? 'paused' : ''}`}
           key={currentIndex} // Reset animation on slide change
         />
       </div>

@@ -2,42 +2,74 @@ import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import bridalImage from "../../assets/hairwebp images/haircutv.webp";
-import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
-import skinImage from "../../assets/facialwebpimages/facial1.webp";
+import skinImage from "../../assets/facialwebpimages/facial5.webp";
+import facialImage from "../../assets/facialwebpimages/facial2.webp";
+import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
+import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
 import nailImage from "../../assets/nailwebpimages/nail1.webp";
+import liceImage from "../../assets/licewebpimages/lice1.webp";
 import { ParallaxArrow } from "../ScrollParallaxCard/ParallaxArrow";
 import { ScrollParallaxCard } from "../ScrollParallaxCard/ScrollParallaxCard";
 import { ScrollReveal } from "./ScrollReveal";
 
 const parallaxServices = [
   {
-    title: "Bridal Makeup",
-    description:
-      "Exquisite bridal transformations tailored to your style. We make your special day truly unforgettable.",
-    image: bridalImage,
-    price: "Rs5000",
-  },
-  {
-    title: "Hair Styling",
-    description:
-      "From trendy cuts to elegant updos, our expert stylists bring out the best in your hair.",
-    image: hairImage,
-    price: "Rs800",
-  },
-  {
     title: "Skin Care",
-    description:
-      "Revitalize your glow with customized facials designed for your unique skin type.",
+    description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
     image: skinImage,
-    price: "Rs1200",
+    price: "Rs400",
+    benefits: ["Deep Cleansing", "Fruit Facials", "D-Tan Treatment"],
+    color: "#FB7185",
   },
   {
-    title: "Nail Art Studio",
-    description:
-      "Express your elegance with intricate nail art executed by our meticulous specialists.",
+    title: "Facial Treatment",
+    description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
+    image: facialImage,
+    price: "Rs1500",
+    benefits: ["Photo-ready Finish", "Lash Enhancement", "Brow Sculpting"],
+    color: "#38BDF8",
+  },
+  {
+    title: "Manicure & Pedicure",
+    description: "Pamper your hands and feet with our relaxing nail care services.",
+    image: manicureImage,
+    price: "Rs1000",
+    benefits: ["Organic Scrub", "Hot Stone Massage", "Premium Polish"],
+    color: "#FB923C",
+  },
+  {
+    title: "Hair Spa",
+    description: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
+    image: hairSpaImage,
+    price: "Rs1500",
+    benefits: ["Scalp Massage", "Steam Therapy", "Serum Infusion"],
+    color: "#0EA5E9",
+  },
+  {
+    title: "Bridal Makeup",
+    description: "Look stunning on your special day with our professional bridal makeup services.",
+    image: bridalImage,
+    price: "Rs15000",
+    backgroundPosition: "top",
+    benefits: ["HD Airbrushing", "Saree Draping", "Bridal Glow"],
+    color: "#D97706",
+  },
+  {
+    title: "Nails",
+    description: "Exquisite nail art and extensions to express your unique style.",
     image: nailImage,
     price: "Rs1500",
+    benefits: ["Acrylic Extensions", "Gel Polish", "Nail Art"],
+    color: "#8B5CF6",
+  },
+  {
+    title: "Lice Removal",
+    description: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
+    image: liceImage,
+    price: "Rs1000",
+    benefits: ["Chemical-free", "Scalp Health", "Follow-up Check"],
+    color: "#10B981",
   },
 ];
 
@@ -78,6 +110,9 @@ export function ParallaxServicesSection() {
                 description={service.description}
                 image={service.image}
                 price={service.price}
+                benefits={service.benefits}
+                color={service.color}
+                backgroundPosition={(service as any).backgroundPosition}
               />
             ))}
           </div>

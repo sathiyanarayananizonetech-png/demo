@@ -57,7 +57,7 @@ const ImageTrackGallery: React.FC = () => {
         for (const image of images) {
           (image as HTMLElement).animate(
             {
-              objectPosition: `${100 + nextPercentage}% center`,
+              objectPosition: `${100 + nextPercentage}% ${(images[index] as any).vPos || "center"}`,
             },
             { duration: 1200, fill: "forwards", easing: "ease-out" }
           );
@@ -83,14 +83,14 @@ const ImageTrackGallery: React.FC = () => {
   }, []);
 
   const images = [
-    { src: bridalImage, alt: "Bridal Makeup" },
-    { src: hairImage, alt: "Hair Styling" },
     { src: skinImage, alt: "Skin Care" },
+    { src: makeupImage, alt: "Facial Treatment" },
+    { src: pedicureImage, alt: "Manicure & Pedicure" },
     { src: spaImage, alt: "Hair Spa" },
-    { src: makeupImage, alt: "Makeup Artist" },
-    { src: nailImage, alt: "Nail Art" },
-    { src: liceImage, alt: "Lice Treatment" },
-    { src: pedicureImage, alt: "Pedicure Care" },
+    { src: bridalImage, alt: "Bridal Makeup", vPos: "top" },
+    { src: nailImage, alt: "Nails" },
+    { src: liceImage, alt: "Lice Removal" },
+    { src: hairImage, alt: "Hair Styling" },
     { src: interiorImage, alt: "Salon Interior" },
     { src: vesselImage, alt: "Luxury Detail" },
   ];

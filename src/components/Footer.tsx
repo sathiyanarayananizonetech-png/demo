@@ -123,10 +123,13 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-1.5 tb:space-y-3">
               {[
-                "Bridal Makeup",
                 "Skin Care",
-                "Hair Care",
-                "Nail Art",
+                "Facial Treatment",
+                "Manicure & Pedicure",
+                "Hair Spa",
+                "Bridal Makeup",
+                "Nails",
+                "Lice Removal",
               ].map((s) => (
                 <li
                   key={s}
@@ -182,7 +185,7 @@ const Footer: React.FC = () => {
       <div className="relative border-t border-white/5 bg-black/20">
         <div className="max-w-7xl mx-auto flex flex-col tb:flex-row justify-between items-center px-6 py-3 tb:py-5 gap-2 relative z-20">
           <p className="text-on-surface/40 text-[7px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
-            © 2025 Zentonez Parlour. All Rights Reserved.
+            © 2025 Zentonez Beauty Salon. All Rights Reserved.
           </p>
           <div className="flex items-center gap-2 tb:gap-4 text-[7px] tb:text-[9px] uppercase font-black tracking-[0.2em] text-on-surface/40">
             <span className="hover:text-[#C9A24A] cursor-pointer transition-colors">

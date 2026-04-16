@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { ScrollReveal } from "./ScrollReveal";
 
 const pricingData = [
+  { name: "Skin Care", price: "₹400" },
+  { name: "Facial Treatment", price: "₹1,500" },
+  { name: "Manicure & Pedicure", price: "₹1,200" },
+  { name: "Hair Spa", price: "₹1,500" },
   { name: "Bridal Makeup", price: "₹15,000" },
-  { name: "Hair Styling", price: "₹1,500" },
-  { name: "Skin Care Treatments", price: "₹400" },
-  { name: "Nail Art", price: "₹1,500" },
+  { name: "Nails", price: "₹1,500" },
+  { name: "Lice Removal", price: "₹1,000" },
 ];
 
 export function PricingSection() {

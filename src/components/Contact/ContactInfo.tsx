@@ -133,7 +133,7 @@ const ContactInfo: React.FC = () => {
     {
       icon: <MapPin size={20} />,
       title: "Our Address",
-      content: "Zentonez Parlour, Thillai Nagar, Trichy, Tamil Nadu",
+      content: "Zentonez Beauty Salon, Thillai Nagar, Trichy, Tamil Nadu",
     },
     { icon: <Phone size={20} />, title: "Call Us", content: "9751231239 / 9344621878" },
     {
