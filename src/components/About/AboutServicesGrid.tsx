@@ -113,11 +113,11 @@ const ServiceCard: React.FC<{
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="group relative bg-white border border-primary/10 p-6 sm:p-8 rounded-[2rem] text-center transition-all duration-500 hover:border-primary/30 flex flex-col h-full shadow-sm hover:shadow-2xl overflow-hidden"
+      className="group relative bg-white border border-primary/10 p-6 sm:p-8 rounded-4xl text-center transition-all duration-500 hover:border-primary/30 flex flex-col h-full shadow-sm hover:shadow-2xl overflow-hidden"
     >
       {/* Subtle Hover Background Color */}
       <div 
-        className="absolute inset-0 rounded-[2rem] transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+        className="absolute inset-0 rounded-4xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
         style={{ backgroundColor: bgLight }}
       />
 
