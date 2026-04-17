@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-// @ts-expect-error - ESM URL import for dotlottie-web
-import { DotLottie } from "https://esm.sh/@lottiefiles/dotlottie-web";
+import { DotLottie } from "@lottiefiles/dotlottie-web";
 import { cn } from "../../lib/utils";
 
 interface SparkleHeadingProps {
@@ -28,9 +27,8 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       src: SPARKLE_URL,
       loop: true,
       autoplay: false,
+      backgroundColor: "transparent",
       renderConfig: {
-        clearCanvas: true,
-        backgroundAlpha: 0,
         devicePixelRatio: Math.min(1.5, window.devicePixelRatio || 1),
       },
     });
