@@ -16,35 +16,40 @@ import { ScrollReveal } from "./ScrollReveal";
 const services = [
   {
     title: "Skin Care",
-    description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
+    description:
+      "Maintain radiant and healthy skin with our personalized skincare solutions.",
     image: skinImage,
     icon: <Droplets size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
     title: "Facial Treatment",
-    description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
+    description:
+      "Refresh and rejuvenate your skin with our advanced facial therapies.",
     image: facialImage,
     icon: <Sparkles size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
     title: "Manicure & Pedicure",
-    description: "Pamper your hands and feet with our relaxing nail care services.",
+    description:
+      "Pamper your hands and feet with our relaxing nail care services.",
     image: manicureImage,
     icon: <Droplets size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
     title: "Hair Spa",
-    description: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
+    description:
+      "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     image: hairSpaImage,
     icon: <Scissors size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
     title: "Bridal Makeup",
-    description: "Look stunning on your special day with our professional bridal makeup services.",
+    description:
+      "Look stunning on your special day with our professional bridal makeup services.",
     image: bridalImage,
     icon: <Heart size={24} />,
     buttonClass: "btn-premium-gold",
@@ -52,14 +57,16 @@ const services = [
   },
   {
     title: "Nails",
-    description: "Exquisite nail art and extensions to express your unique style.",
+    description:
+      "Exquisite nail art and extensions to express your unique style.",
     image: nailImage,
     icon: <Sparkles size={24} />,
     buttonClass: "btn-premium-gold",
   },
   {
     title: "Lice Removal",
-    description: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
+    description:
+      "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
     image: liceImage,
     icon: <Scissors size={24} />,
     buttonClass: "btn-premium-gold",

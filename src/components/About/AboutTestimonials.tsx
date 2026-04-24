@@ -1,132 +1,195 @@
 import React from "react";
-import { motion, type Variants } from "framer-motion";
-import { Quote } from "lucide-react";
-import { ScrollReveal } from "../home/ScrollReveal";
+import { motion } from "framer-motion";
+import { Quote, Star } from "lucide-react";
+import DottedSurface from "../ui/DottedSurface";
 
-import testimonal1 from "../../assets/facialwebpimages/facial1.webp";
-import testimonal2 from "../../assets/facialwebpimages/facial4.webp";
-import testimonal3 from "../../assets/facialwebpimages/facial5.webp";
+interface Testimonial {
+  id: number;
+  name: string;
+  service: string;
+  quote: string;
+  rating: number;
+  image: string;
+}
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Zentonez is a living sanctuary of artistry. The attention to bespoke detail and the sanctuary-grade hygiene levels are unparalleled in the city.",
-    name: "Meera Krishnan",
-    role: "Regular Curation Since 2018",
-    image: testimonal1,
-  },
-  {
-    quote:
-      "My ethereal bridal transformation was a masterpiece beyond my vision. They curated my presence with such precision and soul for my wedding day.",
-    name: "Ritika Singh",
-    role: "Bridal Curation 2023",
-    image: testimonal2,
-  },
-  {
-    quote:
-      "The architectural hair ritual I received was beyond my expectations. The stylists are true master artisans who understand the weight of elegance.",
-    name: "Ananya Iyer",
-    role: "Signature Ritual Client",
-    image: testimonal3,
-  },
+const TESTIMONIALS: Testimonial[] = [
+  // Bridal Makeup (10)
+  { id: 1, name: "Priya Sharma", service: "Bridal Makeup", quote: "My bridal look was exactly what I dreamed of. Subtle, elegant, and lasted all day! Truly the best salon in Tamil Nadu.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya" },
+  { id: 2, name: "Anjali Nair", service: "Bridal Makeup", quote: "Zentonez made me feel like a queen on my wedding day. Their attention to detail is unmatched.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Anjali" },
+  { id: 3, name: "Meera Iyer", service: "Bridal Makeup", quote: "Exquisite makeup that felt like a second skin. Thank you for making my special day perfect.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Meera" },
+  { id: 4, name: "Deepika R.", service: "Bridal Makeup", quote: "Professional, punctual, and highly skilled. My makeup was flawless under the lights.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Deepika" },
+  { id: 5, name: "Sneha Kapoor", service: "Bridal Makeup", quote: "They understood my style instantly. The heavy bridal look was handled with such grace.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sneha" },
+  { id: 6, name: "Kavitha V.", service: "Bridal Makeup", quote: "Simply magical. My husband couldn't take his eyes off me! Highly recommended for brides.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kavitha" },
+  { id: 7, name: "Rohini Singh", service: "Bridal Makeup", quote: "The airbrush finish was incredible. No smudging despite the humidity.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rohini" },
+  { id: 8, name: "Shalini M.", service: "Bridal Makeup", quote: "A true artist. The colors matched my saree perfectly. I felt so confident.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Shalini" },
+  { id: 9, name: "Janani K.", service: "Bridal Makeup", quote: "Best bridal experience ever. The pre-bridal sessions really made a difference.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Janani" },
+  { id: 10, name: "Divya Balan", service: "Bridal Makeup", quote: "Thank you Zentonez for being part of my journey. The makeup was breathtaking.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Divya" },
+
+  // Hair Spa (8)
+  { id: 11, name: "Aishwarya L.", service: "Hair Spa", quote: "The most relaxing hair spa I've ever had. My hair feels so soft and manageable now.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aishwarya" },
+  { id: 12, name: "Lakshmi P.", service: "Hair Spa", quote: "Deep conditioning ritual at Zentonez is a must-try. Fixed my dry ends completely.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lakshmi" },
+  { id: 13, name: "Saritha G.", service: "Hair Spa", quote: "Premium products and amazing head massage. Totally worth the price.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Saritha" },
+  { id: 14, name: "Nandini J.", service: "Hair Spa", quote: "My scalp feels rejuvenated. The aromatic oils used were heavenly.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nandini" },
+  { id: 15, name: "Gayathri S.", service: "Hair Spa", quote: "Expert staff who know exactly what your hair needs. Transformed my frizzy hair.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Gayathri" },
+  { id: 16, name: "Pavithra R.", service: "Hair Spa", quote: "A luxury experience from start to finish. My hair has never looked this shiny.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pavithra" },
+  { id: 17, name: "Shanthi K.", service: "Hair Spa", quote: "The ambiance alone is so soothing. The spa treatment was the cherry on top.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Shanthi" },
+  { id: 18, name: "Vidhya M.", service: "Hair Spa", quote: "Gentle handling and effective results. Will definitely come back for another session.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Vidhya" },
+
+  // Skin Care (8)
+  { id: 19, name: "Swathi B.", service: "Skin Care", quote: "My skin is glowing after the session! The customized facial was exactly what I needed.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Swathi" },
+  { id: 20, name: "Madhu V.", service: "Skin Care", quote: "High-quality products and professional dermatological advice. Best skin care salon.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Madhu" },
+  { id: 21, name: "Rekha S.", service: "Skin Care", quote: "Visible results in just one sitting. My acne marks have significantly faded.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rekha" },
+  { id: 22, name: "Keerthi N.", service: "Skin Care", quote: "I love the organic masks they use. My sensitive skin felt so calm and refreshed.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Keerthi" },
+  { id: 23, name: "Bhavana T.", service: "Skin Care", quote: "Clean environment and expert estheticians. My go-to place for monthly maintenance.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bhavana" },
+  { id: 24, name: "Sandhya W.", service: "Skin Care", quote: "The hydration facial is a lifesaver for dry skin. Felt like a total reset.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sandhya" },
+  { id: 25, name: "Amrutha Q.", service: "Skin Care", quote: "The detan service worked wonders after my vacation. Highly effective.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amrutha" },
+  { id: 26, name: "Latha P.", service: "Skin Care", quote: "Always professional and polite. My skin texture has improved so much.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Latha" },
+
+  // Facial Treatment (8)
+  { id: 27, name: "Maya D.", service: "Facial Treatment", quote: "The gold facial gave me an instant radiance. Perfect for festive seasons.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maya" },
+  { id: 28, name: "Indira K.", service: "Facial Treatment", quote: "Hydra-facial at Zentonez is world-class. My skin feels plump and youthful.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Indira" },
+  { id: 29, name: "Varsha S.", service: "Facial Treatment", quote: "They took the time to analyze my skin type before starting. Very thorough.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Varsha" },
+  { id: 30, name: "Sindhu M.", service: "Facial Treatment", quote: "No redness or irritation. Just pure glow. The massage technique is excellent.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sindhu" },
+  { id: 31, name: "Tanvi J.", service: "Facial Treatment", quote: "Brightening treatment that actually works. My face looks much more even-toned.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tanvi" },
+  { id: 32, name: "Rithika P.", service: "Facial Treatment", quote: "Relaxing vibes and visible results. The anti-aging facial is phenomenal.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rithika" },
+  { id: 33, name: "Kajal A.", service: "Facial Treatment", quote: "Premium service at reasonable prices. The fruit facial felt so natural.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kajal" },
+  { id: 34, name: "Nisha L.", service: "Facial Treatment", quote: "Total rejuvenation. I walked out feeling 10 years younger!", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nisha" },
+
+  // Nails (8)
+  { id: 35, name: "Sarah G.", service: "Nails", quote: "Best nail art in the city. The extensions are sturdy and look so natural.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah" },
+  { id: 36, name: "Uma R.", service: "Nails", quote: "Gel polish that doesn't chip for weeks! Huge variety of colors to choose from.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Uma" },
+  { id: 37, name: "Hema V.", service: "Nails", quote: "Precision and creativity at its best. My festive nail art was a hit.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Hema" },
+  { id: 38, name: "Monica D.", service: "Nails", quote: "Very hygienic and patient with intricate designs. Love my new nails.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Monica" },
+  { id: 39, name: "Pooja C.", service: "Nails", quote: "Quick and efficient. The matte finish I got is simply stunning.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pooja" },
+  { id: 40, name: "Ananya B.", service: "Nails", quote: "Luxury nail care. The hand massage after the manicure was so relaxing.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ananya" },
+  { id: 41, name: "Swetha F.", service: "Nails", quote: "Perfect French tip! Very classy and clean work. Highly recommended.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Swetha" },
+  { id: 42, name: "Aruna K.", service: "Nails", quote: "They use high-quality tools and polishes. My nails feel healthy.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aruna" },
+
+  // Manicure Pedicure (4)
+  { id: 43, name: "Geetha S.", service: "Manicure Pedicure", quote: "The pedicure felt like a mini-vacation for my feet. So smooth!", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Geetha" },
+  { id: 44, name: "Preethi H.", service: "Manicure Pedicure", quote: "Clean tools and relaxing soak. My hands and feet look groomed and pretty.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Preethi" },
+  { id: 45, name: "Sumathi J.", service: "Manicure Pedicure", quote: "Excellent service. The paraffin wax treatment made my skin so soft.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sumathi" },
+  { id: 46, name: "Bindu M.", service: "Manicure Pedicure", quote: "Professional and thorough. Every bit of dead skin was gone. Amazing.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bindu" },
+
+  // Lice Removal (4)
+  { id: 47, name: "Chitra R.", service: "Lice Removal", quote: "Safe and effective for my daughter. Very patient and child-friendly staff.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Chitra" },
+  { id: 48, name: "Mala V.", service: "Lice Removal", quote: "The only salon that handles this professionally. 100% results in one sitting.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mala" },
+  { id: 49, name: "Bala S.", service: "Lice Removal", quote: "Stress-free and painless. Thank you for solving this issue so quickly.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bala" },
+  { id: 50, name: "Usha K.", service: "Lice Removal", quote: "Highly recommended for kids. Discreet and professional service.", rating: 5, image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Usha" },
 ];
 
-const AboutTestimonials: React.FC = () => {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
+const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
   return (
-    <section className="py-10 sm:py-16 bg-background relative overflow-hidden">
-      {/* Decorative patterns */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-30">
-        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-3xl" />
+    <motion.div
+      whileHover={{ scale: 1.05, y: -5 }}
+      className="shrink-0 w-[300px] sm:w-[350px] p-6 mx-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-luxury-soft transition-all duration-300 group"
+    >
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-12 h-12 rounded-2xl overflow-hidden border border-white/20 bg-primary/10">
+          <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+        </div>
+        <div>
+          <h4 className="text-white font-bold text-sm sm:text-base leading-none mb-1">{testimonial.name}</h4>
+          <p className="text-primary text-[10px] uppercase font-bold tracking-widest">{testimonial.service}</p>
+        </div>
+      </div>
+      
+      <div className="flex gap-1 mb-4">
+        {[...Array(testimonial.rating)].map((_, i) => (
+          <Star key={i} size={12} className="fill-primary text-primary" />
+        ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-10 sm:mb-14">
-          <ScrollReveal>
-            <span className="text-primary text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-              Voices of Radiance
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-serif text-on-surface uppercase tracking-tight leading-none mb-6">
-              Client <span className="text-primary">Stories</span>
-            </h2>
-            <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
-          </ScrollReveal>
+      <div className="relative">
+        <Quote className="absolute -top-2 -left-2 text-white/10 w-8 h-8 -z-10" />
+        <p className="text-white/80 text-sm leading-relaxed italic font-medium">
+          "{testimonial.quote}"
+        </p>
+      </div>
+      
+      <div className="absolute inset-0 rounded-3xl group-hover:bg-primary/5 transition-colors pointer-events-none" />
+    </motion.div>
+  );
+};
+
+const AboutTestimonials: React.FC = () => {
+  const row1 = TESTIMONIALS.slice(0, 25);
+  const row2 = TESTIMONIALS.slice(25, 50);
+
+  return (
+    <section className="py-20 sm:py-32 bg-surface-dim relative overflow-hidden">
+      <DottedSurface opacity={0.4} dotColor="#C08497" particleCount={800} />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-16 relative z-10">
+        <div className="text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-primary font-bold uppercase tracking-[0.4em] text-xs mb-4 block"
+          >
+            Voices of Elegance
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl sm:text-6xl font-serif text-on-surface font-black uppercase italic leading-none"
+          >
+            Client <span className="text-primary">Stories</span>
+          </motion.h2>
+          <div className="h-1 w-20 bg-primary/30 mx-auto mt-8 rounded-full" />
+        </div>
+      </div>
+
+      <div className="relative z-10 flex flex-col gap-8">
+        {/* Row 1: Left to Right */}
+        <div className="flex overflow-hidden group">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 50,
+                ease: "linear",
+              },
+            }}
+            className="flex hover:[animation-play-state:paused]"
+          >
+            {[...row1, ...row1].map((t, i) => (
+              <TestimonialCard key={i} testimonial={t} />
+            ))}
+          </motion.div>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-10%" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
-        >
-          {TESTIMONIALS.map((t, idx) => (
-            <motion.div
-              key={idx}
-              variants={itemVariants}
-              className="p-6 sm:p-8 bg-surface-dim/30 rounded-4xl sm:rounded-5xl border border-primary-container/20 relative group overflow-hidden hover:bg-surface-dim hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col justify-between"
-            >
-              {/* Background Accent Image (Faded) */}
-              <div className="absolute top-0 right-0 w-full h-full opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
-                <img
-                  src={t.image}
-                  alt=""
-                  className="w-full h-full object-cover grayscale"
-                />
-              </div>
+        {/* Row 2: Right to Left */}
+        <div className="hidden lg:flex overflow-hidden">
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 60,
+                ease: "linear",
+              },
+            }}
+            className="flex hover:[animation-play-state:paused]"
+          >
+            {[...row2, ...row2].map((t, i) => (
+              <TestimonialCard key={i} testimonial={t} />
+            ))}
+          </motion.div>
+        </div>
+      </div>
 
-              <div className="relative z-10">
-                <Quote className="text-primary-container absolute top-0 right-0 w-8 h-8 opacity-40 group-hover:text-primary transition-colors duration-500" />
-
-                {/* Avatar */}
-                <div className="mb-4 relative">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-primary/20 p-1 bg-white/50 backdrop-blur-sm group-hover:border-primary transition-colors duration-500">
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  </div>
-                </div>
-
-                <p className="text-base sm:text-lg font-serif italic text-on-surface/80 leading-relaxed mb-6">
-                  "{t.quote}"
-                </p>
-              </div>
-
-              <div className="relative z-10 transition-transform duration-500 group-hover:translate-x-2">
-                <h4 className="text-xl font-serif text-on-surface">
-                  {t.name}
-                </h4>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-primary mt-1">
-                  {t.role}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+      {/* Mobile Swipe Text */}
+      <div className="lg:hidden text-center mt-10">
+        <p className="text-on-surface/40 text-[10px] uppercase font-bold tracking-widest">
+          Swipe to explore more stories
+        </p>
       </div>
     </section>
   );

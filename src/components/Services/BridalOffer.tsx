@@ -108,7 +108,7 @@ const BridalOffer: React.FC = () => {
               {/* Floating Badge */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] }}
                 className="absolute top-10 right-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-luxury border border-primary/20 rotate-6"
               >
                 <p className="text-primary font-black text-2xl leading-none">20%</p>

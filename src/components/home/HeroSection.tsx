@@ -50,7 +50,7 @@ export function HeroSection() {
 
       <motion.div
         animate={{ y: [0, -20, 0], rotate: [0, 15, 0] }}
-        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", times: [0, 0.5, 1] }}
         className="absolute top-32 tb:top-44 left-[5%] tb:left-[10%] text-primary opacity-30 hidden mb:block"
       >
         <Sparkles size={36} className="tb:hidden" />
@@ -118,7 +118,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative block"
           style={{ perspective: 1000 }}
         >

@@ -73,23 +73,27 @@ const Footer: React.FC = () => {
                   Icon: Instagram,
                   href: "https://instagram.com/zentonez",
                   label: "Instagram",
+                  color: "hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F]/50",
                 },
                 {
                   Icon: Facebook,
                   href: "https://facebook.com/zentonez",
                   label: "Facebook",
+                  color: "hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]/50",
                 },
                 {
                   Icon: Youtube,
                   href: "https://youtube.com/@zentonez",
                   label: "YouTube",
+                  color: "hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000]/50",
                 },
                 {
                   Icon: MessageCircle,
                   href: "https://wa.me/919751231239",
                   label: "WhatsApp",
+                  color: "hover:bg-[#25D366] hover:text-white hover:border-[#25D366]/50",
                 },
-              ].map(({ Icon, href, label }, i) => (
+              ].map(({ Icon, href, label, color }, i) => (
                 <motion.a
                   whileHover={{ y: -4, scale: 1.15 }}
                   whileTap={{ scale: 0.95 }}
@@ -98,12 +102,13 @@ const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="p-2.5 bg-secondary/5 text-[#C9A24A] rounded-xl hover:bg-[#C9A24A] hover:text-[#1A1A1A] transition-all duration-500 border border-[#C9A24A]/10 hover:border-[#C9A24A]/40 shadow-sm hover:shadow-luxury-gold"
+                  className={`p-2.5 bg-secondary/5 text-[#C9A24A] rounded-xl transition-all duration-500 border border-[#C9A24A]/10 shadow-sm hover:shadow-lg ${color}`}
                 >
                   <Icon size={16} className="tb:w-5 tb:h-5" />
                 </motion.a>
               ))}
             </div>
+
           </motion.div>
 
           {/* Quick Links - Side-by-side on mobile */}
