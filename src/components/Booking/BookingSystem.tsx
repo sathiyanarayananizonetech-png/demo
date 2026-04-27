@@ -11,12 +11,15 @@ type ServiceType = {
 };
 
 const SERVICES: ServiceType[] = [
-  { id: 'hair-spa', name: 'Artisan Hair Spa', duration: '60 Min', price: '₹1800', icon: <Droplets size={24} /> },
+  { id: 'hair-spa', name: 'Artisan Hair Spa', duration: '60 Min', price: '₹899', icon: <Droplets size={24} /> },
+  { id: 'facial', name: 'Premium Facial', duration: '90 Min', price: '₹999', icon: <Sparkles size={24} /> },
+  { id: 'skincare', name: 'Skin Care Ritual', duration: '45 Min', price: '₹400', icon: <Droplets size={24} /> },
+  { id: 'hair-styling', name: 'Master Hair Styling', duration: '60 Min', price: '₹1500', icon: <Scissors size={24} /> },
   { id: 'nails', name: 'Designer Nails', duration: '60 Min', price: '₹1500', icon: <Sparkles size={24} /> },
-  { id: 'pedicure', name: 'Luxury Pedicure', duration: '45 Min', price: '₹1200', icon: <Droplets size={24} /> },
-  { id: 'haircut', name: 'Master Haircut', duration: '60 Min', price: '₹1800', icon: <Scissors size={24} /> },
-  { id: 'lice-treatment', name: 'Lice Treatment', duration: '60 Min', price: '₹1000', icon: <ShieldCheck size={24} /> },
-  { id: 'coloring', name: 'Global Coloring', duration: '120 Min', price: '₹4000', icon: <Sparkles size={24} /> },
+  { id: 'manicure', name: 'Luxury Manicure', duration: '45 Min', price: '₹599', icon: <Droplets size={24} /> },
+  { id: 'pedicure', name: 'Luxury Pedicure', duration: '45 Min', price: '₹699', icon: <Droplets size={24} /> },
+  { id: 'lice-treatment', name: 'Lice Treatment', duration: '60 Min', price: '₹5000', icon: <ShieldCheck size={24} /> },
+  { id: 'bridal', name: 'Bridal Makeup', duration: '240 Min', price: '₹15000', icon: <Sparkles size={24} /> },
 ];
 
 const TIME_SLOTS = [

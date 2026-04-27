@@ -1,152 +1,136 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import type { FC } from "react";
+import { motion } from "framer-motion";
+import AnimatedList from "../ui/AnimatedList";
 import {
   SkinCare3D,
   Facial3D,
+  ManiPedi3D,
   HairSpa3D,
   Bridal3D,
   Nails3D,
+  LiceRemoval3D,
 } from "../ui/ThreeDIcons";
 
 const SERVICES_DATA = [
   {
-    id: 1,
-    title: "SKIN CARE",
-    price: "₹600",
-    description: "Personalized skincare for radiant, healthy skin.",
+    title: "Skin Care",
+    desc: "Maintain radiant and healthy skin with our personalized skincare solutions.",
     icon: <SkinCare3D />,
-    category: "MINIMAL",
+    color: "#FB7185", // Rose
+    gradient: "linear-gradient(200deg, #FECDD3 0%, #FB7185 100%)",
   },
   {
-    id: 2,
-    title: "FACIAL TREATMENT",
-    price: "₹800",
-    description: "Advanced therapies to refresh and rejuvenate.",
+    title: "Facial Treatment",
+    desc: "Refresh and rejuvenate your skin with our advanced facial therapies.",
     icon: <Facial3D />,
-    category: "GLASS",
+    color: "#38BDF8", // Blue
+    gradient: "linear-gradient(200deg, #BAE6FD 0%, #38BDF8 100%)",
   },
   {
-    id: 3,
-    title: "BRIDAL MAKEUP",
-    price: "₹3500",
-    description: "Look stunning on your most special day.",
-    icon: <Bridal3D />,
-    category: "GLOW",
+    title: "Manicure & Pedicure",
+    desc: "Pamper your hands and feet with our relaxing nail care services.",
+    icon: <ManiPedi3D />,
+    color: "#FB923C", // Orange
+    gradient: "linear-gradient(200deg, #FED7AA 0%, #FB923C 100%)",
   },
   {
-    id: 4,
-    title: "NAIL ART",
-    price: "₹400",
-    description: "Exquisite nail art to express your unique style.",
-    icon: <Nails3D />,
-    category: "SPLIT",
-  },
-  {
-    id: 5,
-    title: "HAIR SPA",
-    price: "₹700",
-    description: "Nourishing spa treatments to repair and revitalize.",
+    title: "Hair Spa",
+    desc: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     icon: <HairSpa3D />,
-    category: "MINIMAL",
+    color: "#0EA5E9", // Sky Blue
+    gradient: "linear-gradient(200deg, #BAE6FD 0%, #0EA5E9 100%)",
+  },
+  {
+    title: "Bridal Makeup",
+    desc: "Look stunning on your special day with our professional bridal makeup services.",
+    icon: <Bridal3D />,
+    color: "#D97706", // Gold
+    gradient: "linear-gradient(200deg, #FDE68A 0%, #D97706 100%)",
+  },
+  {
+    title: "Nails",
+    desc: "Exquisite nail art and extensions to express your unique style.",
+    icon: <Nails3D />,
+    color: "#8B5CF6", // Purple
+    gradient: "linear-gradient(200deg, #DDD6FE 0%, #8B5CF6 100%)",
+  },
+  {
+    title: "Lice Removal",
+    desc: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
+    icon: <LiceRemoval3D />,
+    color: "#10B981", // Emerald
+    gradient: "linear-gradient(200deg, #A7F3D0 0%, #10B981 100%)",
+  },
+  {
+    title: "Hair Styling",
+    desc: "Bespoke hair styling for every occasion, from traditional to contemporary.",
+    icon: <HairSpa3D />, // Using HairSpa3D as placeholder
+    color: "#EC4899", // Pink
+    gradient: "linear-gradient(200deg, #FBCFE8 0%, #EC4899 100%)",
   },
 ];
 
-const CATEGORIES = ["GLASS", "SPLIT", "MINIMAL", "GLOW"];
-
-const AboutServicesGrid: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("MINIMAL");
-
-  const filteredServices = SERVICES_DATA; // Showing all for now, or we can filter if user wants
-
+const AboutServicesGrid: FC = () => {
   return (
-    <section className="py-20 bg-[#050505] relative overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/5 blur-[120px] rounded-full -z-10" />
-
+    <section className="py-12 sm:py-20 dt:py-24 bg-surface-dim relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
-          {CATEGORIES.map((cat) => (
-            <motion.button
-              key={cat}
-              onClick={() => setActiveTab(cat)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-8 py-3 rounded-xl text-xs font-black tracking-[0.2em] transition-all duration-300 border ${
-                activeTab === cat
-                  ? "bg-primary/10 border-primary text-primary shadow-[0_0_20px_rgba(var(--primary-rgb),0.2)]"
-                  : "bg-white/5 border-white/10 text-white/40 hover:text-white/60 hover:border-white/20"
-              }`}
-            >
-              {cat}
-            </motion.button>
-          ))}
+        <div className="text-center mb-12 sm:mb-20">
+          <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px] sm:text-xs mb-6 block">
+            Experience Our Expertise
+          </span>
+          <h2 className="text-display text-on-surface">
+            Our <span className="text-primary">Exclusive Services</span>
+          </h2>
+          <div className="w-24 h-1 bg-primary/20 mx-auto mt-8 rounded-full" />
         </div>
 
-        {/* Services Cards Container */}
-        <div className="max-w-4xl mx-auto space-y-6">
-          <AnimatePresence mode="popLayout">
-            {filteredServices.map((service, index) => (
-              <motion.div
-                key={service.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative"
+        <div className="flex justify-center w-full max-w-4xl mx-auto pt-10">
+          <AnimatedList
+            items={SERVICES_DATA}
+            className="w-full"
+            isSticky={true}
+            showGradients={false}
+            enableArrowNavigation={false}
+            displayScrollbar={false}
+            renderItem={(service, _index, isSelected) => (
+              <div
+                className={`w-full overflow-hidden rounded-[30px] shadow-luxury transition-all duration-500 border border-white/10 ${isSelected ? "scale-[1.02] shadow-luxury-deep ring-2 ring-primary/20" : "scale-100 opacity-90"
+                  }`}
+                style={{
+                  background: service.gradient,
+                  padding: "40px"
+                }}
               >
-                <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-4xl" />
-                <div className="relative bg-white/3 backdrop-blur-sm border border-white/10 rounded-4xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8 group-hover:border-primary/30 transition-all duration-500">
-                  
-                  {/* Icon Container */}
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center p-4 group-hover:scale-110 transition-transform duration-500 shadow-luxury">
-                    <div className="w-full h-full text-primary drop-shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center gap-6 mb-4">
+                    <div className="w-14 h-14 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center p-1 bg-white/10 rounded-2xl shadow-inner border border-white/20 backdrop-blur-sm">
                       {service.icon}
                     </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 text-center sm:text-left space-y-2">
-                    <div className="space-y-1">
-                      <h3 className="text-2xl sm:text-3xl font-black italic uppercase font-serif text-white tracking-tight group-hover:text-primary transition-colors duration-300">
+                    <div className="flex-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md leading-tight">
                         {service.title}
                       </h3>
-                      <p className="text-primary/80 font-bold tracking-widest text-xs">
-                        From {service.price}
-                      </p>
-                    </div>
-                    <p className="text-white/50 text-sm font-medium leading-relaxed max-w-md">
-                      {service.description}
-                    </p>
-                    
-                    {/* Tags */}
-                    <div className="flex flex-wrap justify-center sm:justify-start gap-2 pt-4">
-                      <span className="px-4 py-1.5 rounded-full border border-primary/20 text-[10px] font-black uppercase tracking-widest text-primary/60 group-hover:bg-primary/10 transition-all">
-                        PREMIUM
-                      </span>
-                      <span className="px-4 py-1.5 rounded-full border border-primary/20 text-[10px] font-black uppercase tracking-widest text-primary/60 group-hover:bg-primary/10 transition-all">
-                        ARTISANAL
-                      </span>
+                      <motion.p
+                        initial={false}
+                        animate={{
+                          opacity: isSelected ? 1 : 0.8,
+                          height: "auto",
+                          marginTop: "12px"
+                        }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="text-white/80 text-sm sm:text-base leading-relaxed font-medium border-t border-white/10 pt-4 overflow-hidden"
+                      >
+                        {service.desc}
+                      </motion.p>
                     </div>
                   </div>
-
-                  {/* Action Button */}
-                  <motion.div 
-                    whileHover={{ scale: 1.1, x: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all duration-300"
-                  >
-                    <ArrowRight className="text-white/40 group-hover:text-white" size={20} />
-                  </motion.div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+              </div>
+            )}
+          />
         </div>
       </div>
+
     </section>
   );
 };

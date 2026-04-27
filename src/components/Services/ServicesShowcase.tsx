@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Clock, Quote } from "lucide-react";
+import { Clock } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import skinCare from "../../assets/facialwebpimages/facial1.webp";
@@ -39,7 +39,7 @@ const services: Service[] = [
     title: "Skin Care",
     category: "Skin Wellness",
     description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
-    price: "₹1,500+",
+    price: "₹400+",
     duration: "60 Mins",
     review: "The facial was divine! My skin has never felt so hydrated and glowing. Truly a premium experience.",
     clientName: "Deepika S.",
@@ -57,7 +57,7 @@ const services: Service[] = [
     title: "Facial Treatment",
     category: "Advanced Therapy",
     description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
-    price: "₹2,500+",
+    price: "₹999+",
     duration: "90 Mins",
     review: "Results were visible after just one session. The therapist was so professional and knowledgeable.",
     clientName: "Ananya K.",
@@ -75,7 +75,7 @@ const services: Service[] = [
     title: "Manicure & Pedicure",
     category: "Nail Care",
     description: "Pamper your hands and feet with our relaxing nail care services.",
-    price: "₹1,200+",
+    price: "₹599+",
     duration: "75 Mins",
     review: "The best mani-pedi in town! The attention to detail and the relaxing atmosphere are unbeatable.",
     clientName: "Meera V.",
@@ -93,7 +93,7 @@ const services: Service[] = [
     title: "Hair Spa",
     category: "Hair Health",
     description: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
-    price: "₹1,800+",
+    price: "₹899+",
     duration: "60 Mins",
     review: "My hair feels like silk! The treatment really addressed my dryness and frizz issues.",
     clientName: "Sneha P.",
@@ -129,7 +129,7 @@ const services: Service[] = [
     title: "Nails",
     category: "Nail Artistry",
     description: "Exquisite nail art and extensions to express your unique style.",
-    price: "₹2,000+",
+    price: "₹1,500+",
     duration: "90 Mins",
     review: "Incredible nail art! They perfectly captured the design I wanted. So many compliments!",
     clientName: "Varsha M.",
@@ -147,7 +147,7 @@ const services: Service[] = [
     title: "Lice Removal",
     category: "Scalp Care",
     description: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
-    price: "₹999+",
+    price: "₹5,000+",
     duration: "45 Mins",
     review: "Very professional and discreet. The treatment was effective and painless. Highly recommend for kids.",
     clientName: "Lakshmi T.",
@@ -157,6 +157,24 @@ const services: Service[] = [
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="currentColor" fillOpacity="0.9" />
+      </svg>
+    ),
+  },
+  {
+    id: 8,
+    title: "Hair Styling",
+    category: "Hair Artistry",
+    description: "Expert hair styling for every occasion, from elegant updos to modern trends.",
+    price: "₹1,500+",
+    duration: "45 Mins",
+    review: "Loved my hair for the party! It stayed perfectly in place all night.",
+    clientName: "Ritu G.",
+    highlights: ["Elegant Updos", "Modern Braids", "Event Styling"],
+    image: hairSpa, // Using hairSpa image as fallback
+    color: "#EC4899",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 0V8a2 2 0 0 1 2-2h1m10 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 0V8a2 2 0 0 0-2-2h-1M12 18v-5m0-4V4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -337,15 +355,7 @@ const ServicesShowcase: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="relative px-8 pt-6 pb-4 bg-on-surface/5 rounded-3xl border border-on-surface/20">
-                  <Quote className="absolute top-2 left-2 text-primary/30 rotate-180" size={24} />
-                  <p className="text-on-surface/90 text-sm italic font-medium leading-relaxed mb-2">
-                    "{service.review}"
-                  </p>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-primary">
-                    — {service.clientName}
-                  </span>
-                </div>
+
 
                 <div className="flex flex-col items-center gap-4 pt-4 w-full">
                   <div className="flex flex-col items-center">

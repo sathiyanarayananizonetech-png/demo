@@ -3,47 +3,50 @@ import { MapPin } from "lucide-react";
 
 const ContactMap: React.FC = () => {
   return (
-    <section className="h-[400px] sm:h-[500px] md:h-[600px] w-full relative overflow-hidden group">
-      {/* Real Google Maps Integration */}
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.783112803814!2d78.6859556!3d10.8278274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf567b5e43c5b%3A0xc00958133ba5368a!2sThillai%20Nagar%2C%20Tiruchirappalli%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1713790000000!5m2!1sen!2sin" 
-        className="absolute inset-0 w-full h-full grayscale-[0.8] contrast-[1.2] invert-[0.05] group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
-        style={{ border: 0 }} 
-        allowFullScreen 
-        loading="lazy" 
-        referrerPolicy="no-referrer-when-downgrade"
-      />
-
-      {/* Premium Overlays */}
-      <div className="absolute inset-0 bg-radial-to-c from-transparent via-white/10 to-white pointer-events-none" />
-      
-      {/* Floating Info Badge */}
-      <div className="absolute top-10 left-10 z-10 hidden sm:block">
-        <div className="bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-luxury-deep border border-white/20 max-w-[280px]">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-              <MapPin className="text-primary w-5 h-5" />
-            </div>
-            <h4 className="font-serif font-black uppercase text-sm tracking-tight">Our Boutique</h4>
+    <section className="py-12 sm:py-20 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Elegant Map Frame */}
+        <div className="relative group p-2 sm:p-3 bg-[#B87333]/5 rounded-4xl sm:rounded-5xl border border-[#B87333]/10 shadow-soft overflow-hidden">
+          <div className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden rounded-3xl sm:rounded-5xl border border-[#B87333]/20 shadow-inner bg-slate-100">
+            {/* Real Google Maps Integration */}
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.784523314!2d78.683567!3d10.8264819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5c6ab3ec563%3A0xb6e4149c8e7aa646!2sZEN%20TONEZ%20SALON!5e0!3m2!1sen!2sin!4v1714210000000!5m2!1sen!2sin" 
+              className="absolute inset-0 w-full h-full contrast-[1.05]"
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Zentonez Location"
+            />
           </div>
-          <p className="text-on-surface/70 text-xs leading-relaxed font-medium">
-            No. 45, 10th Cross East, <br/>
-            Thillai Nagar, Trichy - 620018
-          </p>
-          <div className="mt-4 pt-4 border-t border-on-surface/5 flex justify-between items-center">
-            <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Tamil Nadu</span>
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-1 h-1 bg-primary rounded-full" />
-              ))}
+
+          {/* Elegant Floating Address Card */}
+          <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 w-[90%] max-w-xl px-2 sm:px-0">
+            <div className="bg-white/95 backdrop-blur-lg p-4 sm:p-5 rounded-2xl sm:rounded-4xl shadow-2xl border border-[#B87333]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B87333]/10 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <MapPin className="text-[#B87333] w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div>
+                  <h4 className="font-serif font-black uppercase text-[10px] sm:text-xs tracking-widest text-slate-900 leading-none mb-1">
+                    ZENTONEZ WOMEN EXCLUSIVE SALON
+                  </h4>
+                  <p className="text-slate-600 text-[10px] sm:text-[11px] leading-tight font-bold">
+                    First Floor, Rishi Complex, 15A & 6B, 1st Cross Rd, West Thillai Nagar, Tennur, Trichy - 620018
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 sm:gap-6">
+                <div className="h-8 w-px bg-slate-200 hidden sm:block" />
+                <div className="text-center sm:text-left">
+                  <span className="block text-[7px] font-black uppercase tracking-widest text-[#B87333] mb-0.5">Location</span>
+                  <span className="text-[9px] sm:text-[10px] font-black text-slate-800 uppercase">Tamil Nadu</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative Gradient Trims */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-linear-to-b from-white to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-white to-transparent pointer-events-none" />
     </section>
   );
 };

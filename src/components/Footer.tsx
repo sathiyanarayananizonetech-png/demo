@@ -182,7 +182,7 @@ const Footer: React.FC = () => {
               <li className="flex flex-col mb:flex-row items-center mb:items-start gap-1.5 text-center mb:text-left">
                 <MapPin className="text-[#C9A24A] shrink-0 w-2.5 h-2.5 tb:w-3 tb:h-3 tb:mt-0.5" />
                 <span className="text-on-surface/80 text-[8px] tb:text-[10px] font-black uppercase tracking-widest">
-                  Thillai Nagar, Trichy
+                  Rishi Complex, West Thillai Nagar, Tennur, Trichy
                 </span>
               </li>
               <div className="flex flex-row mb:flex-col gap-4 tb:gap-3 justify-center">

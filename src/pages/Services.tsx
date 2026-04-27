@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import type { FC } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServicesHero from "../components/Services/ServicesHero";
 import ServicesShowcase from "../components/Services/ServicesShowcase";
@@ -6,7 +7,7 @@ import BridalOffer from "../components/Services/BridalOffer";
 import ServicesCTA from "../components/Services/ServicesCTA";
 import { SocialSidebar } from "../components/ui/SocialSidebar";
 
-const Services: React.FC = () => {
+const Services: FC = () => {
   useEffect(() => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());

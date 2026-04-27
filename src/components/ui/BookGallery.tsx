@@ -1,27 +1,23 @@
 import React from "react";
 
 // Asset Imports
-import interiorImg from "../../assets/hairspawebpimages/hairspa2.webp";
-import heroImg from "../../assets/hairwebp images/haircolor.webp";
-import hairImg from "../../assets/hairwebp images/caramelhaircolor.webp";
-import makeupImg from "../../assets/facialwebpimages/facial1.webp";
-import bridalImg from "../../assets/hairwebp images/haircutv.webp";
 import skinImg from "../../assets/facialwebpimages/facial3.webp";
+import facialImg from "../../assets/facialwebpimages/facial1.webp";
+import manicureImg from "../../assets/pedicurewebpimages/manicure2.webp";
+import pedicureImg from "../../assets/pedicurewebpimages/manicure1.webp";
 import spaImg from "../../assets/hairspawebpimages/hairspa2.webp";
+import bridalImg from "../../assets/bridalwebpimages/bridal1.webp";
 import nailImg from "../../assets/nailwebpimages/nail2.webp";
-import pedicureImg from "../../assets/pedicurewebpimages/manicure2.webp";
 import liceImg from "../../assets/licewebpimages/lice2.webp";
-import vesselImg from "../../assets/nailwebpimages/nail5.webp";
 import logoImg from "../../assets/zentonez-logo.png";
 
 const BookGallery: React.FC = () => {
   const pages = [
-    { front: heroImg, back: interiorImg },
-    { front: hairImg, back: makeupImg },
-    { front: bridalImg, back: skinImg },
-    { front: spaImg, back: nailImg },
-    { front: pedicureImg, back: liceImg },
-    { front: vesselImg, back: logoImg },
+    { front: skinImg, back: facialImg },
+    { front: manicureImg, back: pedicureImg },
+    { front: spaImg, back: bridalImg },
+    { front: nailImg, back: liceImg },
+    { front: logoImg, back: logoImg },
   ];
 
   return (

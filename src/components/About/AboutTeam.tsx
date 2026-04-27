@@ -1,22 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
-import team1 from "../../assets/facialwebpimages/facial1.webp";
-import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
-import skinImage from "../../assets/facialwebpimages/facial2.webp";
 
 const AboutTeam: React.FC = () => {
-  const team2 = hairImage;
-
   return (
     <section className="py-10 sm:py-16 bg-surface-dim relative">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center mb-10 sm:mb-16 gap-6 sm:gap-8">
           <div className="max-w-2xl">
-            <span className="text-primary font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs mb-4 block">
+            <span className="text-[#B87333] font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs mb-4 block">
               The Artisans
             </span>
             <h2 className="text-hero text-on-surface">
-              Meet Our <span className="text-primary">Master Stylists</span>
+              Meet Our <span className="text-[#B87333]">Master Stylists</span>
             </h2>
           </div>
           <p className="text-base sm:text-lg text-on-surface/60 font-sans max-w-xl">
@@ -25,25 +20,22 @@ const AboutTeam: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 dt:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {[
             {
-              name: "Priya Raj",
-              role: "Master Makeup Artist",
-              img: team1,
-              bio: "Internationally certified, Priya specializes in high-definition bridal transformations.",
+              name: "Anisha",
+              role: "Manager",
+              bio: "The driving force behind our salon's excellence, ensuring every guest receives royal treatment.",
             },
             {
-              name: "Ananya Sharma",
-              role: "Senior Hair Stylist",
-              img: team2,
-              bio: "With 5+ years of experience, Ananya is the architect of avant-garde hair design.",
+              name: "Saritha J",
+              role: "All Rounder",
+              bio: "A versatile expert skilled in the full spectrum of luxury beauty services, from skin to hair.",
             },
             {
-              name: "Sanam Kapoor",
-              role: "Skin Care Specialist",
-              img: skinImage,
-              bio: "Sanam combines holistic knowledge with modern technology for radiant results.",
+              name: "Yoga",
+              role: "Hairstylist",
+              bio: "A visionary in hair design, specializing in bespoke cuts and vibrant color transformations.",
             },
           ].map((member, i) => (
             <motion.div
@@ -52,32 +44,30 @@ const AboutTeam: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="group"
+              className="relative rounded-4xl p-8 sm:p-10 bg-white/5 backdrop-blur-md border border-white/10 shadow-luxury-soft hover:shadow-luxury transition-all duration-500 group overflow-hidden flex flex-col items-center text-center"
             >
-            <div className="relative rounded-4xl sm:rounded-5xl overflow-hidden mb-6 sm:mb-8 aspect-3/4 shadow-xl group-hover:shadow-2xl transition-all duration-700 max-w-[280px] sm:max-w-xs mx-auto">
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-2">
+              {/* Decorative Background Element */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#B87333]/5 rounded-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150" />
+              
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <h4 className="text-2xl sm:text-3xl font-serif text-on-surface mb-2 transition-colors duration-300 group-hover:text-[#B87333]">
+                    {member.name}
+                  </h4>
+                  <p className="text-[#B87333] font-black uppercase tracking-[0.2em] text-[10px] sm:text-xs">
                     {member.role}
                   </p>
-                  <p className="text-sm font-sans leading-relaxed text-slate-200">
-                    {member.bio}
-                  </p>
                 </div>
-              </div>
-              <div className="text-center text-on-surface">
-                <h4 className="text-xl sm:text-2xl font-serif text-on-surface mb-1">
-                  {member.name}
-                </h4>
-                <p className="text-[10px] sm:text-sm font-bold opacity-60 uppercase tracking-widest">
-                  {member.role}
+                
+                <div className="h-px w-12 bg-[#B87333]/30 mx-auto mb-6 transition-all duration-500 group-hover:w-24 group-hover:bg-[#B87333]" />
+                
+                <p className="text-sm sm:text-base text-on-surface/60 font-sans leading-relaxed">
+                  {member.bio}
                 </p>
               </div>
+
+              {/* Bottom Accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#B87333] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
             </motion.div>
           ))}
         </div>

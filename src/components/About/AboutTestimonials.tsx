@@ -82,43 +82,43 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
   return (
     <motion.div
       whileHover={{ scale: 1.05, y: -5 }}
-      className="shrink-0 w-[300px] sm:w-[350px] p-6 mx-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-luxury-soft transition-all duration-300 group"
+      className="shrink-0 w-[300px] sm:w-[350px] p-6 mx-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-luxury-soft transition-all duration-300 group gpu-accelerated will-change-transform"
     >
       <div className="flex items-center gap-4 mb-4">
-        <div className="w-12 h-12 rounded-2xl overflow-hidden border border-white/20 bg-primary/10">
+        <div className="w-12 h-12 rounded-2xl overflow-hidden border border-white/20 bg-[#B87333]/10">
           <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
         </div>
         <div>
           <h4 className="text-white font-bold text-sm sm:text-base leading-none mb-1">{testimonial.name}</h4>
-          <p className="text-primary text-[10px] uppercase font-bold tracking-widest">{testimonial.service}</p>
+          <p className="text-[#B87333] text-[10px] uppercase font-bold tracking-widest">{testimonial.service}</p>
         </div>
       </div>
       
       <div className="flex gap-1 mb-4">
         {[...Array(testimonial.rating)].map((_, i) => (
-          <Star key={i} size={12} className="fill-primary text-primary" />
+          <Star key={i} size={12} className="fill-[#B87333] text-[#B87333]" />
         ))}
       </div>
 
       <div className="relative">
-        <Quote className="absolute -top-2 -left-2 text-white/10 w-8 h-8 -z-10" />
-        <p className="text-white/80 text-sm leading-relaxed italic font-medium">
+        <Quote className="absolute -top-2 -left-2 text-[#B87333]/20 w-8 h-8 -z-10" />
+        <p className="text-[#B87333] text-sm leading-relaxed italic font-medium">
           "{testimonial.quote}"
         </p>
       </div>
       
-      <div className="absolute inset-0 rounded-3xl group-hover:bg-primary/5 transition-colors pointer-events-none" />
+      <div className="absolute inset-0 rounded-3xl group-hover:bg-[#B87333]/5 transition-colors pointer-events-none" />
     </motion.div>
   );
 };
 
 const AboutTestimonials: React.FC = () => {
-  const row1 = TESTIMONIALS.slice(0, 25);
-  const row2 = TESTIMONIALS.slice(25, 50);
+  const row1 = TESTIMONIALS.slice(0, 12);
+  const row2 = TESTIMONIALS.slice(12, 24);
 
   return (
     <section className="py-20 sm:py-32 bg-surface-dim relative overflow-hidden">
-      <DottedSurface opacity={0.4} dotColor="#C08497" particleCount={800} />
+      <DottedSurface opacity={0.4} dotColor="#B87333" particleCount={400} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-16 relative z-10">
         <div className="text-center">
@@ -126,7 +126,7 @@ const AboutTestimonials: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-primary font-bold uppercase tracking-[0.4em] text-xs mb-4 block"
+            className="text-[#B87333] font-bold uppercase tracking-[0.4em] text-xs mb-4 block"
           >
             Voices of Elegance
           </motion.span>
@@ -137,9 +137,9 @@ const AboutTestimonials: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl sm:text-6xl font-serif text-on-surface font-black uppercase italic leading-none"
           >
-            Client <span className="text-primary">Stories</span>
+            Client <span className="text-[#B87333]">Stories</span>
           </motion.h2>
-          <div className="h-1 w-20 bg-primary/30 mx-auto mt-8 rounded-full" />
+          <div className="h-1 w-20 bg-[#B87333]/30 mx-auto mt-8 rounded-full" />
         </div>
       </div>
 

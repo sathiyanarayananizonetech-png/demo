@@ -31,7 +31,7 @@
 
 .metty-clock-main {
   display: flex;
-  color: var(--primary, #C9A24A);
+  color: var(--primary, #B87333);
   gap: calc(1 * var(--clock-scale));
   position: relative;
   align-items: center;
@@ -69,8 +69,8 @@
   --signX: 1;
   --signY: 1;
   position: absolute;
-  background-color: white; 
-  transition: opacity 0.2s linear; 
+  background-color: var(--primary, #B87333); 
+  box-shadow: 0 0 calc(2 * var(--clock-scale)) var(--primary, #B87333); 
   opacity: calc(0.1 + 0.9 * var(--act));
   transform: scale(var(--signX), var(--signY)) translate3d(0,0,2px);
   backface-visibility: hidden;
@@ -121,7 +121,7 @@
   display: block;
   width: calc(1.5 * var(--clock-scale));
   aspect-ratio: 1/1;
-  background-color: white;
+  background-color: var(--primary, #B87333);
   border-radius: 50%;
   animation: metty-colon-blink 2s step-end infinite;
   backface-visibility: hidden;

@@ -16,26 +16,24 @@ export const SmoothScroll = () => {
   useEffect(() => {
     // Advanced Lenis optimization for premium feel
     const lenis = new Lenis({
-      lerp: 0.1,
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
+      lerp: 0.08, // Faster, more responsive feel
       smoothWheel: true,
-      wheelMultiplier: 1.1,
+      wheelMultiplier: 1.2, // Stronger response to scroll
       touchMultiplier: 1.5,
-      syncTouch: true,
-      infinite: false,
+      syncTouch: false, // Prevents occasional lag on touch devices
     });
 
     // Synchronize ScrollTrigger with Lenis
     lenis.on('scroll', ScrollTrigger.update);
 
-    // Use GSAP ticker for the RAF loop to ensure sync with animations
+    // Use GSAP ticker for the RAF loop
     const tickerUpdate = (time: number) => {
       lenis.raf(time * 1000);
     };
 
     gsap.ticker.add(tickerUpdate);
-    gsap.ticker.lagSmoothing(0);
+    // Remove lagSmoothing or set to a standard value to prevent stutter
+    gsap.ticker.lagSmoothing(500, 33);
 
     // Store lenis on window for global access
     window.lenisInstance = lenis;

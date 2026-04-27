@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import type { ReactNode, MouseEventHandler, UIEvent } from 'react';
+import type { ReactNode, MouseEventHandler, UIEvent, FC } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 interface AnimatedItemProps {
@@ -10,7 +10,7 @@ interface AnimatedItemProps {
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const AnimatedItem: React.FC<AnimatedItemProps> = ({ children, delay = 0, index, onMouseEnter, onClick }) => {
+const AnimatedItem: FC<AnimatedItemProps> = ({ children, delay = 0, index, onMouseEnter, onClick }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { amount: 0.5, once: false });
   return (
@@ -136,22 +136,28 @@ function AnimatedList<T>({
   useEffect(() => {
     if (!isSticky || !listRef.current) return;
     
+    let ticking = false;
     const onWindowScroll = () => {
-      const itemsElements = listRef.current?.querySelectorAll('[data-index]');
-      if (!itemsElements) return;
-      
-      let currentIdx = 0;
-      itemsElements.forEach((item, idx) => {
-        const rect = item.getBoundingClientRect();
-        // When the card reaches the top stacking area, it becomes selected
-        if (rect.top <= 250) {
-          currentIdx = idx;
-        }
-      });
-      setSelectedIndex(currentIdx);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const itemsElements = listRef.current?.querySelectorAll('[data-index]');
+          if (itemsElements) {
+            let currentIdx = 0;
+            itemsElements.forEach((item, idx) => {
+              const rect = item.getBoundingClientRect();
+              if (rect.top <= 250) {
+                currentIdx = idx;
+              }
+            });
+            setSelectedIndex(currentIdx);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', onWindowScroll);
+    window.addEventListener('scroll', onWindowScroll, { passive: true });
     onWindowScroll(); // Initial check
     return () => window.removeEventListener('scroll', onWindowScroll);
   }, [isSticky]);
@@ -160,15 +166,13 @@ function AnimatedList<T>({
     <div className={`relative w-full ${className}`}>
       <div
         ref={listRef}
-        className={`${
-          isSticky 
+        className={`${isSticky
             ? 'flex flex-col gap-0' // Sticky mode layout
-            : 'max-h-[600px] overflow-y-auto p-4 custom-scrollbar' 
-        } ${
-          !isSticky && displayScrollbar
+            : 'max-h-[600px] overflow-y-auto p-4 custom-scrollbar'
+          } ${!isSticky && displayScrollbar
             ? '[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-track]:bg-surface/10 [&::-webkit-scrollbar-thumb]:bg-primary/20 [&::-webkit-scrollbar-thumb]:rounded-[4px]'
             : !isSticky ? 'scrollbar-hide' : ''
-        }`}
+          }`}
         onScroll={handleScroll}
         style={!isSticky ? {
           scrollbarWidth: displayScrollbar ? 'thin' : 'none',
@@ -176,9 +180,9 @@ function AnimatedList<T>({
         } : {}}
       >
         {items.map((item, index) => (
-          <div 
-            key={index} 
-            className={isSticky ? "sticky" : ""} 
+          <div
+            key={index}
+            className={isSticky ? "sticky" : ""}
             style={isSticky ? { top: `${index * 40 + 100}px`, zIndex: index } : {}}
           >
             <AnimatedItem

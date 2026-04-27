@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import stylistImage from "../../assets/bridalwebpimages/stylistimg.webp";
+import ownerImage from "../../assets/owner image /image.png";
 
 const AboutStory: React.FC = () => {
   return (
@@ -11,22 +11,22 @@ const AboutStory: React.FC = () => {
           <div className="relative">
             <div className="relative z-10 rounded-3xl sm:rounded-4xl overflow-hidden shadow-luxury-deep aspect-4/5 max-w-sm tb:max-w-md mx-auto">
               <img
-                src={stylistImage}
-                alt="Our Sanctuary"
+                src={ownerImage}
+                alt="Zentonez Owner"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-secondary/20 rounded-full blur-3xl opacity-60" />
-            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-60" />
+            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-[#B87333]/10 rounded-full blur-3xl opacity-60" />
           </div>
 
           <div className="space-y-4 sm:space-y-6">
-            <div className="inline-block px-4 py-2 bg-secondary/20 text-primary rounded-full text-xs font-bold uppercase tracking-widest border border-secondary/30">
+            <div className="inline-block px-4 py-2 bg-[#B87333]/10 text-[#B87333] rounded-full text-xs font-bold uppercase tracking-widest border border-[#B87333]/20">
               Our Journey
             </div>
             <h2 className="text-hero text-on-surface leading-none">
               A Dream Built on <br />
-              <span className="text-primary">Passion</span> <br /> Since 2025
+              <span className="text-[#B87333]">Passion</span> <br /> Since 2025
             </h2>
             <p className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed">
               Founded in March 2025 by a seasoned makeup artist with over five

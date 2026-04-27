@@ -4,8 +4,43 @@ import { Award, ShieldCheck, Clock } from "lucide-react";
 import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 
 const AboutValues: React.FC = () => {
+  const values = [
+    {
+      icon: <Award size={32} strokeWidth={1.5} />,
+      title: "Artisanal Mastery",
+      desc: "Every service is a unique ritual, crafted with high-precision techniques and a deep understanding of bespoke aesthetics.",
+    },
+    {
+      icon: <ShieldCheck size={32} strokeWidth={1.5} />,
+      title: "Sanctuary Standards",
+      desc: "We adhere to medical-grade hygiene and safety protocols to ensure your well-being in a pristine environment.",
+    },
+    {
+      icon: <Clock size={32} strokeWidth={1.5} />,
+      title: "Bespoke Curation",
+      desc: "We dedicate time to curate a personalized journey that celebrates your natural radiance and individual essence.",
+    },
+  ];
+
   return (
     <section className="py-10 sm:py-16 relative overflow-hidden bg-background">
+      {/* SVG Gradient Definition */}
+      <svg width="0" height="0" className="absolute pointer-events-none">
+        <defs>
+          <linearGradient id="gold-gradient-3d" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#BF953F" />
+            <stop offset="25%" stopColor="#FCF6BA" />
+            <stop offset="50%" stopColor="#B38728" />
+            <stop offset="75%" stopColor="#FBF5B7" />
+            <stop offset="100%" stopColor="#AA771C" />
+          </linearGradient>
+          <filter id="3d-depth">
+            <feDropShadow dx="0.5" dy="0.5" stdDeviation="0.2" floodColor="#000" floodOpacity="0.5" />
+            <feDropShadow dx="-0.5" dy="-0.5" stdDeviation="0.2" floodColor="#fff" floodOpacity="0.2" />
+          </filter>
+        </defs>
+      </svg>
+
       <div className="container mx-auto px-4 sm:px-6 text-center">
         <div className="max-w-3xl mx-auto mb-8 sm:mb-12">
           <span className="text-primary font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs mb-4 block">
@@ -18,35 +53,32 @@ const AboutValues: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 mb-12 sm:mb-20">
-          {[
-            {
-              icon: <Award size={28} strokeWidth={1} />,
-              title: "Artisanal Mastery",
-              desc: "Every service is a unique ritual, crafted with high-precision techniques and a deep understanding of bespoke aesthetics.",
-            },
-            {
-              icon: <ShieldCheck size={28} strokeWidth={1} />,
-              title: "Sanctuary Standards",
-              desc: "We adhere to medical-grade hygiene and safety protocols to ensure your well-being in a pristine environment.",
-            },
-            {
-              icon: <Clock size={28} strokeWidth={1} />,
-              title: "Bespoke Curation",
-              desc: "We dedicate time to curate a personalized journey that celebrates your natural radiance and individual essence.",
-            },
-          ].map((value, i) => (
+          {values.map((value, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              whileHover={{ 
+                y: -10,
+                rotateX: 5,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group p-8 sm:p-10 bg-surface-dim rounded-3xl sm:rounded-4xl border border-primary-container/20 text-center hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+              className="group p-8 sm:p-10 bg-surface-dim rounded-3xl sm:rounded-4xl border border-primary-container/20 text-center hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 perspective-1000"
+              style={{ transformStyle: "preserve-3d" }}
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-500 shadow-sm border border-primary/20">
-                {value.icon}
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-surface-dim to-background rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-[inset_0_0_15px_rgba(0,0,0,0.1),5px_5px_15px_rgba(0,0,0,0.1)] border border-white/5 group-hover:border-primary/30 transition-all duration-500">
+                <div className="relative transform-gpu group-hover:scale-110 transition-transform duration-500" style={{ filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.2)) drop-shadow(0 10px 15px rgba(191,149,63,0.15))" }}>
+                  {React.cloneElement(value.icon as React.ReactElement, {
+                    stroke: "url(#gold-gradient-3d)",
+                    className: "drop-shadow-[1px_1px_0px_rgba(0,0,0,0.2)]",
+                    style: { filter: "url(#3d-depth)" }
+                  })}
+                </div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif text-on-surface mb-3 sm:mb-4">
+              <h3 className="text-xl sm:text-2xl font-serif text-on-surface mb-3 sm:mb-4 group-hover:text-primary transition-colors duration-300">
                 {value.title}
               </h3>
               <p className="text-on-surface/80 font-sans leading-relaxed text-sm sm:text-base font-medium">

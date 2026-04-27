@@ -12,7 +12,7 @@ const DottedSurface: React.FC<DottedSurfaceProps> = ({
   className = '',
   opacity = 0.3,
   dotColor = '#D4AF37', // Gold color to match brand
-  particleCount = 1000,
+  particleCount = 500,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -27,7 +27,7 @@ const DottedSurface: React.FC<DottedSurfaceProps> = ({
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     containerRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
