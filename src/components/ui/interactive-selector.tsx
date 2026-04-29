@@ -127,7 +127,6 @@ const InteractiveSelector: React.FC = () => {
               transform: animatedOptions.includes(index)
                 ? "translateX(0)"
                 : "translateX(-60px)",
-              minWidth: "60px",
               margin: 0,
               cursor: "pointer",
               backgroundColor: "#020617", // slate-950

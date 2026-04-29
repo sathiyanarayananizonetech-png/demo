@@ -50,7 +50,7 @@ export const Reveal: React.FC<RevealProps> = ({
     // Zero-lag mode: Only opacity if mobile OR not on gallery/services page
     const isMinimalMode = isMobile || !isExemptPage;
     
-    const hidden: any = { opacity: 0, scale: isMinimalMode ? 1 : scale };
+    const hidden: Variant = { opacity: 0, scale: isMinimalMode ? 1 : scale };
 
     if (!isMinimalMode) {
       if (direction === "up") hidden.y = distance;
@@ -104,7 +104,6 @@ export const RevealList: React.FC<{
   once = true,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once });
 
   return (
     <div ref={ref} className="w-full">
