@@ -22,11 +22,7 @@ const SERVICES: ServiceType[] = [
   { id: 'bridal', name: 'Bridal Makeup', duration: '240 Min', price: '₹15000', icon: <Sparkles size={24} /> },
 ];
 
-const TIME_SLOTS = [
-  '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
-  '01:00 PM', '02:00 PM', '03:00 PM', '05:00 PM',
-  '06:00 PM', '07:00 PM'
-];
+
 
 interface BookingState {
   service: ServiceType | null;
@@ -44,8 +40,34 @@ export const BookingSystem: React.FC = () => {
     user: { name: '', phone: '', notes: '' }
   });
 
-  const nextStep = () => setStep(s => Math.min(s + 1, 5));
+  const nextStep = () => setStep(s => Math.min(s + 1, 6));
   const prevStep = () => setStep(s => Math.max(s - 1, 1));
+
+  const isUrgentBooking = () => {
+    if (!data.date || !data.time) return false;
+    const now = new Date();
+    if (data.date.toDateString() !== now.toDateString()) return false;
+    
+    const timeMatch = data.time.match(/(\d+):(\d+)\s+(AM|PM)/i);
+    if (!timeMatch) return false;
+    
+    let hours = parseInt(timeMatch[1]);
+    const minutes = parseInt(timeMatch[2]);
+    const modifier = timeMatch[3].toUpperCase();
+    
+    if (hours === 12) {
+      hours = modifier === 'PM' ? 12 : 0;
+    } else if (modifier === 'PM') {
+      hours += 12;
+    }
+    
+    const selectedDate = new Date(data.date);
+    selectedDate.setHours(hours, minutes, 0, 0);
+    
+    const diffInMinutes = (selectedDate.getTime() - now.getTime()) / 60000;
+    // If the booking is within the next 20 minutes (or they are up to 15 mins late)
+    return diffInMinutes >= -15 && diffInMinutes <= 20; 
+  };
 
   // Step 1: Services
   const renderStep1 = () => (
@@ -152,41 +174,65 @@ export const BookingSystem: React.FC = () => {
   };
 
   // Step 3: Time Slots
-  const renderStep3 = () => (
-    <motion.div
-      key="step3"
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -20 }}
-      className="space-y-6"
-    >
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Select Time</h2>
-        <p className="text-on-surface/60 text-sm mt-2 font-medium">Available slots for {data.date?.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}</p>
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {TIME_SLOTS.map((time, idx) => {
-          const isSelected = data.time === time;
-          return (
-            <div
-              key={idx}
-              onClick={() => {
-                setData({ ...data, time });
-                setTimeout(nextStep, 300);
-              }}
-              className={`text-center p-4 rounded-2xl cursor-pointer border-2 transition-all duration-300 font-bold tracking-widest text-sm ${
-                isSelected 
-                  ? 'border-primary bg-primary text-background shadow-[0_0_15px_rgba(201,162,74,0.3)]' 
-                  : 'border-white/5 bg-on-surface/5 text-on-surface hover:border-primary/50'
-              }`}
-            >
-              {time}
-            </div>
-          );
-        })}
-      </div>
-    </motion.div>
-  );
+  const renderStep3 = () => {
+    const slots: string[] = [];
+    if (data.date) {
+      let current = new Date(data.date);
+      current.setHours(10, 0, 0, 0); // 10:00 AM
+      
+      const endTime = new Date(data.date);
+      endTime.setHours(21, 0, 0, 0); // 9:00 PM
+      
+      const now = new Date();
+      const isToday = current.toDateString() === now.toDateString();
+      
+      while (current <= endTime) {
+        if (!isToday || current >= now) {
+          slots.push(current.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }));
+        }
+        // Increment by 15 minutes for the next available slot
+        current = new Date(current.getTime() + 15 * 60000);
+      }
+    }
+
+    return (
+      <motion.div
+        key="step3"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -20 }}
+        className="space-y-6"
+      >
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Select Time</h2>
+          <p className="text-on-surface/60 text-sm mt-2 font-medium">Available slots for {data.date?.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {slots.length > 0 ? slots.map((time, idx) => {
+            const isSelected = data.time === time;
+            return (
+              <div
+                key={idx}
+                onClick={() => {
+                  setData({ ...data, time });
+                  setTimeout(nextStep, 300);
+                }}
+                className={`text-center p-4 rounded-2xl cursor-pointer border-2 transition-all duration-300 font-bold tracking-widest text-sm ${
+                  isSelected 
+                    ? 'border-primary bg-primary text-background shadow-[0_0_15px_rgba(201,162,74,0.3)]' 
+                    : 'border-white/5 bg-on-surface/5 text-on-surface hover:border-primary/50'
+                }`}
+              >
+                {time}
+              </div>
+            );
+          }) : (
+            <p className="col-span-full text-center text-on-surface/50 font-medium py-4">No available slots for this date. Please select another date.</p>
+          )}
+        </div>
+      </motion.div>
+    );
+  };
 
   // Step 4: Form
   const renderStep4 = () => (
@@ -201,6 +247,17 @@ export const BookingSystem: React.FC = () => {
         <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Your Details</h2>
         <p className="text-on-surface/60 text-sm mt-2 font-medium">Final step to secure your appointment</p>
       </div>
+
+      {isUrgentBooking() && (
+        <div className="bg-orange-500/10 border border-orange-500/50 rounded-2xl p-4 flex items-start gap-3">
+          <Clock className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
+          <div>
+            <h4 className="text-sm font-bold text-orange-500">Urgent Booking</h4>
+            <p className="text-xs text-orange-500/80 mt-1">Your appointment is scheduled very soon. Please reach the salon quickly!</p>
+          </div>
+        </div>
+      )}
+
       <div className="space-y-4">
         <div className="space-y-1">
           <label className="text-[10px] font-black uppercase tracking-widest text-primary ml-4">Full Name</label>
@@ -264,6 +321,16 @@ export const BookingSystem: React.FC = () => {
         <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Confirm Ritual</h2>
         <p className="text-on-surface/60 text-sm mt-2 font-medium">Please review your selections</p>
       </div>
+
+      {isUrgentBooking() && (
+        <div className="bg-orange-500/10 border border-orange-500/50 rounded-2xl p-4 flex items-start gap-3">
+          <Clock className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
+          <div>
+            <h4 className="text-sm font-bold text-orange-500">Urgent Booking</h4>
+            <p className="text-xs text-orange-500/80 mt-1">Your appointment is scheduled very soon. Please reach the salon quickly!</p>
+          </div>
+        </div>
+      )}
       
       <div className="bg-on-surface/5 rounded-3xl p-6 sm:p-8 space-y-6 border border-white/5">
         <div className="flex gap-4 items-center pb-6 border-b border-white/10">
@@ -293,10 +360,7 @@ export const BookingSystem: React.FC = () => {
       </div>
 
       <button 
-        onClick={() => {
-          // Placeholder for real submission
-          alert('Booking Confirmed! (Mock)');
-        }}
+        onClick={nextStep}
         className="w-full bg-primary text-background py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm hover:shadow-[0_0_20px_rgba(201,162,74,0.4)] transition-all flex items-center justify-center gap-2"
       >
         <Sparkles size={18} />
@@ -305,35 +369,81 @@ export const BookingSystem: React.FC = () => {
     </motion.div>
   );
 
+  // Step 6: Success
+  const renderStep6 = () => (
+    <motion.div
+      key="step6"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="space-y-6 flex flex-col items-center justify-center text-center py-10"
+    >
+      <div className="w-24 h-24 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mb-6">
+        <CheckCircle size={48} />
+      </div>
+      <h2 className="text-3xl sm:text-4xl font-black text-on-surface font-serif uppercase">Booking Successful!</h2>
+      
+      <div className="max-w-md space-y-4 mt-6">
+        <p className="text-on-surface/80 text-sm sm:text-base font-medium leading-relaxed">
+          Your appointment for <span className="text-primary font-bold">{data.service?.name}</span> has been confirmed for <span className="text-primary font-bold">{data.date?.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })} at {data.time}</span>.
+        </p>
+
+        <div className="bg-primary/10 border border-primary/30 rounded-2xl p-5 mt-6 text-left">
+          <h4 className="text-sm font-black uppercase tracking-widest text-primary mb-2 flex items-center gap-2">
+            <Sparkles size={16} /> Important Note
+          </h4>
+          <p className="text-sm text-on-surface/80 leading-relaxed">
+            {isUrgentBooking() ? (
+              "Please reach the salon quickly! Our staff may take about 10 minutes to prepare everything perfectly for your service once you arrive."
+            ) : (
+              "Please arrive on time for your appointment. Kindly note that our staff may need about 10 minutes to set up and prepare everything for your service."
+            )}
+          </p>
+        </div>
+      </div>
+
+      <button 
+        onClick={() => {
+          setStep(1);
+          setData({ service: null, date: null, time: null, user: { name: '', phone: '', notes: '' } });
+        }}
+        className="mt-8 bg-on-surface/10 text-on-surface py-4 px-8 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-primary hover:text-background transition-all"
+      >
+        Book Another Appointment
+      </button>
+    </motion.div>
+  );
+
   return (
     <div className="max-w-2xl mx-auto w-full bg-surface sm:bg-on-surface/[0.02] sm:border border-white/5 sm:rounded-[3rem] p-4 sm:p-10 shadow-luxury-deep">
       
       {/* Progress Header */}
-      <div className="mb-10 flex items-center justify-between">
-        {step > 1 && step < 5 ? (
-          <button 
-            onClick={prevStep}
-            className="flex items-center gap-2 text-on-surface/50 hover:text-primary transition-colors text-xs font-black uppercase tracking-widest"
-          >
-            <ChevronLeft size={16} />
-            Back
-          </button>
-        ) : <div className="w-20"></div>}
-        
-        <div className="flex gap-2">
-          {[1, 2, 3, 4].map(i => (
-             <div 
-               key={i} 
-               className={`h-1.5 rounded-full transition-all duration-300 ${
-                 i === step ? 'w-8 bg-primary' : i < step ? 'w-4 bg-primary/50' : 'w-4 bg-on-surface/10'
-               }`}
-             />
-          ))}
+      {step < 6 && (
+        <div className="mb-10 flex items-center justify-between">
+          {step > 1 && step < 5 ? (
+            <button 
+              onClick={prevStep}
+              className="flex items-center gap-2 text-on-surface/50 hover:text-primary transition-colors text-xs font-black uppercase tracking-widest"
+            >
+              <ChevronLeft size={16} />
+              Back
+            </button>
+          ) : <div className="w-20"></div>}
+          
+          <div className="flex gap-2">
+            {[1, 2, 3, 4].map(i => (
+               <div 
+                 key={i} 
+                 className={`h-1.5 rounded-full transition-all duration-300 ${
+                   i === step ? 'w-8 bg-primary' : i < step ? 'w-4 bg-primary/50' : 'w-4 bg-on-surface/10'
+                 }`}
+               />
+            ))}
+          </div>
+          <div className="w-20 text-right text-[10px] font-black uppercase tracking-widest text-primary/50">
+            Step {Math.min(step, 4)} / 4
+          </div>
         </div>
-        <div className="w-20 text-right text-[10px] font-black uppercase tracking-widest text-primary/50">
-          Step {Math.min(step, 4)} / 4
-        </div>
-      </div>
+      )}
 
       {/* Main Content Area */}
       <div className="min-h-[400px]">
@@ -343,6 +453,7 @@ export const BookingSystem: React.FC = () => {
           {step === 3 && renderStep3()}
           {step === 4 && renderStep4()}
           {step === 5 && renderStep5()}
+          {step === 6 && renderStep6()}
         </AnimatePresence>
       </div>
 
