@@ -10,7 +10,7 @@ import maniPedi from "../../assets/pedicurewebpimages/manicure1.webp";
 import hairSpa from "../../assets/hairspawebpimages/hairspa1.webp";
 import bridalMakeup from "../../assets/bridalwebpimages/bridal1.webp";
 import nails from "../../assets/nailwebpimages/nail1.webp";
-import liceRemoval from "../../assets/licewebpimages/lice1.webp";
+import liceRemoval from "../../assets/licewebpimages/lice4.webp";
 import hairStyle from "../../assets/hairwebp images/caramelhaircolor.webp";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,7 +63,7 @@ const services: Service[] = [
     duration: "90 Mins",
     review: "Results were visible after just one session. The therapist was so professional and knowledgeable.",
     clientName: "Ananya K.",
-    highlights: ["Microdermabrasion", "Vitamin C Infusion", "Anti-aging"],
+    highlights: ["Vitamin C Infusion", "Anti-aging"],
     image: facialTreatment,
     color: "#38BDF8",
     icon: (
@@ -76,7 +76,7 @@ const services: Service[] = [
     id: 3,
     title: "Manicure & Pedicure",
     category: "Nail Care",
-    description: "Pamper your hands and feet with our relaxing nail care services.",
+    description: "Pamper your hands and feet with our relaxing therapies.",
     price: "₹599+",
     duration: "75 Mins",
     review: "The best mani-pedi in town! The attention to detail and the relaxing atmosphere are unbeatable.",
@@ -264,12 +264,13 @@ const ServicesShowcase: React.FC = () => {
               <img 
                 src={service.image} 
                 alt={service.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{ objectPosition: service.objectPosition || "center" }}
               />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
-                <Maximize2 className="text-white w-8 h-8 animate-pulse" />
-                <span className="text-white text-[10px] font-black uppercase tracking-[0.2em]">Click to View</span>
+              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+                <Maximize2 className="text-white w-8 h-8 animate-pulse drop-shadow-md" />
+                <span className="text-white text-[9px] font-black uppercase tracking-[0.2em] bg-black/20 px-3 py-1 rounded-full backdrop-blur-md">Click to View</span>
               </div>
             </div>
             
@@ -404,12 +405,12 @@ const ServicesShowcase: React.FC = () => {
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  className="showcase-img w-full h-full object-cover object-center"
+                  loading="lazy"
+                  className="showcase-img w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   style={{ objectPosition: service.objectPosition || "center" }}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3">
-                  <Maximize2 className="text-white w-10 h-10 animate-pulse" />
+                  <Maximize2 className="text-white w-10 h-10 animate-pulse drop-shadow-lg" />
                   <span className="text-white text-xs font-black uppercase tracking-[0.3em] bg-black/20 px-4 py-1 rounded-full backdrop-blur-md">Click to View</span>
                 </div>
               </div>

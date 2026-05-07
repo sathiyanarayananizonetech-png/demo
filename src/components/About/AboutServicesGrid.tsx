@@ -28,7 +28,7 @@ const SERVICES_DATA = [
   },
   {
     title: "Manicure & Pedicure",
-    desc: "Pamper your hands and feet with our relaxing nail care services.",
+    desc: "Pamper your hands and feet with our relaxing therapies.",
     icon: <ManiPedi3D />,
     color: "#FB923C", // Orange
     gradient: "linear-gradient(200deg, #FED7AA 0%, #FB923C 100%)",

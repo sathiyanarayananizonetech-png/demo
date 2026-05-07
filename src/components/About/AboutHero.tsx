@@ -48,7 +48,7 @@ const AboutHero: React.FC = () => {
                 />
                 <br className="dt:hidden" />
                 <SparkleHeading
-                  text="A Sanctuary"
+                  text="A Beauty Sanctuary"
                   className="text-primary"
                   sparkleScale={1.4}
                 />

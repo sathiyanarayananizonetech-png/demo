@@ -12,6 +12,7 @@ const pricingData = [
   { name: "Bridal Makeup", price: "₹15,000" },
   { name: "Nails", price: "₹999" },
   { name: "Lice Removal", price: "₹4,999" },
+  { name: "Wart Removal", price: "₹119" },
 ];
 
 export function PricingSection() {

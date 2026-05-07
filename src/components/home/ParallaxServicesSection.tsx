@@ -8,7 +8,7 @@ import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
 import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
 import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
 import nailImage from "../../assets/nailwebpimages/nail1.webp";
-import liceImage from "../../assets/licewebpimages/lice1.webp";
+import liceImage from "../../assets/licewebpimages/lice4.webp";
 import hairStyleImage from "../../assets/hairwebp images/caramelhaircolor.webp";
 import { ParallaxArrow } from "../ScrollParallaxCard/ParallaxArrow";
 import { ScrollParallaxCard } from "../ScrollParallaxCard/ScrollParallaxCard";
@@ -40,15 +40,15 @@ const parallaxServices: ParallaxService[] = [
     description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
     image: facialImage,
     price: "₹1,150",
-    benefits: ["Photo-ready Finish", "Lash Enhancement", "Brow Sculpting"],
+    benefits: ["Photo-ready Finish", "Deep Hydration", "Anti-Aging Therapy"],
     color: "#38BDF8",
   },
   {
     title: "Manicure & Pedicure",
-    description: "Pamper your hands and feet with our relaxing nail care services.",
+    description: "Pamper your hands and feet with our relaxing therapies.",
     image: manicureImage,
     price: "₹519",
-    benefits: ["Organic Scrub", "Hot Stone Massage", "Premium Polish"],
+    benefits: ["Organic Scrub", "Deep Exfoliation", "Premium Polish"],
     color: "#FB923C",
   },
   {
@@ -73,7 +73,7 @@ const parallaxServices: ParallaxService[] = [
     image: bridalImage,
     price: "₹15,000",
     backgroundPosition: "top center",
-    benefits: ["HD Airbrushing", "Saree Draping", "Bridal Glow"],
+    benefits: ["Airbrushing", "Saree Draping", "Hair Styling"],
     color: "#D97706",
   },
   {
@@ -89,7 +89,7 @@ const parallaxServices: ParallaxService[] = [
     description: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
     image: liceImage,
     price: "₹4,999",
-    benefits: ["Chemical-free", "Scalp Health", "Follow-up Check"],
+    benefits: ["Chemical-free", "Scalp Health", "Follow-up Check", "Child Friendly"],
     color: "#10B981",
   },
 ];

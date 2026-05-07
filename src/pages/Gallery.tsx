@@ -10,10 +10,10 @@ const Gallery: React.FC = () => {
   return (
     <div className="overflow-x-hidden bg-background text-slate-900 font-sans relative min-h-screen">
       <Scene3D />
-      
-      {/* Dust overlay */}
+
+      {/* Dust overlay - simplified for performance */}
       <div
-        className="fixed inset-0 pointer-events-none opacity-10 mix-blend-overlay z-1"
+        className="fixed inset-0 pointer-events-none opacity-[0.03] z-1"
         style={{
           backgroundImage:
             'url("https://img.freepik.com/premium-photo/white-dust-scratches-black-background_279525-2.jpg?w=640")',
@@ -22,19 +22,19 @@ const Gallery: React.FC = () => {
       />
 
       <GalleryBookHero />
-      
+
       <Reveal width="100%" direction="up" distance={50}>
         <InteractiveSelector />
       </Reveal>
-      
+
       <Reveal width="100%" direction="up">
         <ClippedMediaGallery />
       </Reveal>
-      
+
       <Reveal width="100%" direction="up">
         <GalleryFooter />
       </Reveal>
-      
+
       <SocialSidebar />
     </div>
   );

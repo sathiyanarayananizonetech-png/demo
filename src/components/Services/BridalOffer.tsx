@@ -101,9 +101,9 @@ const BridalOffer: React.FC = () => {
               <img
                 src={bridalOfferImage}
                 alt="Premium Bridal Makeup"
-                className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110"
+                loading="lazy"
+                className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-primary/30 to-transparent pointer-events-none" />
             </div>
           </motion.div>
 

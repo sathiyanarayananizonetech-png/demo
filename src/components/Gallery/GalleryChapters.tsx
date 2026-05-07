@@ -12,7 +12,7 @@ import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
 import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
 import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
 import nailImage from "../../assets/nailwebpimages/nail1.webp";
-import liceImage from "../../assets/licewebpimages/lice1.webp";
+import liceImage from "../../assets/licewebpimages/lice4.webp";
 
 interface Chapter {
   id: string;
@@ -46,7 +46,7 @@ const chapters: Chapter[] = [
     title: "Manicure & Pedicure",
     subtitle: "Hand & Foot Care",
     img: manicureImage,
-    text: "Pamper your hands and feet with our relaxing nail care services.",
+    text: "Pamper your hands and feet with our relaxing therapies.",
   },
   {
     id: "hairspa",

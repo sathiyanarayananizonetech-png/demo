@@ -4,16 +4,13 @@ import {
   Check,
   X,
   Star,
-  Crown,
   Gift,
   Sparkles,
-  ArrowRight,
   ShieldCheck,
   Clock,
   Zap,
 } from "lucide-react";
-import membershipCard from "../assets/membership_card.png";
-import { InteractiveMembershipCard } from "../components/ui/InteractiveMembershipCard";
+import { LuxuryMembershipHero } from "../components/ui/LuxuryMembershipHero";
 import { Reveal } from "../components/ui/Reveal";
 import { Scene3D } from "../components/ui/Scene3D";
 
@@ -28,126 +25,37 @@ const Membership: React.FC = () => {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen pb-20"
+      className="overflow-x-hidden bg-[#FDFCF0] text-[#1A1A1A] font-sans selection:bg-[#B87333]/20 relative min-h-screen pb-20"
     >
       <Scene3D />
-      
+
       {/* ─── HERO SECTION ─── */}
-      <section 
-        ref={containerRef}
-        className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900"
-      >
-        <motion.div 
-          style={{ y: backgroundY }}
-          className="absolute inset-0 z-0"
-        >
-          <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-slate-900" />
-          <img
-            src={membershipCard}
-            alt="Membership Background"
-            className="w-full h-full object-cover opacity-30 blur-sm scale-110"
-          />
-        </motion.div>
-
-        <motion.div 
-          style={{ y: contentY, opacity }}
-          className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10"
-        >
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8 text-center lg:text-left"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/30 text-white border border-primary/40 backdrop-blur-md shadow-sm mb-4">
-                <Crown size={16} className="fill-current" />
-                <span className="font-bold uppercase tracking-[0.2em] text-[10px]">
-                  Premium Loyalty Program
-                </span>
-              </div>
-
-              <div className="space-y-4">
-                <h1 className="text-5xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] font-serif">
-                  Zen Tonez{" "}
-                  <span className="text-primary block">Membership</span>
-                </h1>
-                <p className="text-white/70 text-lg lg:text-xl font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  The ultimate key to consistent beauty and luxury. Join our
-                  exclusive inner circle and transform your salon experience.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="btn-premium-gold px-12 py-5 text-sm shadow-2xl shadow-primary/20 group">
-                  Join Now — ₹199/Year{" "}
-                  <ArrowRight
-                    size={18}
-                    className="inline ml-2 group-hover:translate-x-1 transition-transform"
-                  />
-                </button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1, type: "spring", bounce: 0.4, delay: 0.4 }}
-              className="relative"
-            >
-              <div className="absolute -inset-10 bg-primary/20 blur-[100px] rounded-full animate-pulse" />
-              <InteractiveMembershipCard />
-
-              {/* Floating Badges */}
-              <motion.div
-                animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-10 -right-5 lg:-right-10 bg-white/10 backdrop-blur-xl p-4 rounded-2xl border border-white/20 shadow-2xl hidden sm:block z-20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
-                    <Sparkles size={20} />
-                  </div>
-                  <div>
-                    <p className="text-white text-[10px] font-black uppercase tracking-widest leading-none">
-                      Instant
-                    </p>
-                    <p className="text-primary text-lg font-black uppercase tracking-tighter">
-                      15% OFF
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
+      <LuxuryMembershipHero
+        title="Exclusive Membership"
+        subtitle="The ultimate key to consistent beauty and luxury. Join our exclusive inner circle and transform your salon experience with unrivaled privileges."
+        ctaText="JOIN NOW — ₹199/YEAR"
+        ctaLink="#join"
+      />
 
       {/* ─── DETAILED BENEFITS ─── */}
       <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
         {/* Decorative Parallax Element */}
-        <motion.div 
+        <motion.div
           style={{ y: backgroundY }}
           className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none"
         />
-        
+
         <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
           <Reveal width="100%" direction="up">
             <div className="text-center mb-16 lg:mb-24">
-              <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
-                Unrivaled <span className="text-primary">Privileges</span>
+              <h2 className="text-4xl lg:text-6xl font-black text-[#1A1A1A] mb-6 uppercase tracking-tighter font-serif">
+                Unrivaled <span className="text-[#B87333]">Privileges</span>
               </h2>
               <p className="text-slate-600 text-lg lg:text-xl max-w-2xl mx-auto font-medium">
                 Being a member at Zen Tonez is more than just a discount—it's a
@@ -180,7 +88,7 @@ const Membership: React.FC = () => {
               },
               {
                 icon: Star,
-                title: "Product Pre-release",
+                title: "Other Brand Products for Sale",
                 desc: "Be the first to try our upcoming in-house performance-driven beauty product line.",
               },
               {
@@ -189,19 +97,12 @@ const Membership: React.FC = () => {
                 desc: "Invites to exclusive beauty workshops, masterclasses, and transformation sessions.",
               },
             ].map((benefit, i) => (
-              <Reveal
-                key={i}
-                delay={i * 0.1}
-                direction="up"
-                width="100%"
-              >
-                <div
-                  className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
-                >
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:rotate-12 transition-transform">
+              <Reveal key={i} delay={i * 0.1} direction="up" width="100%">
+                <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-[#B87333] shadow-sm mb-6 group-hover:rotate-12 transition-transform">
                     <benefit.icon size={28} />
                   </div>
-                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight mb-3 font-serif">
+                  <h3 className="text-xl font-black text-[#1A1A1A] uppercase tracking-tight mb-3 font-serif">
                     {benefit.title}
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed font-medium">
@@ -216,10 +117,10 @@ const Membership: React.FC = () => {
 
       {/* ─── COMPARISON SECTION ─── */}
       <section className="py-20 lg:py-32 bg-slate-50 overflow-hidden relative">
-        <motion.div 
+        <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 0.1 }}
-          className="absolute -left-20 top-1/2 -translate-y-1/2 text-[20vw] font-black text-primary pointer-events-none select-none whitespace-nowrap uppercase tracking-tighter"
+          className="absolute -left-20 top-1/2 -translate-y-1/2 text-[20vw] font-black text-[#B87333] pointer-events-none select-none whitespace-nowrap uppercase tracking-tighter"
         >
           Compare
         </motion.div>
@@ -227,16 +128,14 @@ const Membership: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
           <Reveal width="100%" direction="up">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
-                Comparison <span className="text-primary">Guide</span>
+              <h2 className="text-4xl lg:text-5xl font-black text-[#1A1A1A] mb-6 uppercase tracking-tighter font-serif">
+                Comparison <span className="text-[#B87333]">Guide</span>
               </h2>
             </div>
           </Reveal>
 
           <Reveal width="100%" direction="up">
-            <div 
-              className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-200"
-            >
+            <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-200">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-slate-900 text-white">
@@ -246,7 +145,7 @@ const Membership: React.FC = () => {
                     <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center bg-slate-800">
                       Guest
                     </th>
-                    <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center text-primary bg-slate-900">
+                    <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center text-[#B87333] bg-[#1A1A1A]">
                       Zen Tonez Member
                     </th>
                   </tr>
@@ -274,7 +173,11 @@ const Membership: React.FC = () => {
                       guest: "No",
                       member: "Yes",
                     },
-                    { feature: "Usage Limit", guest: "N/A", member: "Unlimited" },
+                    {
+                      feature: "Usage Limit",
+                      guest: "N/A",
+                      member: "Unlimited",
+                    },
                   ].map((row, i) => (
                     <tr
                       key={i}
@@ -290,9 +193,9 @@ const Membership: React.FC = () => {
                           row.guest
                         )}
                       </td>
-                      <td className="p-6 lg:p-10 text-sm font-black text-slate-900 text-center bg-primary/5">
+                      <td className="p-6 lg:p-10 text-sm font-black text-[#1A1A1A] text-center bg-[#B87333]/5">
                         {row.member === "Yes" ? (
-                          <Check className="mx-auto text-primary" size={20} />
+                          <Check className="mx-auto text-[#B87333]" size={20} />
                         ) : (
                           row.member
                         )}
@@ -306,11 +209,10 @@ const Membership: React.FC = () => {
 
           <div className="grid sm:grid-cols-2 gap-8 mt-16">
             <Reveal width="100%" direction="left">
-              <div 
-                className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm h-full"
-              >
+              <div className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm h-full">
                 <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
-                  <Star size={20} className="text-primary" /> Pros of Membership
+                  <Star size={20} className="text-[#B87333]" /> Pros of
+                  Membership
                 </h4>
                 <ul className="space-y-3">
                   {[
@@ -323,20 +225,19 @@ const Membership: React.FC = () => {
                       key={i}
                       className="text-sm font-medium text-slate-600 flex items-start gap-2"
                     >
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
+                      <div className="w-1.5 h-1.5 bg-[#B87333] rounded-full mt-1.5 shrink-0" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
             </Reveal>
-            
+
             <Reveal width="100%" direction="right">
-              <div 
-                className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm h-full"
-              >
+              <div className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm h-full">
                 <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
-                  <Star size={20} className="text-slate-400" /> Things to Consider
+                  <Star size={20} className="text-slate-400" /> Things to
+                  Consider
                 </h4>
                 <ul className="space-y-3">
                   {[
@@ -367,12 +268,12 @@ const Membership: React.FC = () => {
             <Reveal width="100%" direction="left">
               <div className="space-y-8">
                 <h2 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter font-serif leading-none">
-                  Services <span className="text-primary">Covered</span>
+                  Services <span className="text-[#B87333]">Covered</span>
                 </h2>
                 <p className="text-slate-600 text-lg font-medium leading-relaxed">
                   Your membership discount applies to almost our entire service
-                  catalog. Whether it's a monthly refresh or a once-in-a-lifetime
-                  transformation.
+                  catalog. Whether it's a monthly refresh or a
+                  once-in-a-lifetime transformation.
                 </p>
 
                 <div className="grid grid-cols-2 gap-x-8 gap-y-4">
@@ -380,7 +281,7 @@ const Membership: React.FC = () => {
                     "Skin Care",
                     "Facial Treatment",
                     "Manicure & Pedicure",
-                    "Hair Spa & Therapy",
+                    "Hair Care",
                     "Bridal Makeup",
                     "Nail Artistry",
                     "Lice Removal",
@@ -394,7 +295,7 @@ const Membership: React.FC = () => {
                       transition={{ delay: i * 0.05 }}
                       className="flex items-center gap-3 py-3 border-b border-slate-100"
                     >
-                      <Check size={16} className="text-primary" />
+                      <Check size={16} className="text-[#B87333]" />
                       <span className="text-sm font-bold text-slate-800">
                         {s}
                       </span>
@@ -405,7 +306,7 @@ const Membership: React.FC = () => {
             </Reveal>
 
             <Reveal width="100%" direction="right">
-              <div className="bg-slate-900 rounded-[3rem] p-12 lg:p-16 text-white space-y-8 relative overflow-hidden group">
+              <div className="bg-[#1A1A1A] rounded-[3rem] p-12 lg:p-16 text-white space-y-8 relative overflow-hidden group">
                 <Sparkles
                   size={150}
                   className="absolute -bottom-10 -right-10 text-white/5 group-hover:text-white/10 transition-colors duration-700"
@@ -414,26 +315,24 @@ const Membership: React.FC = () => {
                   Ready to join the inner circle?
                 </h3>
                 <p className="text-white/60 font-medium leading-relaxed">
-                  Join thousands of women who have already unlocked the Zen Tonez
-                  Membership experience. It's time to reward yourself.
+                  Join thousands of women who have already unlocked the Zen
+                  Tonez Membership experience. It's time to reward yourself.
                 </p>
                 <div className="space-y-4 pt-4">
                   {[
                     "Visit our salon in Trichy",
                     "Ask for the Membership Card",
-                    "Unlock 15% OFF instantly"
+                    "Unlock 15% OFF",
                   ].map((step, i) => (
-                    <motion.div 
+                    <motion.div
                       key={i}
                       whileHover={{ x: 10 }}
                       className="flex items-center gap-4 cursor-default"
                     >
-                      <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-black shadow-lg">
+                      <div className="w-10 h-10 bg-[#B87333] rounded-full flex items-center justify-center text-white font-black shadow-lg">
                         {i + 1}
                       </div>
-                      <p className="text-sm font-bold">
-                        {step}
-                      </p>
+                      <p className="text-sm font-bold">{step}</p>
                     </motion.div>
                   ))}
                 </div>

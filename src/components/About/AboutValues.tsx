@@ -106,7 +106,7 @@ const AboutValues: React.FC = () => {
                 {[
                   "Medical-Grade Sanctuary Hygiene",
                   "Internationally Certified Master Artisans",
-                  "Premium Botanical Product Portfolio",
+                  "Premium Authorized Product Portfolio",
                   "Transparent & Ethical Aesthetic Curation",
                 ].map((point, idx) => (
                   <div

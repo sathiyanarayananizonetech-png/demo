@@ -101,9 +101,7 @@ const ServicesHero: React.FC = () => {
               className="w-full h-full object-cover object-top"
               fetchPriority="high"
               decoding="async"
-              loading="eager"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-primary/10 to-transparent pointer-events-none" />
           </div>
         </motion.div>
       </div>

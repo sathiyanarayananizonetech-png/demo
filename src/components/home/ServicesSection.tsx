@@ -8,7 +8,7 @@ import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
 import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
 import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
 import nailImage from "../../assets/nailwebpimages/nail1.webp";
-import liceImage from "../../assets/licewebpimages/lice1.webp";
+import liceImage from "../../assets/licewebpimages/lice4.webp";
 
 import VoyageSlider from "../VoyageSlider/VoyageSlider";
 import { ScrollReveal } from "./ScrollReveal";
@@ -33,7 +33,7 @@ const services = [
   {
     title: "Manicure & Pedicure",
     description:
-      "Pamper your hands and feet with our relaxing nail care services.",
+      "Pamper your hands and feet with our relaxing therapies.",
     image: manicureImage,
     icon: <Droplets size={24} />,
     buttonClass: "btn-premium-gold",

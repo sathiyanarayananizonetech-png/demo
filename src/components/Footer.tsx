@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
               {[
                 "Skin Care",
                 "Facial Treatment",
-                "Hair Spa & Therapy",
+                "Hair Care",
                 "Bridal Makeup",
                 "Nail Artistry",
                 "Lice Removal",

@@ -28,7 +28,7 @@ const AboutTeam: React.FC = () => {
               bio: "The driving force behind our salon's excellence, ensuring every guest receives royal treatment.",
             },
             {
-              name: "Saritha J",
+              name: "Sarthaj",
               role: "All Rounder",
               bio: "A versatile expert skilled in the full spectrum of luxury beauty services, from skin to hair.",
             },

@@ -17,10 +17,11 @@ function Particles({ count = 50 }) {
 
   const ref = useRef<THREE.Points>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (!ref.current) return;
-    ref.current.rotation.y = state.clock.getElapsedTime() * 0.05;
-    ref.current.rotation.x = state.clock.getElapsedTime() * 0.03;
+    const time = performance.now() / 1000;
+    ref.current.rotation.y = time * 0.05;
+    ref.current.rotation.x = time * 0.03;
   });
 
   return (
