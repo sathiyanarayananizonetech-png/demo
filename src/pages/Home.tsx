@@ -12,7 +12,6 @@ import { Scene3D } from "../components/ui/Scene3D";
 function Home() {
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container selection:text-on-primary-container relative">
-      <Scene3D />
       
       <HeroSection />
       

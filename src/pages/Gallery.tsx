@@ -4,14 +4,12 @@ import ClippedMediaGallery from "../components/Gallery/ClippedMediaGallery";
 import GalleryFooter from "../components/Gallery/GalleryFooter";
 import { SocialSidebar } from "../components/ui/SocialSidebar";
 import { Reveal } from "../components/ui/Reveal";
-import { Scene3D } from "../components/ui/Scene3D";
 
 const Gallery: React.FC = () => {
   return (
     <div className="overflow-x-hidden bg-background text-slate-900 font-sans relative min-h-screen">
-      <Scene3D />
-
-      {/* Dust overlay - simplified for performance */}
+      
+      {/* Dust overlay */}
       <div
         className="fixed inset-0 pointer-events-none opacity-[0.03] z-1"
         style={{

@@ -117,6 +117,7 @@ const Footer: React.FC = () => {
                 "Nail Artistry",
                 "Lice Removal",
                 "Threading & Waxing",
+                "Wart Removal",
               ].map((s) => (
                 <li
                   key={s}

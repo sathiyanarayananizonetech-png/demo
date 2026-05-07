@@ -18,7 +18,7 @@ import makeupImage from "../../assets/facialwebpimages/facial3.webp";
 import nailImage from "../../assets/nailwebpimages/nail3.webp";
 import liceImage from "../../assets/licewebpimages/lice4.webp";
 import pedicureImage from "../../assets/pedicurewebpimages/manicure2.webp";
-import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
+import interiorImage from "../../assets/hairspawebpimages/hairspa3.webp";
 
 import { SparkleHeading } from "../ui/SparkleHeading";
 

@@ -7,12 +7,13 @@ const pricingData = [
   { name: "Facial Treatment", price: "₹1,150" },
   { name: "Manicure", price: "₹519" },
   { name: "Pedicure", price: "₹699" },
-  { name: "Hair Spa", price: "₹1,049" },
+  { name: "Hair Care", price: "₹1,049" },
   { name: "Hair Styling", price: "₹399" },
   { name: "Bridal Makeup", price: "₹15,000" },
   { name: "Nails", price: "₹999" },
   { name: "Lice Removal", price: "₹4,999" },
   { name: "Wart Removal", price: "₹119" },
+  { name: "Ear Piercing", price: "₹299" },
 ];
 
 export function PricingSection() {

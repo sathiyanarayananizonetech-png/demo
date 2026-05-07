@@ -187,7 +187,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                     const swipeThreshold = 50;
                                     const verticalThreshold = 100;
                                     const currentIndex = mediaItems.findIndex(item => item.id === selectedItem.id);
-                                    
+
                                     // Handle horizontal swipe for navigation
                                     if (Math.abs(info.offset.x) > Math.abs(info.offset.y)) {
                                         if (info.offset.x < -swipeThreshold) {
@@ -213,7 +213,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                     <p className="text-white/80 text-sm sm:text-base mt-2 font-medium">
                                         {selectedItem.desc}
                                     </p>
-                                    
+
                                     {/* Mobile Swipe Hint */}
                                     <div className="flex justify-center mt-4 opacity-40 tb:hidden">
                                         <div className="w-8 h-1 bg-white rounded-full animate-pulse" />
@@ -350,7 +350,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                 </motion.p>
                 <div className="h-1 w-24 bg-[#B87333]/30 mx-auto mt-8 rounded-full" />
             </div>
-            
+
             <motion.div
                 className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 auto-rows-[120px] sm:auto-rows-[160px] md:auto-rows-[180px] grid-flow-dense"
                 initial="hidden"
@@ -409,7 +409,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                             onClick={() => !isDragging && setSelectedItem(item)}
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                        
+
                         <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                             <h3 className="text-white text-lg sm:text-xl font-serif font-bold italic leading-none mb-1">
                                 {item.title}
@@ -418,7 +418,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                                 {item.desc}
                             </p>
                         </div>
-                        
+
                         {/* Interactive Drag Hint */}
                         <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                             <div className="w-1 h-1 bg-white rounded-full animate-pulse" />

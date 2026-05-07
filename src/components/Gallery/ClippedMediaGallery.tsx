@@ -9,7 +9,7 @@ import facial2 from "../../assets/facialwebpimages/facial2.webp";
 import hairspa1 from "../../assets/hairspawebpimages/hairspa1.webp";
 import hairspa2 from "../../assets/hairspawebpimages/hairspa2.webp";
 import manicure1 from "../../assets/pedicurewebpimages/manicure1.webp";
-import nail1 from "../../assets/nailwebpimages/nail1.webp";
+import nail1 from "../../assets/nailwebpimages/nail.jpeg";
 import nail2 from "../../assets/nailwebpimages/nail2.webp";
 import butterfly from "../../assets/hairwebp images/butterfly cut.webp";
 
@@ -99,12 +99,12 @@ const mediaItems: MediaItemType[] = [
 
 const ClippedMediaGallery: React.FC = () => {
   return (
-    <section 
-      id="gallery-section" 
+    <section
+      id="gallery-section"
       className="py-10 sm:py-16 bg-surface-dim overflow-hidden relative z-10"
     >
       <div className="container mx-auto px-4 sm:px-6">
-        <InteractiveBentoGallery 
+        <InteractiveBentoGallery
           mediaItems={mediaItems}
           title="Curated Masterpieces"
           description="Drag and explore our visual symphony of finest transformations, capturing the essence of artisanal beauty."
@@ -113,12 +113,12 @@ const ClippedMediaGallery: React.FC = () => {
 
       {/* Subtle Background Parallax Accents */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 0.05, x: 0 }}
           className="absolute top-20 -left-20 w-96 h-96 bg-[#B87333]/15 blur-[96px] rounded-full"
         />
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 0.05, x: 0 }}
           className="absolute bottom-20 -right-20 w-96 h-96 bg-[#B87333]/15 blur-[96px] rounded-full"

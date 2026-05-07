@@ -9,12 +9,10 @@ import AboutTestimonials from "../components/About/AboutTestimonials";
 import AboutCTA from "../components/About/AboutCTA";
 import { SocialSidebar } from "../components/ui/SocialSidebar";
 import { Reveal } from "../components/ui/Reveal";
-import { Scene3D } from "../components/ui/Scene3D";
 
 const About: React.FC = () => {
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container selection:text-on-primary-container relative">
-      <Scene3D />
       
       <AboutHero />
       

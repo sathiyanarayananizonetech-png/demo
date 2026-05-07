@@ -64,3 +64,79 @@
   pointer-events: none;
   user-select: none;
 }
+
+/* ─── Scroll Guide ─── */
+.scroll-guide {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  items-center: center;
+  gap: 0.75rem;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.mouse-icon {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  position: relative;
+}
+
+.mouse-icon::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  background: white;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  animation: scroll-wheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll-wheel {
+  0% { transform: translate(-50%, 0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translate(-50%, 15px); opacity: 0; }
+}
+
+.scroll-text {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: white;
+  white-space: nowrap;
+}
+
+@media (min-width: 641px) {
+  .mouse-icon {
+    border-color: rgba(15, 23, 42, 0.4);
+  }
+  .mouse-icon::before {
+    background: #0f172a;
+  }
+  .scroll-text {
+    color: #0f172a;
+  }
+}
+
+/* ─── Interactive Hints ─── */
+.hint-text {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  display: flex;
+  items-center: center;
+  gap: 0.5rem;
+}

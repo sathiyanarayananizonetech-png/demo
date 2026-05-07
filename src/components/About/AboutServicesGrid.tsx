@@ -9,6 +9,7 @@ import {
   Bridal3D,
   Nails3D,
   LiceRemoval3D,
+  WartRemoval3D,
 } from "../ui/ThreeDIcons";
 
 const SERVICES_DATA = [
@@ -34,7 +35,7 @@ const SERVICES_DATA = [
     gradient: "linear-gradient(200deg, #FED7AA 0%, #FB923C 100%)",
   },
   {
-    title: "Hair Spa",
+    title: "Hair Care",
     desc: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     icon: <HairSpa3D />,
     color: "#0EA5E9", // Sky Blue
@@ -67,6 +68,13 @@ const SERVICES_DATA = [
     icon: <HairSpa3D />, // Using HairSpa3D as placeholder
     color: "#EC4899", // Pink
     gradient: "linear-gradient(200deg, #FBCFE8 0%, #EC4899 100%)",
+  },
+  {
+    title: "Wart Removal",
+    desc: "Safe and effective removal of warts and skin tags using advanced techniques.",
+    icon: <WartRemoval3D />,
+    color: "#EA580C", // Deep Orange
+    gradient: "linear-gradient(200deg, #FFEDD5 0%, #EA580C 100%)",
   },
 ];
 

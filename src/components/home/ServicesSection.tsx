@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import skinImage from "../../assets/facialwebpimages/facial1.webp";
 import facialImage from "../../assets/facialwebpimages/facial2.webp";
 import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
-import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import hairSpaImage from "../../assets/hairspawebpimages/hairspa3.webp";
 import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
-import nailImage from "../../assets/nailwebpimages/nail1.webp";
+import nailImage from "../../assets/nailwebpimages/nail.jpeg";
 import liceImage from "../../assets/licewebpimages/lice4.webp";
+import wartRemovalImage from "../../assets/wartremovalwebpimages/wartremovalimg.webp";
 
 import VoyageSlider from "../VoyageSlider/VoyageSlider";
 import { ScrollReveal } from "./ScrollReveal";
@@ -39,7 +40,7 @@ const services = [
     buttonClass: "btn-premium-gold",
   },
   {
-    title: "Hair Spa",
+    title: "Hair Care",
     description:
       "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     image: hairSpaImage,
@@ -69,6 +70,13 @@ const services = [
       "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
     image: liceImage,
     icon: <Scissors size={24} />,
+    buttonClass: "btn-premium-gold",
+  },
+  {
+    title: "Wart Removal",
+    description: "Safe and effective removal of warts and skin tags using advanced techniques.",
+    image: wartRemovalImage,
+    icon: <Sparkles size={24} />,
     buttonClass: "btn-premium-gold",
   },
 ];

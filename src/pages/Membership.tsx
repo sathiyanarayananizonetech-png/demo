@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { LuxuryMembershipHero } from "../components/ui/LuxuryMembershipHero";
 import { Reveal } from "../components/ui/Reveal";
-import { Scene3D } from "../components/ui/Scene3D";
 
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -33,8 +32,7 @@ const Membership: React.FC = () => {
       exit={{ opacity: 0 }}
       className="overflow-x-hidden bg-[#FDFCF0] text-[#1A1A1A] font-sans selection:bg-[#B87333]/20 relative min-h-screen pb-20"
     >
-      <Scene3D />
-
+      
       {/* ─── HERO SECTION ─── */}
       <LuxuryMembershipHero
         title="Exclusive Membership"

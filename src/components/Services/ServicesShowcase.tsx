@@ -1,17 +1,19 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Clock, Maximize2 } from "lucide-react";
+import { Clock, Star } from "lucide-react";
 import { Lightbox } from "../ui/Lightbox";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import skinCare from "../../assets/facialwebpimages/facial1.webp";
 import facialTreatment from "../../assets/facialwebpimages/facial2.webp";
 import maniPedi from "../../assets/pedicurewebpimages/manicure1.webp";
-import hairSpa from "../../assets/hairspawebpimages/hairspa1.webp";
+import hairSpa from "../../assets/hairspawebpimages/hairspa3.webp";
 import bridalMakeup from "../../assets/bridalwebpimages/bridal1.webp";
-import nails from "../../assets/nailwebpimages/nail1.webp";
+import nails from "../../assets/nailwebpimages/nail.jpeg";
 import liceRemoval from "../../assets/licewebpimages/lice4.webp";
-import hairStyle from "../../assets/hairwebp images/caramelhaircolor.webp";
+import hairStyle from "../../assets/hairwebp images/curlyhairstyle.webp";
+import wartRemoval from "../../assets/wartremovalwebpimages/wartremovalimg.webp";
+import earPiercing from "../../assets/earpiercingimages/earpiercing.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +44,7 @@ const services: Service[] = [
     category: "Skin Wellness",
     description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
     price: "₹400+",
-    duration: "60 Mins",
+    duration: "45 - 60 Mins",
     review: "The facial was divine! My skin has never felt so hydrated and glowing. Truly a premium experience.",
     clientName: "Deepika S.",
     highlights: ["Deep Cleansing", "Hydrating Mask", "Facial Massage"],
@@ -60,7 +62,7 @@ const services: Service[] = [
     category: "Advanced Therapy",
     description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
     price: "₹1,150+",
-    duration: "90 Mins",
+    duration: "60 - 90 Mins",
     review: "Results were visible after just one session. The therapist was so professional and knowledgeable.",
     clientName: "Ananya K.",
     highlights: ["Vitamin C Infusion", "Anti-aging"],
@@ -78,7 +80,7 @@ const services: Service[] = [
     category: "Nail Care",
     description: "Pamper your hands and feet with our relaxing therapies.",
     price: "₹599+",
-    duration: "75 Mins",
+    duration: "60 - 75 Mins",
     review: "The best mani-pedi in town! The attention to detail and the relaxing atmosphere are unbeatable.",
     clientName: "Meera V.",
     highlights: ["Sea Salt Scrub", "Paraffin Wax", "Gel Polish"],
@@ -92,11 +94,11 @@ const services: Service[] = [
   },
   {
     id: 4,
-    title: "Hair Spa",
+    title: "Hair Care",
     category: "Hair Health",
     description: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     price: "₹899+",
-    duration: "60 Mins",
+    duration: "45 - 60 Mins",
     review: "My hair feels like silk! The treatment really addressed my dryness and frizz issues.",
     clientName: "Sneha P.",
     highlights: ["Steam Treatment", "Nourishing Mask", "Scalp Massage"],
@@ -114,7 +116,7 @@ const services: Service[] = [
     category: "Luxury Bridal",
     description: "Look stunning on your special day with our professional bridal makeup services.",
     price: "₹15,000+",
-    duration: "240 Mins",
+    duration: "180 - 240 Mins",
     review: "The best bridal care in Tamil Nadu. My look was absolutely radiant and stayed perfect all day.",
     clientName: "Priya R.",
     highlights: ["HD Makeup", "Hairstyling", "Saree Draping"],
@@ -133,7 +135,7 @@ const services: Service[] = [
     category: "Nail Artistry",
     description: "Exquisite nail art and extensions to express your unique style.",
     price: "₹1,500+",
-    duration: "90 Mins",
+    duration: "60 - 90 Mins",
     review: "Incredible nail art! They perfectly captured the design I wanted. So many compliments!",
     clientName: "Varsha M.",
     highlights: ["Extensions", "Hand-painted Art", "3D Accents"],
@@ -151,7 +153,7 @@ const services: Service[] = [
     category: "Scalp Care",
     description: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
     price: "₹5,000+",
-    duration: "45 Mins",
+    duration: "45 - 60 Mins",
     review: "Very professional and discreet. The treatment was effective and painless. Highly recommend for kids.",
     clientName: "Lakshmi T.",
     highlights: ["Natural Treatment", "Discreet Service", "Scalp Health"],
@@ -169,15 +171,54 @@ const services: Service[] = [
     category: "Hair Artistry",
     description: "Expert hair styling for every occasion, from elegant updos to modern trends.",
     price: "₹1,500+",
-    duration: "45 Mins",
+    duration: "30 - 45 Mins",
     review: "Loved my hair for the party! It stayed perfectly in place all night.",
     clientName: "Ritu G.",
     highlights: ["Elegant Updos", "Modern Braids", "Event Styling"],
     image: hairStyle,
+    objectPosition: "top",
     color: "#EC4899",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 0V8a2 2 0 0 1 2-2h1m10 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 0V8a2 2 0 0 0-2-2h-1M12 18v-5m0-4V4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    id: 9,
+    title: "Wart Removal",
+    category: "Specialized Care",
+    description: "Safe and effective removal of warts and skin tags using advanced techniques.",
+    price: "₹119+",
+    duration: "15 - 30 Mins",
+    review: "The procedure was quick and practically painless. The results are amazing!",
+    clientName: "Vikram J.",
+    highlights: ["Quick Procedure", "Minimal Scarring", "Expert Care"],
+    image: wartRemoval,
+    color: "#EA580C",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" fill="currentColor" fillOpacity="0.9" />
+        <path d="M12 7v10M7 12h10" stroke="white" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    id: 10,
+    title: "Ear Piercing",
+    category: "Specialized Care",
+    description: "Safe and precise ear piercing using professional, sterilized equipment.",
+    price: "₹299+",
+    duration: "15 - 30 Mins",
+    review: "The process was so quick and hygienic. I felt very comfortable throughout.",
+    clientName: "Pooja S.",
+    highlights: ["Safe & Hygienic", "Expert Piercer", "Aftercare Support"],
+    image: earPiercing,
+    color: "#F472B6",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" fill="currentColor" fillOpacity="0.9" />
+        <circle cx="12" cy="12" r="3" fill="white" />
       </svg>
     ),
   },
@@ -195,8 +236,8 @@ const ServicesShowcase: React.FC = () => {
       const images = gsap.utils.toArray(".showcase-img") as HTMLElement[];
 
       // Initial state
-      gsap.set(images, { opacity: 0, scale: 1.1 });
-      if (images[0]) gsap.set(images[0], { opacity: 1, scale: 1 });
+      gsap.set(images, { opacity: 0, scale: 1, zIndex: 0 });
+      if (images[0]) gsap.set(images[0], { opacity: 1, zIndex: 1 });
 
       sections.forEach((section, i) => {
         ScrollTrigger.create({
@@ -205,20 +246,24 @@ const ServicesShowcase: React.FC = () => {
           end: "bottom center",
           onToggle: (self) => {
             if (self.isActive) {
-              gsap.to(images, { 
-                opacity: 0, 
-                scale: 1.1, 
-                duration: 0.6, 
-                ease: "power2.inOut",
-                overwrite: true 
+              // Reset all images z-index and opacity instantly
+              gsap.set(images, { zIndex: 0, opacity: 0 });
+              // Bring active image to top and make it visible instantly
+              gsap.set(images[i], {
+                zIndex: 1,
+                opacity: 1,
+                overwrite: true
               });
-              gsap.to(images[i], { 
-                opacity: 1, 
-                scale: 1, 
-                duration: 0.8, 
-                ease: "power2.out",
-                overwrite: true 
-              });
+              // Keep the subtle scale animation if desired, or remove it too
+              gsap.fromTo(images[i],
+                { scale: 1.05 },
+                {
+                  scale: 1,
+                  duration: 0.8,
+                  ease: "power2.out",
+                  overwrite: true
+                }
+              );
             }
           }
         });
@@ -240,7 +285,7 @@ const ServicesShowcase: React.FC = () => {
   }, []);
 
   return (
-    <div 
+    <div
       className="bg-surface-dim relative overflow-hidden"
       ref={containerRef}
     >
@@ -253,27 +298,29 @@ const ServicesShowcase: React.FC = () => {
         </div>
 
         {services.map((service) => (
-          <div 
+          <div
             key={service.id}
             className="group relative bg-white rounded-[3rem] overflow-hidden shadow-luxury border border-on-surface/10"
           >
-            <div 
-              className="aspect-video relative overflow-hidden cursor-zoom-in group"
+            <div
+              className="aspect-square relative overflow-hidden cursor-zoom-in group"
               onClick={() => setSelectedImage({ url: service.image, title: service.title })}
             >
-              <img 
-                src={service.image} 
+              <img
+                src={service.image}
                 alt={service.title}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{ objectPosition: service.objectPosition || "center" }}
               />
               <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
-                <Maximize2 className="text-white w-8 h-8 animate-pulse drop-shadow-md" />
-                <span className="text-white text-[9px] font-black uppercase tracking-[0.2em] bg-black/20 px-3 py-1 rounded-full backdrop-blur-md">Click to View</span>
+                <div className="bg-white/20 backdrop-blur-md p-3 rounded-full border border-white/30 animate-pulse">
+                  <Star className="text-white fill-white" size={24} />
+                </div>
+                <span className="text-white text-[10px] font-black uppercase tracking-[0.2em] bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">Click to View</span>
               </div>
             </div>
-            
+
             <div className="p-8 space-y-6">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-white text-primary rounded-xl shadow-lg border border-primary/20">
@@ -293,7 +340,7 @@ const ServicesShowcase: React.FC = () => {
               </div>
               <div className="flex flex-wrap gap-2">
                 {service.highlights.map((h, i) => (
-                  <span 
+                  <span
                     key={i}
                     className="px-3 py-1 bg-on-surface/5 rounded-full text-[9px] font-black uppercase tracking-widest text-on-surface/70 border border-on-surface/10"
                   >
@@ -302,13 +349,26 @@ const ServicesShowcase: React.FC = () => {
                 ))}
               </div>
               <div className="flex items-center justify-between pt-4 border-t border-on-surface/10">
-                <div className="flex flex-col">
-                  <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/40">
-                    Investment
-                  </span>
-                  <span className="text-2xl font-black text-on-surface">
-                    {service.price}
-                  </span>
+                <div className="flex gap-6 tb:gap-10">
+                  <div className="flex flex-col">
+                    <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/40">
+                      Investment
+                    </span>
+                    <span className="text-2xl font-black text-on-surface">
+                      {service.price}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/40">
+                      Duration
+                    </span>
+                    <div className="flex items-center gap-2 mt-1.5">
+                      <Clock size={15} className="text-primary" />
+                      <span className="text-xs font-black text-on-surface uppercase tracking-widest">
+                        {service.duration}
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <Link to="/contact">
                   <button className="btn-premium-gold px-6 py-3 text-xs">
@@ -326,7 +386,7 @@ const ServicesShowcase: React.FC = () => {
         {/* Left Column: Rich Content */}
         <div className="space-y-0 flex flex-col items-center">
           {services.map((service) => (
-            <div 
+            <div
               key={service.id}
               className="showcase-info h-screen flex items-center justify-center text-center"
             >
@@ -352,7 +412,7 @@ const ServicesShowcase: React.FC = () => {
                 <div className="flex flex-col items-center gap-4 py-2">
                   <div className="flex flex-wrap justify-center gap-2 w-full">
                     {service.highlights.map((h, i) => (
-                      <span 
+                      <span
                         key={i}
                         className="px-3 py-1 bg-on-surface/5 rounded-full text-[10px] font-black uppercase tracking-widest text-on-surface/80 border border-on-surface/10"
                       >
@@ -391,26 +451,28 @@ const ServicesShowcase: React.FC = () => {
         </div>
 
         {/* Right Column: Pinned Visualization */}
-        <div 
+        <div
           className="h-screen flex items-center justify-center overflow-hidden"
           ref={rightColRef}
         >
           <div className="relative w-full max-w-[380px] xl:max-w-[420px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-4 border-white bg-white group cursor-zoom-in">
             {services.map((service) => (
-              <div 
-                key={service.id} 
+              <div
+                key={service.id}
                 className="absolute inset-0 z-0"
                 onClick={() => setSelectedImage({ url: service.image, title: service.title })}
               >
-                <img 
-                  src={service.image} 
+                <img
+                  src={service.image}
                   alt={service.title}
                   loading="lazy"
                   className="showcase-img w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   style={{ objectPosition: service.objectPosition || "center" }}
                 />
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3">
-                  <Maximize2 className="text-white w-10 h-10 animate-pulse drop-shadow-lg" />
+                  <div className="bg-white/20 backdrop-blur-md p-4 rounded-full border border-white/30 animate-pulse">
+                    <Star className="text-white fill-white" size={32} />
+                  </div>
                   <span className="text-white text-xs font-black uppercase tracking-[0.3em] bg-black/20 px-4 py-1 rounded-full backdrop-blur-md">Click to View</span>
                 </div>
               </div>
@@ -419,7 +481,7 @@ const ServicesShowcase: React.FC = () => {
         </div>
       </div>
 
-      <Lightbox 
+      <Lightbox
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
         image={selectedImage?.url || ""}

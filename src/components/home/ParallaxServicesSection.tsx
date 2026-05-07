@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import skinImage from "../../assets/facialwebpimages/facial5.webp";
 import facialImage from "../../assets/facialwebpimages/facial2.webp";
 import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
-import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import hairSpaImage from "../../assets/hairspawebpimages/hairspa3.webp";
 import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
-import nailImage from "../../assets/nailwebpimages/nail1.webp";
+import nailImage from "../../assets/nailwebpimages/nail.jpeg";
 import liceImage from "../../assets/licewebpimages/lice4.webp";
-import hairStyleImage from "../../assets/hairwebp images/caramelhaircolor.webp";
+import hairStyleImage from "../../assets/hairwebp images/curlyhairstyle.webp";
+import wartRemovalImage from "../../assets/wartremovalwebpimages/wartremovalimg.webp";
+import earPiercingImage from "../../assets/earpiercingimages/earpiercing.webp";
 import { ParallaxArrow } from "../ScrollParallaxCard/ParallaxArrow";
 import { ScrollParallaxCard } from "../ScrollParallaxCard/ScrollParallaxCard";
 import { ScrollReveal } from "./ScrollReveal";
@@ -52,7 +54,7 @@ const parallaxServices: ParallaxService[] = [
     color: "#FB923C",
   },
   {
-    title: "Hair Spa",
+    title: "Hair Care",
     description: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     image: hairSpaImage,
     price: "₹1,049",
@@ -64,6 +66,7 @@ const parallaxServices: ParallaxService[] = [
     description: "Expert hair styling for every occasion, from elegant updos to modern trends.",
     image: hairStyleImage,
     price: "₹399",
+    backgroundPosition: "top center",
     benefits: ["Elegant Updos", "Modern Braids", "Event Styling"],
     color: "#EC4899",
   },
@@ -91,6 +94,22 @@ const parallaxServices: ParallaxService[] = [
     price: "₹4,999",
     benefits: ["Chemical-free", "Scalp Health", "Follow-up Check", "Child Friendly"],
     color: "#10B981",
+  },
+  {
+    title: "Wart Removal",
+    description: "Safe and effective removal of warts and skin tags using advanced techniques.",
+    image: wartRemovalImage,
+    price: "₹119",
+    benefits: ["Quick Procedure", "Minimal Scarring", "Expert Care"],
+    color: "#EA580C",
+  },
+  {
+    title: "Ear Piercing",
+    description: "Safe and precise ear piercing using professional, sterilized equipment.",
+    image: earPiercingImage,
+    price: "₹299",
+    benefits: ["Safe & Hygienic", "Expert Piercer", "Aftercare Support"],
+    color: "#F472B6",
   },
 ];
 

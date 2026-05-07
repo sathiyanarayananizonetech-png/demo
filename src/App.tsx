@@ -20,6 +20,7 @@ import { BrandLogo } from "./components/layout/BrandLogo";
 import { DesktopNav } from "./components/layout/DesktopNav";
 import { MobileBookingButton } from "./components/layout/MobileBookingButton";
 import { SmoothScroll } from "./components/ui/SmoothScroll";
+import { Scene3D } from "./components/ui/Scene3D";
 
 // Lazy Load Pages
 const Home = lazy(() => import("./pages/Home"));
@@ -52,8 +53,9 @@ const App: React.FC = () => {
   return (
     <Router>
       <SmoothScroll />
+      <Scene3D />
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-background">
+      <div className="flex flex-col min-h-screen bg-background relative">
         <BrandLogo />
         <DesktopNav />
         <MobileBookingButton />

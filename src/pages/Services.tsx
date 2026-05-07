@@ -7,7 +7,6 @@ import BridalOffer from "../components/Services/BridalOffer";
 import ServicesCTA from "../components/Services/ServicesCTA";
 import { SocialSidebar } from "../components/ui/SocialSidebar";
 import { Reveal } from "../components/ui/Reveal";
-import { Scene3D } from "../components/ui/Scene3D";
 
 const Services: FC = () => {
   useEffect(() => {
@@ -18,7 +17,6 @@ const Services: FC = () => {
 
   return (
     <div className="flex flex-col overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000 relative">
-      <Scene3D />
       
       <ServicesHero />
       

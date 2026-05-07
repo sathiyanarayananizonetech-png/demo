@@ -108,3 +108,19 @@ export const LiceRemoval3D = () => (
     <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </IconWrapper>
 );
+export const WartRemoval3D = () => (
+  <IconWrapper>
+    <defs>
+      <linearGradient id="wartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#FFEDD5" />
+        <stop offset="100%" stopColor="#EA580C" />
+      </linearGradient>
+    </defs>
+    <circle cx="12" cy="12" r="10" fill="url(#wartGrad)" fillOpacity="0.9" />
+    <path d="M15 9l-6 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M16 7l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5.5-1.5z" fill="white" />
+    <path d="M8 17l.3 1 .3-.3 1-.3-.3-.3-.3-1-.3 1z" fill="white" fillOpacity="0.7" />
+    <circle cx="12" cy="12" r="6" stroke="white" strokeOpacity="0.1" strokeWidth="3" />
+  </IconWrapper>
+);
+

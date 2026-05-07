@@ -11,16 +11,17 @@ type ServiceType = {
 };
 
 const SERVICES: ServiceType[] = [
-  { id: 'hair-spa', name: 'Artisan Hair Spa', duration: '60 Min', price: '₹1,049', icon: <Droplets size={24} /> },
-  { id: 'facial', name: 'Premium Facial', duration: '90 Min', price: '₹1,150', icon: <Sparkles size={24} /> },
-  { id: 'skincare', name: 'Skin Care Ritual', duration: '45 Min', price: '₹400', icon: <Droplets size={24} /> },
-  { id: 'hair-styling', name: 'Master Hair Styling', duration: '60 Min', price: '₹399', icon: <Scissors size={24} /> },
-  { id: 'nails', name: 'Designer Nails', duration: '60 Min', price: '₹999', icon: <Sparkles size={24} /> },
-  { id: 'manicure', name: 'Luxury Manicure', duration: '45 Min', price: '₹519', icon: <Droplets size={24} /> },
-  { id: 'pedicure', name: 'Luxury Pedicure', duration: '45 Min', price: '₹699', icon: <Droplets size={24} /> },
-  { id: 'lice-treatment', name: 'Lice Treatment', duration: '60 Min', price: '₹4,999', icon: <ShieldCheck size={24} /> },
-  { id: 'bridal', name: 'Bridal Makeup', duration: '240 Min', price: '₹15,000', icon: <Sparkles size={24} /> },
-  { id: 'wart-removal', name: 'Wart Removal', duration: '30 Min', price: '₹119', icon: <Sparkles size={24} /> },
+  { id: 'hair-spa', name: 'Artisan Hair Spa', duration: '45 - 60 Min', price: '₹1,049', icon: <Droplets size={24} /> },
+  { id: 'facial', name: 'Premium Facial', duration: '60 - 90 Min', price: '₹1,150', icon: <Sparkles size={24} /> },
+  { id: 'skincare', name: 'Skin Care Ritual', duration: '45 - 60 Min', price: '₹400', icon: <Droplets size={24} /> },
+  { id: 'hair-styling', name: 'Master Hair Styling', duration: '30 - 45 Min', price: '₹399', icon: <Scissors size={24} /> },
+  { id: 'nails', name: 'Designer Nails', duration: '60 - 90 Min', price: '₹999', icon: <Sparkles size={24} /> },
+  { id: 'manicure', name: 'Luxury Manicure', duration: '60 - 75 Min', price: '₹519', icon: <Droplets size={24} /> },
+  { id: 'pedicure', name: 'Luxury Pedicure', duration: '60 - 75 Min', price: '₹699', icon: <Droplets size={24} /> },
+  { id: 'lice-treatment', name: 'Lice Treatment', duration: '45 - 60 Min', price: '₹4,999', icon: <ShieldCheck size={24} /> },
+  { id: 'bridal', name: 'Bridal Makeup', duration: '180 - 240 Min', price: '₹15,000', icon: <Sparkles size={24} /> },
+  { id: 'wart-removal', name: 'Wart Removal', duration: '15 - 30 Min', price: '₹119', icon: <Sparkles size={24} /> },
+  { id: 'ear-piercing', name: 'Artisan Ear Piercing', duration: '15 - 30 Min', price: '₹299', icon: <Sparkles size={24} /> },
 ];
 
 

@@ -67,18 +67,19 @@ const GalleryBookHero: React.FC = () => {
             );
           }
 
-          // Fade out hero text and dark overlay at the start
+          // Fade out hero text, scroll guide and dark overlay at the start
           tl.to(
             [
               bookHero.querySelector(".book-text-overlay"),
               bookHero.querySelector(".mobile-hero-overlay"),
+              bookHero.querySelector(".scroll-guide"),
             ],
             {
               opacity: 0,
               y: -30,
               duration: 1.5,
               ease: "power2.inOut",
-              stagger: 0.2, // Slightly staggered for a nicer feel
+              stagger: 0.1, // Slightly staggered for a nicer feel
             },
             0,
           );
@@ -170,6 +171,12 @@ const GalleryBookHero: React.FC = () => {
             chapter reveals a new facet of bespoke beauty and soul."
           </p>
         </motion.div>
+      </div>
+
+      {/* Interactive Scroll Guide */}
+      <div className="scroll-guide flex flex-col items-center">
+        <div className="mouse-icon" />
+        <span className="scroll-text">Scroll to Flip Chapters</span>
       </div>
       <BookGallery />
     </section>

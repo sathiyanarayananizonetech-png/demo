@@ -96,17 +96,24 @@ const InteractiveSelector: React.FC = () => {
       </div>
 
       {/* Header Section */}
-      <div className="w-full max-w-4xl px-6 mb-16 text-center z-10">
+      <div className="w-full max-w-4xl px-6 mb-12 text-center z-10 flex flex-col items-center">
         <h3 className="text-primary font-mono text-sm uppercase tracking-[0.4em] mb-4 animate-fadeInTop">
           The Lookbook
         </h3>
         <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-tight drop-shadow-lg animate-fadeInTop delay-300">
           Signature Chapters
         </h1>
-        <p className="text-lg md:text-xl text-slate-400 font-medium max-w-2xl mx-auto animate-fadeInTop delay-600">
+        <p className="text-lg md:text-xl text-slate-400 font-medium max-w-2xl mx-auto mb-10 animate-fadeInTop delay-600">
           A curated journey through the ethereal art of transformation. Each
           choice reveals a new facet of your bespoke beauty.
         </p>
+        
+        {/* New Interactive Hint */}
+        <div className="hint-text animate-fadeInTop delay-800">
+          <Sparkles size={14} className="text-primary" />
+          <span>Select a chapter to expand</span>
+          <Sparkles size={14} className="text-primary" />
+        </div>
       </div>
 
       {/* Options Container */}
@@ -214,6 +221,10 @@ const InteractiveSelector: React.FC = () => {
         
         .delay-600 {
           animation-delay: 0.6s;
+        }
+        
+        .delay-800 {
+          animation-delay: 0.8s;
         }
 
         .option:hover .icon {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { SparkleHeading } from "../ui/SparkleHeading";
 
 // Assets
-import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
+import interiorImage from "../../assets/hairspawebpimages/hairspa3.webp";
 import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
 import skinImage from "../../assets/facialwebpimages/facial1.webp";
 import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";

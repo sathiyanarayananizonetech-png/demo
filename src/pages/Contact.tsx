@@ -5,7 +5,6 @@ import ContactForm from "../components/Contact/ContactForm";
 import ContactMap from "../components/Contact/ContactMap";
 import { FloatingSocialMenu } from "../components/ui/FloatingSocialMenu";
 import { Reveal } from "../components/ui/Reveal";
-import { Scene3D } from "../components/ui/Scene3D";
 
 const Contact: React.FC = () => {
   useEffect(() => {
@@ -16,7 +15,6 @@ const Contact: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen">
-      <Scene3D />
       
       <ContactHero />
 

@@ -2,7 +2,7 @@ import { cloneElement } from "react";
 import type { ReactElement, SVGProps } from "react";
 import { motion } from "framer-motion";
 import { Award, ShieldCheck, Clock } from "lucide-react";
-import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
+import interiorImage from "../../assets/hairspawebpimages/hairspa3.webp";
 
 const AboutValues: React.FC = () => {
   const values = [
