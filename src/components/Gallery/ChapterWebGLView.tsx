@@ -257,11 +257,18 @@ const ChapterWebGLView: React.FC<ChapterWebGLViewProps> = ({
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      if (rendererRef.current && rendererRef.current.domElement) {
-        rendererRef.current.domElement.remove();
+      if (rendererRef.current) {
+        rendererRef.current.dispose();
+        if (rendererRef.current.domElement) {
+          rendererRef.current.domElement.remove();
+        }
       }
+      sceneRef.current?.clear();
       meshRef.current?.dispose();
       materialRef.current?.dispose();
+      rendererRef.current = null;
+      sceneRef.current = null;
+      cameraRef.current = null;
     };
   }, [imageSrc, objectPosition, yShift]);
 
